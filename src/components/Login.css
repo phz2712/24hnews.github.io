@@ -6,7 +6,7 @@
 }
 header{
   background-color: #cccccc;
-  min-height: 70px;
+  min-height: 161px;
   padding: 15px;
 }
 main{
@@ -16,7 +16,7 @@ main{
 }
 footer{
   background-color: #cccccc;
-  min-height: 70px;
+  min-height: 161px;
   padding: 15px;
 }
 .container{
@@ -24,6 +24,8 @@ footer{
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  height: 100%;
+  max-height: 1500px;
 }
 .login-form{
   width: 100%;
@@ -40,15 +42,31 @@ h1{
   font-size: 20px;
   margin-bottom: 30px;
 }
-.input-box{
-  margin-bottom: 0px;
-}
-.input-box input{
+
+.user-box input{
   padding: 7.5px 15px;
-  width: 280px;
+  width: 333px;
   border: 1px solid #cccccc;
   outline: none;
   margin-top: 0px;
+  border: 2px solid #dddddd;
+}
+.password-box input{
+  padding: 7.5px 15px;
+  width: 290px;
+  border: 1px solid #cccccc;
+  outline: none;
+  margin-top: 0px;
+  border: 2px solid #dddddd;
+}
+.row{
+  padding: 7.5px 15px;
+}
+.icon{
+  padding: 17px 7px;
+  margin-top: 0px;
+  border: 2px solid #dddddd;
+  background-color: #c9c0c0;
 }
 .btn-box{
   text-align: right;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
-import {TextField } from '@material-ui/core';
-
+import {TextField, InputAdornment, } from '@material-ui/core';
+import { RemoveRedEye } from '@material-ui/icons';
 
 class Login extends React.Component{
 
@@ -13,11 +13,15 @@ class Login extends React.Component{
        password  : '',
        warning2  : ' ',
        err1: false,
-       err2: false
+       err2: false,
+       showpassword:false
     }
     this.handleChange = this.handleChange.bind(this);
+    this.Showpass = this.Showpass.bind(this);
   }
-  
+  Showpass(){
+    this.setState({showpassword: !this.state.showpassword})
+  }
    handleChange(event) 
    {
          
@@ -26,33 +30,50 @@ class Login extends React.Component{
          const name = target.name;
          this.setState({
            [name]: value    });
-       
-           if(this.state.username===""){
-            this.setState({warning: " ", err1:false});
+          if(/\s/.test(this.state.username) && this.state.username.length>1)
+           {
+            this.setState({warning: "no space in here", err1:true});
            }
-           else if(this.state.username.length>1 ){
+           else
+          {switch (this.state.username.length){
 
-              if(this.state.username.length<3||this.state.username.length >9)
-              { this.setState({warning: "Higher 2 and lower 9", err1:true});}
-              else{
-                this.setState({warning: " ",err1:false });
-              }
-           }
-          console.log(this.state.username.length)
+            case 1:
+            case 0:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+             this.setState({warning: " ",err1:false });
+            break;
+            default:
+            this.setState({warning: "Higher 4 and lower 10", err1:true});
+            break;
+          }}
+            
+        
+          console.log(this.state.username)
             
  
          const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{3,10}$/;
-           if(this.state.password===""){
+         if(/\s/.test(this.state.password)&& this.state.username.length>1) {
+          this.setState({warning2: "no space in here", err2:true})
+         }
+         else
+         {if(this.state.password===""){
             this.setState({warning2: " ", err2:false})
            }
           else if(!re.test(this.state.password))
-             {
+             { if(this.state.password.length===1){
+              this.setState({password: '',warning2: " ",err2:false });
+             } else
                this.setState({warning2: "Have a num,a lower,an upper and special letter", err2:true})
                
              }
              else{
                this.setState({warning2: " ", err2:false})
-             }
+             }}
  
      
    }
@@ -74,29 +95,34 @@ class Login extends React.Component{
             <div onSubmit={this.handleSubmit} className="login-form">
               <form action method="post">
                 <h1>Đăng nhập vào website</h1>
-                <div className="input-box">
+                <div>
                   <i />
-                  <TextField  className="input-box"
+                  <TextField  className="user-box"
                               error={this.state.err1} 
                               autoFocus={true} type="text" 
                               placeholder="Nhập username" 
-                              value={this.state.username} 
+                              value={this.state.username}
                               type='username' name='username' 
-                              onChange={this.handleChange} 
+                              onChangeCapture={this.handleChange} 
                               placeholder='username' 
                               helperText={this.state.warning}/>
                 </div>
-                <div className="input-box">
+                <div>
                   <i />
-                  <TextField  className="input-box" 
+                  <div className="row">
+                  <TextField  className="password-box" 
                               error={this.state.err2} 
-                              type="password" 
+                              type={this.state.showpassword ? "password" : "text"} 
                               placeholder="Nhập mật khẩu" 
-                              value={this.state.password} 
-                              type='password' name='password' 
-                              onChange={this.handleChange} 
+                              name='password' 
+                              onChangeCapture={this.handleChange} 
                               placeholder='password' 
-                              helperText={this.state.warning2} />
+                              helperText={this.state.warning2}
+                               >  </TextField>
+                                <InputAdornment className='icon'>
+                                  <RemoveRedEye type="button" onClick={this.Showpass} />
+                                </InputAdornment>
+                    </div>
                 </div>
                 <div className="btn-box">
                   <button type="submit" onClick={()=>alert("đã đăng nhập")} >
