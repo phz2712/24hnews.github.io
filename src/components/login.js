@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
-import {TextField, InputAdornment, } from '@material-ui/core';
-import { RemoveRedEye } from '@material-ui/icons';
+import {TextField, InputAdornment, OutlinedInput, } from '@material-ui/core';
+import { Visibility, VisibilityOff} from '@material-ui/icons';
 
 class Login extends React.Component{
 
@@ -14,17 +14,28 @@ class Login extends React.Component{
        warning2  : ' ',
        err1: false,
        err2: false,
-       showpassword:false
+       showpassword:true
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.Showpass = this.Showpass.bind(this);
+    this.handleChange       = this.handleChange.bind(this);
+    this.Showpass           = this.Showpass.bind(this);
+    this.componentWillMount = this.componentWillMount.bind(this);
   }
   Showpass(){
     this.setState({showpassword: !this.state.showpassword})
   }
+  componentWillMount(){
+    this.setState({
+    warning     : this.state.warning,
+    username    : this.state.username,
+    password    : this.state.password,
+    warning2    : this.state.warning2,
+    err1        : this.state.err1,
+    err2        : this.state.err2,
+    showpassword:this.state.showpassword})
+  }
    handleChange(event) 
    {
-         
+        event.preventDefault();
          const target = event.target;
          const value = target.name === 'isGoing' ? target.checked : target.value;
          const name = target.name;
@@ -37,7 +48,7 @@ class Login extends React.Component{
            else
           {switch (this.state.username.length){
 
-            case 1:
+            
             case 0:
             case 4:
             case 5:
@@ -65,26 +76,26 @@ class Login extends React.Component{
             this.setState({warning2: " ", err2:false})
            }
           else if(!re.test(this.state.password))
-             { if(this.state.password.length===1){
-              this.setState({password: '',warning2: " ",err2:false });
-             } else
+             { 
                this.setState({warning2: "Have a num,a lower,an upper and special letter", err2:true})
-               
              }
              else{
                this.setState({warning2: " ", err2:false})
              }}
  
-     
+            
    }
    handleSubmit(event) {
      event.preventDefault();
    }
-
-  render(){
     
+  render(){
+    let icon=<VisibilityOff onClick={this.Showpass}/>
+      if (!this.state.showpassword){
+        icon=<Visibility onClick={this.Showpass}/>
+      }
   return (
-    <div>
+    <div className="bg-contain">
         <header>
           <div className="container">
           
@@ -101,9 +112,9 @@ class Login extends React.Component{
                               error={this.state.err1} 
                               autoFocus={true} type="text" 
                               placeholder="Nhập username" 
-                              value={this.state.username}
                               type='username' name='username' 
-                              onChangeCapture={this.handleChange} 
+                              onKeyUp={this.handleChange} 
+                              onChangeCapture={this.handleChange}
                               placeholder='username' 
                               helperText={this.state.warning}/>
                 </div>
@@ -115,13 +126,18 @@ class Login extends React.Component{
                               type={this.state.showpassword ? "password" : "text"} 
                               placeholder="Nhập mật khẩu" 
                               name='password' 
+                              onKeyUp={this.handleChange}
                               onChangeCapture={this.handleChange} 
                               placeholder='password' 
                               helperText={this.state.warning2}
-                               >  </TextField>
-                                <InputAdornment className='icon'>
-                                  <RemoveRedEye type="button" onClick={this.Showpass} />
+                              InputProps={{
+                              endAdornment: (
+                                <InputAdornment className="icon" position="end">
+                                  {icon}
                                 </InputAdornment>
+                              ),
+                            }}
+                          />
                     </div>
                 </div>
                 <div className="btn-box">
