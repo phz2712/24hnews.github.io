@@ -33,22 +33,18 @@ class Login extends React.Component{
     err2        : this.state.err2,
     showpassword:this.state.showpassword})
   }
+  
    handleChange(event) 
    {
         event.preventDefault();
          const target = event.target;
          const value = target.name === 'isGoing' ? target.checked : target.value;
+         target.value = target.value.replace(/\s/g, "");
          const name = target.name;
          this.setState({
            [name]: value    });
-          if(/\s/.test(this.state.username) && this.state.username.length>1)
-           {
-            this.setState({warning: "no space in here", err1:true});
-           }
-           else
-          {switch (this.state.username.length){
-
-            
+          
+          switch (this.state.username.length){
             case 0:
             case 4:
             case 5:
@@ -56,32 +52,52 @@ class Login extends React.Component{
             case 7:
             case 8:
             case 9:
+            case 10:
              this.setState({warning: " ",err1:false });
             break;
             default:
-            this.setState({warning: "Higher 4 and lower 10", err1:true});
+            this.setState({warning: "Higher 4 letters", err1:true});
             break;
-          }}
+          }
             
         
           console.log(this.state.username)
             
  
-         const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{3,10}$/;
-         if(/\s/.test(this.state.password)&& this.state.username.length>1) {
-          this.setState({warning2: "no space in here", err2:true})
-         }
-         else
-         {if(this.state.password===""){
+          const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_[!@#$%^&*]_)).{3,}$/;
+          const lower   = /^(?=.*[a-z]).{0,}$/;
+          const upper   = /^(?=.*[A-Z]).{0,}$/;
+          const number  = /^(?=.*\d).{0,}$/;
+          const special = /^(?=.*(\W|_[!@#$%^&*]_)).{0,}$/;
+          console.log(!lower.test(this.state.password))
+
+
+         if(this.state.password===""){
             this.setState({warning2: " ", err2:false})
            }
-          else if(!re.test(this.state.password))
-             { 
-               this.setState({warning2: "Have a num,a lower,an upper and special letter", err2:true})
+          else{ 
+            
+            if(!lower.test(this.state.password))
+             {
+              this.setState({warning2: " must be a lower letter", err2:true})
              }
-             else{
-               this.setState({warning2: " ", err2:false})
-             }}
+             else if(!upper.test(this.state.password))
+             {
+              this.setState({warning2: " must be a upper letter", err2:true})
+             }
+             else if(!number.test(this.state.password))
+             {
+              this.setState({warning2: " must be a number letter", err2:true})
+             }
+             else if(!special.test(this.state.password))
+             {
+              this.setState({warning2: " must be a special letter", err2:true})
+             }
+             else
+             {
+              this.setState({warning2: " ", err2:false})
+             }
+          }
  
             
    }
@@ -116,7 +132,13 @@ class Login extends React.Component{
                               onKeyUp={this.handleChange} 
                               onChangeCapture={this.handleChange}
                               placeholder='username' 
-                              helperText={this.state.warning}/>
+                              helperText={this.state.warning}
+                              inputProps={{
+                              maxLength: 10,
+                              }}
+                              
+                              />
+                              
                 </div>
                 <div>
                   <i />
@@ -136,8 +158,11 @@ class Login extends React.Component{
                                   {icon}
                                 </InputAdornment>
                               ),
-                            }}
-                          />
+                              }}
+                              inputProps={{
+                                maxLength: 10,
+                              }}
+                            />
                     </div>
                 </div>
                 <div className="btn-box">
