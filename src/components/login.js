@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.css';
-import {TextField, InputAdornment, OutlinedInput, } from '@material-ui/core';
+import {TextField, InputAdornment,} from '@material-ui/core';
 import { Visibility, VisibilityOff} from '@material-ui/icons';
 
 class Login extends React.Component{
@@ -34,9 +34,8 @@ class Login extends React.Component{
     showpassword:this.state.showpassword})
   }
   
-   handleChange(event) 
-   {
-        event.preventDefault();
+   handleChange(event) {
+        
          const target = event.target;
          const value = target.name === 'isGoing' ? target.checked : target.value;
          target.value = target.value.replace(/\s/g, "");
