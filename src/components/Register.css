@@ -52,7 +52,7 @@ h1{
   width: 333px;
   border: 1px solid #cccccc;
   outline: none;
-  margin-top: -3px;
+  margin-top: 10px;
   border: 2px solid #dddddd;
   border-bottom: none;
 }
@@ -61,7 +61,7 @@ h1{
   width: 333px;
   border: 1px solid #cccccc;
   outline: none;
-  margin-top: 0px;
+  margin-top: 10px;
   border: 2px solid #dddddd;
   border-bottom: none;
 }

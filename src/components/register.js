@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, {useState, useReducer} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {TextField, Select, Input, MenuItem, InputLabel, FormControlLabel, RadioGroup, Radio, FormControl, FormLabel, Typography} from "@material-ui/core";
 import './Register.css';
-import { Visibility, VisibilityOff, FavoriteBorder, Favorite} from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,25 +42,38 @@ const citis = [
 
 export default function BasicTextFields() {
   
-  const[warning, setwarning]= useState(' ');
-  const[warning2, setwarning2]= useState(' ');
-  const[err1, seterr1]= useState(false);
-  const[err2, seterr2]= useState(false);
-  const[showpassword, setshowpassword]= useState(true);
-  const[user, setuser]= useState({username:'', password:''})
-  const [city, setcity] = React.useState([]);
+  const [user, setuser] = useReducer(
+    (state, newState) => ({...state, ...newState}),
+      {
+      username:'',
+      password:'',
+      repassword:'',
+      
+      showpassword:true,
+      err1: false,
+      err2:false,
+      warning:' ',
+      warning2:' ',
+      }
+
+    );
+      const [city, setcity] = React.useState([]);
 
   const classes = useStyles();
   
   function handleOnchange(event) {
-    setcity(event.target.value);
+    
     const target = event.target;
     const value = target.name === 'isGoing' ? target.checked : target.value;
-    target.value = target.value.replace(/\s/g, "");
     const name = target.name;
+    if(name==="username" || name=== "password"){target.value = target.value.replace(/\s/g, "");}
     console.log(name)
-    setuser({[name]: value });
-     
+    if(name==="city"){
+      setcity(value);
+    }
+    else
+    {setuser({[name]: value });}
+    
      switch (user.username.length){
        case 0:
        case 4:
@@ -71,12 +83,12 @@ export default function BasicTextFields() {
        case 8:
        case 9:
        case 10:
-        setwarning(" ");
-        seterr1(false);
+        setuser({Warning: " "});
+        setuser({err1: false});
        break;
        default:
-       setwarning("Higher 4 letters");
-       seterr1(true);
+       setuser({Warning: "Higher 4 letters"});
+       setuser({err1: true});
        break;
      }
        
@@ -84,7 +96,7 @@ export default function BasicTextFields() {
      console.log(user.username)
        
 
-     const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_[!@#$%^&*]_)).{3,}$/;
+     /*const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_[!@#$%^&*]_)).{3,}$/;*/
      const lower   = /^(?=.*[a-z]).{0,}$/;
      const upper   = /^(?=.*[A-Z]).{0,}$/;
      const number  = /^(?=.*\d).{0,}$/;
@@ -93,37 +105,36 @@ export default function BasicTextFields() {
 
 
     if(user.password===""){
-        setwarning2(" ");
-        seterr2(false);
+        setuser({warning2: ' '});
+        setuser({err2: false});
       }
      else{ 
        
        if(!lower.test(user.password))
         {
-         setwarning2(" must be a lower letter");
-         seterr2(true);
+         setuser({warning2: "must be a lower letter"});
+         setuser({err2: true});
         }
         else if(!upper.test(user.password))
         {
-         
-          setwarning2(" must be a upper letter");
-          seterr2(true);
+         setuser({warning2: " must be a upper letter"});
+         setuser({err2: true});
         }
         else if(!number.test(user.password))
         {
-         setwarning2(" must be a number letter");
-         seterr2(true);
+         setuser({warning2: " must be a number letter"});
+         setuser({err2: true});
         }
         else if(!special.test(user.password))
         {
-         setwarning2(" must be a special letter");
-         seterr2(true);
+          setuser({warning2: " must be a special letter"});
+          setuser({err2: true});
+         
         }
         else
         {
-       
-         setwarning2(' ');
-         seterr2(false);
+          setuser({warning2: " "});
+          setuser({err2: false});
         }
      }
   }
@@ -135,62 +146,60 @@ export default function BasicTextFields() {
       
          
             <div className="login-form">
-              <form action method="post">
+              <form action='true' method="post">
                 <h1>Đăng Ký vào website</h1>
                 <div>
                   <i />
-                  <TextField  className="user-box"
-                              error={err1} 
-                              autoFocus={true} type="text" 
-                              placeholder="Nhập username" 
-                              type='username' name='username'
-                              onChange={e => 
-                              {
-                                handleOnchange(e);
-                              }}
-                              
-                              placeholder='username' 
-                              helperText={warning}
-                              inputProps={{
-                              maxLength: 10,
-                              }}
-                              
-                              />
+                  <TextField  
+                    className="user-box"
+                    error={user.err1} 
+                    autoFocus={true} type="text" 
+                    placeholder="username" 
+                     name='username'
+                    onChange={e => 
+                    {
+                      handleOnchange(e);
+                    }}
+                    helperText={user.warning}
+                    inputProps={{
+                    maxLength: 10,
+                    }}
+                    />
                               
                 </div>
                 <div>
                   <i />
                 
-                  <TextField  className="password-box" 
-                              error={err2} 
-                              type={showpassword ? "password" : "text"} 
-                              placeholder="Nhập mật khẩu" 
-                              name='password' 
-                              onChange={e => 
-                              {
-                                handleOnchange(e);
-                              }} 
-                              placeholder='password' 
-                              helperText={warning2}
-                              inputProps={{
-                              maxLength: 10,
-                              }}
-                            />
-                    <TextField  className="password-box" 
-                              error={err2} 
-                              type={showpassword ? "password" : "text"} 
-                              placeholder="Nhập mật khẩu" 
-                              name='repassword' 
-                              onChange={e => 
-                              {
-                                handleOnchange(e);
-                              }} 
-                              placeholder='repassword' 
-                              helperText={warning2}
-                              inputProps={{
-                              maxLength: 10,
-                              }}
-                            />
+                  <TextField  
+                    className="password-box" 
+                    error={user.err2} 
+                    type='password' 
+                    name='password' 
+                    onChange={e => 
+                    {
+                      handleOnchange(e);
+                    }} 
+                    placeholder='password' 
+                    helperText={user.warning2}
+                    inputProps={{
+                    maxLength: 10,
+                    }}
+                  />
+                    <TextField  
+                      className="password-box" 
+                      error={user.err2} 
+                      type='password'
+                      name='repassword' 
+                      onChange={e => 
+                      {
+                        handleOnchange(e);
+                      }} 
+                      placeholder='repassword' 
+                      helperText={user.warning2}
+                      inputProps={{
+                      maxLength: 10,
+                      }}
+                    />
                     
                 </div>
                 <div className="info">
@@ -203,7 +212,7 @@ export default function BasicTextFields() {
                         
                         control={<Radio color="primary" />}
                         label={
-                          <Typography variant="headline" component="h6"> Male </Typography>
+                          <Typography> Male </Typography>
                         }
                         value="male"
                       />
@@ -211,7 +220,7 @@ export default function BasicTextFields() {
                         
                         control={<Radio color="primary" />}
                         label={
-                          <Typography variant="headline" component="h6"> Female </Typography>
+                          <Typography> Female </Typography>
                         }
                         value="female"
                       />
@@ -232,32 +241,36 @@ export default function BasicTextFields() {
                   
                     </div>
                 </div>
-                <TextField  className="job-box"  
-                              type='text'
-                              placeholder="Nhập mật khẩu" 
-                              name='Jobs' 
-                              onChange={e => 
-                              {
-                                handleOnchange(e);
-                              }} 
-                              placeholder='Jobs' 
-                              inputProps={{
-                              maxLength: 10,
-                              }}
-                            />
-                <FormControl className={classes.formControl}>
+                <TextField  
+                  className="job-box"  
+                  type='text'
+                  name='Jobs' 
+                  onChange={e => 
+                  {
+                    handleOnchange(e);
+                  }} 
+                  placeholder='Jobs' 
+                  inputProps={{
+                  maxLength: 10,
+                  }}
+                />
+      <FormControl className={classes.formControl}>
         <InputLabel id="demo-mutiple-name-label">Your Place</InputLabel>
         <Select
           labelId="demo-mutiple-name-label"
           id="demo-mutiple-name"
           multiple
           value={city}
-          onChange={handleOnchange}
+          name='city'
+          onChange={e => 
+            {
+              handleOnchange(e);
+            }} 
           input={<Input />}
         >
-          {citis.map((name) => (
-            <MenuItem key={name} value={name}>
-              {name}
+          {citis.map((city) => (
+            <MenuItem key={city} value={city}>
+              {city}
             </MenuItem>
           ))}
         </Select>
