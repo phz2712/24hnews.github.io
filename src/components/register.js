@@ -1,7 +1,9 @@
-import React, {useState, useReducer} from "react";
+import React, {useState, useReducer,} from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {TextField, Select, Input, MenuItem, InputLabel, FormControlLabel, RadioGroup, Radio, FormControl, FormLabel, Typography} from "@material-ui/core";
+import {TextField, Select, Input, MenuItem, InputLabel, FormControlLabel,
+RadioGroup, Radio, FormControl, FormLabel, Typography} from "@material-ui/core";
 import './Register.css';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,62 +42,63 @@ const citis = [
   ,"Sóc Trăng","Tiền Giang","Trà Vinh","Vĩnh Long"
 ];
 
-export default function BasicTextFields() {
+export default function BasicTextFields(props) {
   
   const [user, setuser] = useReducer(
     (state, newState) => ({...state, ...newState}),
       {
-      username:'',
-      password:'',
-      repassword:'',
-      
-      showpassword:true,
-      err1: false,
-      err2:false,
-      warning:' ',
-      warning2:' ',
+      username      :'',
+      password      :'',
+      repassword    :'',
+      err1          :false,
+      err2          :false,
+      err3          :false,
+      err4          :false,
+      err5          :false,
+      warning       :' ',
+      warning2      :' ',
+      warning3      :' ',
+      warning4      :' ',
+      warning5      :' ',
+      gender        :"male",
+      birth         :"",
+      job           :"",
+      disabled      :true
       }
 
     );
-      const [city, setcity] = React.useState([]);
+  const [city, setcity] = useState('');
 
   const classes = useStyles();
   
   function handleOnchange(event) {
-    
     const target = event.target;
-    const value = target.name === 'isGoing' ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
     if(name==="username" || name=== "password"){target.value = target.value.replace(/\s/g, "");}
-    console.log(name)
+    
+    console.log("value", event.target.value);
+    console.log(user.name)
+  
     if(name==="city"){
       setcity(value);
     }
     else
     {setuser({[name]: value });}
-    
-     switch (user.username.length){
-       case 0:
-       case 4:
-       case 5:
-       case 6:
-       case 7:
-       case 8:
-       case 9:
-       case 10:
-        setuser({Warning: " "});
-        setuser({err1: false});
-       break;
-       default:
-       setuser({Warning: "Higher 4 letters"});
-       setuser({err1: true});
-       break;
-     }
-       
-   
-     console.log(user.username)
-       
-
+    /* dk login */
+    if(user.username==="" && user.password !==""){
+      setuser({warning: "Higher 4 letters"});
+      setuser({err1:true})
+    }
+    else if (user.username.length===0|| user.username.length>=4){
+      setuser({warning: " "});
+      setuser({err1:false})
+    }
+    else{
+      setuser({warning: "Higher 4 letters"});
+      setuser({err1:true})
+    }
+      /* dk password */
      /*const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_[!@#$%^&*]_)).{3,}$/;*/
      const lower   = /^(?=.*[a-z]).{0,}$/;
      const upper   = /^(?=.*[A-Z]).{0,}$/;
@@ -103,11 +106,35 @@ export default function BasicTextFields() {
      const special = /^(?=.*(\W|_[!@#$%^&*]_)).{0,}$/;
     
 
-
-    if(user.password===""){
+      if(user.password===""&&user.repassword !==""){
+        setuser({warning2: "must be higher 4"});
+        setuser({err2: true});
+      }
+    else if(user.password==="")
+      {
         setuser({warning2: ' '});
         setuser({err2: false});
       }
+    else if(!upper.test(user.password)&&!number.test(user.password)&&!special.test(user.password))
+    {
+      setuser({warning2: "must be a upper,number and special letter"});
+         setuser({err2: true});
+    }
+    else if(!lower.test(user.password)&&!number.test(user.password)&&!special.test(user.password))
+    {
+      setuser({warning2: "must be a lower,number and special letter"});
+         setuser({err2: true});
+    }
+    else if(!lower.test(user.password)&&!upper.test(user.password)&&!special.test(user.password))
+    {
+      setuser({warning2: "must be a lower letter, upper and special letter"});
+         setuser({err2: true});
+    }
+    else if(!lower.test(user.password)&&!upper.test(user.password)&&!number.test(user.password))
+    {
+      setuser({warning2: "must be a lower letter, upper,number letter"});
+         setuser({err2: true});
+    }
      else{ 
        
        if(!lower.test(user.password))
@@ -137,19 +164,55 @@ export default function BasicTextFields() {
           setuser({err2: false});
         }
      }
+        /* dk repassword */
+     if (user.repassword===user.password||user.repassword==='')
+     {
+       setuser({warning3: " "});
+       setuser({err3: false});
+     }
+     else{
+       setuser({warning3: "repassword is false"});
+       setuser({err3: true});
+     }
+      /* dk birthday */
+     if(user.birth===""&& user.job!==""){
+       setuser({warning4: "must be have a birthday"})
+       setuser({err4: true});
+     }
+     else{
+      setuser({warning4: " "});
+      setuser({err4: false});
+     }
+      /* dk job */
+      if(user.job===""&& city!==""){
+        setuser({warning5: "must be have a job"})
+        setuser({err5: true});
+      }
+      else{
+       setuser({warning5: " "});
+       setuser({err5: false});
+      }
+      /* dk button */
+      if(user.err1===false&&user.err2===false&&user.err3===false&&user.err4===false&&user.err5===false&& city!==""){
+        setuser({disabled: false});
+      }
+      else{
+       setuser({disabled: true});
+      }
+  };
+
+  function handleSubmit(event) {
+    event.preventDefault();
   }
+
   
   return (
-   
       <div className="bg-contain">
-        
-      
-         
-            <div className="login-form">
+            <div onSubmit={handleSubmit} className="login-form">
               <form action='true' method="post">
                 <h1>Đăng Ký vào website</h1>
                 <div>
-                  <i />
+                  <i/>
                   <TextField  
                     className="user-box"
                     error={user.err1} 
@@ -157,6 +220,10 @@ export default function BasicTextFields() {
                     placeholder="username" 
                      name='username'
                     onChange={e => 
+                    {
+                      handleOnchange(e);
+                    }}
+                    onKeyUp={e => 
                     {
                       handleOnchange(e);
                     }}
@@ -178,7 +245,11 @@ export default function BasicTextFields() {
                     onChange={e => 
                     {
                       handleOnchange(e);
-                    }} 
+                    }}
+                    onKeyUp={e => 
+                    {
+                      handleOnchange(e);
+                    }}
                     placeholder='password' 
                     helperText={user.warning2}
                     inputProps={{
@@ -187,15 +258,19 @@ export default function BasicTextFields() {
                   />
                     <TextField  
                       className="password-box" 
-                      error={user.err2} 
+                      error={user.err3} 
                       type='password'
                       name='repassword' 
                       onChange={e => 
                       {
                         handleOnchange(e);
-                      }} 
+                      }}
+                      onKeyUp={e => 
+                    {
+                      handleOnchange(e);
+                    }}
                       placeholder='repassword' 
-                      helperText={user.warning2}
+                      helperText={user.warning3}
                       inputProps={{
                       maxLength: 10,
                       }}
@@ -207,9 +282,16 @@ export default function BasicTextFields() {
                   <div className={classes.formcontrollabel} style={{border:'none'}}>
                   <FormControl className="gender" component="fieldset">
                     <FormLabel className={classes.formlabel} component="legend">Gender</FormLabel>
-                    <RadioGroup row aria-label="position" name="position" defaultValue="top">
+                    <RadioGroup 
+                      row aria-label="position"  
+                      onClick={e => {handleOnchange(e);}} 
+                      onFocus={e => {handleOnchange(e);}} 
+                      value={user.gender} 
+                      name="gender" 
+                      defaultValue="top"
+                      >
                       <FormControlLabel
-                        
+                       
                         control={<Radio color="primary" />}
                         label={
                           <Typography> Male </Typography>
@@ -218,7 +300,7 @@ export default function BasicTextFields() {
                       />
                       <FormControlLabel
                         
-                        control={<Radio color="primary" />}
+                        control={<Radio color="secondary" />}
                         label={
                           <Typography> Female </Typography>
                         }
@@ -229,11 +311,21 @@ export default function BasicTextFields() {
                   </FormControl>
                   <TextField
             
-                    id="date"
-                    label="Birthday"
-                    type="date"
-                    defaultValue="1990-05-24"
-                    className="birth-box"
+                    id        ="date"
+                    label     ="Birthday"
+                    type      ="date"
+                    className ="birth-box"
+                    name      ="birth"
+                    error     ={user.err4}
+                    helperText={user.warning4}
+                    onChange  ={e => 
+                      {
+                        handleOnchange(e);
+                      }}
+                      onMouseOut  ={e => 
+                      {
+                        handleOnchange(e);
+                      }}
                     InputLabelProps={{
                       shrink: true,
                     }}
@@ -242,16 +334,22 @@ export default function BasicTextFields() {
                     </div>
                 </div>
                 <TextField  
-                  className="job-box"  
-                  type='text'
-                  name='Jobs' 
-                  onChange={e => 
+                  className ="job-box"  
+                  type      ='text'
+                  name      ='job'
+                  error     ={user.err5}
+                  helperText={user.warning5}
+                  onChange  ={e => 
                   {
                     handleOnchange(e);
                   }} 
                   placeholder='Jobs' 
+                  onKeyUp={e => 
+                  {
+                    handleOnchange(e);
+                  }} 
                   inputProps={{
-                  maxLength: 10,
+                  maxLength: 10
                   }}
                 />
       <FormControl className={classes.formControl}>
@@ -259,10 +357,13 @@ export default function BasicTextFields() {
         <Select
           labelId="demo-mutiple-name-label"
           id="demo-mutiple-name"
-          multiple
           value={city}
           name='city'
-          onChange={e => 
+          onClick={e => 
+            {
+              handleOnchange(e);
+            }} 
+          onMouseOut={e => 
             {
               handleOnchange(e);
             }} 
@@ -276,7 +377,7 @@ export default function BasicTextFields() {
         </Select>
       </FormControl>
                 <div className="btn-box">
-                  <button disabled type="submit" onClick={()=>alert("đã đăng nhập")} >
+                  <button className="btn-success" disabled={user.disabled} onClick={()=>alert("đã đăng nhập")} >
                     Đăng Ký
                   </button>
                 </div>

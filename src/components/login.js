@@ -63,7 +63,7 @@ class Login extends React.Component{
           console.log(this.state.username)
             
  
-          const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_[!@#$%^&*]_)).{3,}$/;
+          /*const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_[!@#$%^&*]_)).{3,}$/;*/
           const lower   = /^(?=.*[a-z]).{0,}$/;
           const upper   = /^(?=.*[A-Z]).{0,}$/;
           const number  = /^(?=.*\d).{0,}$/;
@@ -125,8 +125,7 @@ class Login extends React.Component{
                   <i />
                   <TextField  className="user-box"
                               error={this.state.err1} 
-                              autoFocus={true} type="text" 
-                              placeholder="Nhập username" 
+                              autoFocus={true}
                               type='username' name='username' 
                               onKeyUp={this.handleChange} 
                               onChangeCapture={this.handleChange}
@@ -145,7 +144,6 @@ class Login extends React.Component{
                   <TextField  className="password-box" 
                               error={this.state.err2} 
                               type={this.state.showpassword ? "password" : "text"} 
-                              placeholder="Nhập mật khẩu" 
                               name='password' 
                               onKeyUp={this.handleChange}
                               onChangeCapture={this.handleChange} 
