@@ -1,4 +1,4 @@
-import React, {useState, useReducer,} from "react";
+import React, {useState,} from "react";
 import './Register.css';
 import Register from './register';
 import Login from './login';

@@ -175,7 +175,7 @@ class Login extends React.Component{
                             />
                     </div>
                 </div>
-                <div className="btn-box">
+                <div className="btnl-box">
                   <button type="submit" className="btn-success" disabled={this.state.disabled} onClick={()=>alert("đã đăng nhập")} >
                     Login
                   </button>

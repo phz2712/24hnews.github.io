@@ -22,6 +22,7 @@
   padding-left: 67px;
   padding-top: 10px;
   padding-bottom: 10px;
+  
 }
 .register{
   text-align: left;
@@ -69,7 +70,7 @@ h1{
   border-bottom: none;
 }
 .row{
-  margin-top: 3px;
+  margin-top: 7px;
   border: 1px solid #cccccc;
   padding: 0px 0px;
   border: 2px solid #dddddd;
@@ -90,11 +91,11 @@ h1{
   border-bottom: none;
   outline: none;
 }
-.btn-box{
+.btnl-box{
   text-align: right;
   margin-top: 10px;
 }
-.btn-box button{
+.btnl-box button{
   margin-top: 0px;
   padding: 7.5px 15px;
   border-radius: 2px;

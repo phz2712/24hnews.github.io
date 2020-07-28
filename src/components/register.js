@@ -217,8 +217,8 @@ export default function Register(props) {
             <div onSubmit={handleSubmit} className="login-form">
               <form action='true' method="post">
               <div className="row">
-                <h1 type="button" className="register">Register</h1>
-                <h1 type="button" onClick={onlogin} className="login">Login</h1>
+                <h1 type="button" className="registerr">Register</h1>
+                <h1 type="button" onClick={onlogin} className="loginr">Login</h1>
               </div>
                 <div>
                   <i/>
@@ -247,7 +247,7 @@ export default function Register(props) {
                   <i />
                 
                   <TextField  
-                    className="password-box" 
+                    className="passwordr-box" 
                     error={user.err2} 
                     type='password' 
                     name='password' 
@@ -266,7 +266,7 @@ export default function Register(props) {
                     }}
                   />
                     <TextField  
-                      className="password-box" 
+                      className="passwordr-box" 
                       error={user.err3} 
                       type='password'
                       name='repassword' 
