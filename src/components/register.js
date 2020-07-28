@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     marginRight:"0px",
   },
   formControl: {
-    marginTop: "10px",
+    marginTop: "0px",
     width: '100%'
   }
 }));
@@ -42,7 +42,7 @@ const citis = [
   ,"Sóc Trăng","Tiền Giang","Trà Vinh","Vĩnh Long"
 ];
 
-export default function BasicTextFields(props) {
+export default function Register(props) {
   
   const [user, setuser] = useReducer(
     (state, newState) => ({...state, ...newState}),
@@ -165,7 +165,11 @@ export default function BasicTextFields(props) {
         }
      }
         /* dk repassword */
-     if (user.repassword===user.password||user.repassword==='')
+      if(user.repassword===""&& user.birth!==""){
+        setuser({warning3: "repassword is false"});
+       setuser({err3: true});
+      }
+     else if (user.repassword===user.password||user.repassword==='')
      {
        setuser({warning3: " "});
        setuser({err3: false});
@@ -204,7 +208,9 @@ export default function BasicTextFields(props) {
   function handleSubmit(event) {
     event.preventDefault();
   }
-
+  function onlogin() {
+    props.isregister();
+  }
   
   return (
       <div className="bg-contain">
@@ -212,7 +218,7 @@ export default function BasicTextFields(props) {
               <form action='true' method="post">
               <div className="row">
                 <h1 type="button" className="register">Register</h1>
-                <h1 type="button" className="login">Login</h1>
+                <h1 type="button" onClick={onlogin} className="login">Login</h1>
               </div>
                 <div>
                   <i/>

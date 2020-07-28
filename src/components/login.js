@@ -20,7 +20,11 @@ class Login extends React.Component{
     this.handleChange       = this.handleChange.bind(this);
     this.Showpass           = this.Showpass.bind(this);
     this.componentWillMount = this.componentWillMount.bind(this);
+    this.Register           = this.Register.bind(this);
   }
+
+  
+
   Showpass(){
     this.setState({showpassword: !this.state.showpassword})
   }
@@ -113,6 +117,9 @@ class Login extends React.Component{
      event.preventDefault();
    }
     
+   Register(){
+    this.props.islogin();
+  }
   render(){
     let icon=<VisibilityOff onClick={this.Showpass}/>
       if (!this.state.showpassword){
@@ -124,7 +131,7 @@ class Login extends React.Component{
             <div onSubmit={this.handleSubmit} className="login-form">
               <form action method="post">
                 <div className="row">
-                <h1 type="button" className="register">Register</h1>
+                <h1 type="button" onClick={this.Register} className="register">Register</h1>
                 <h1 type="button" className="login">Login</h1>
                 </div>
                 <div>
