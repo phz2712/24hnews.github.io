@@ -32,7 +32,9 @@ class Login extends React.Component{
     warning2    : this.state.warning2,
     err1        : this.state.err1,
     err2        : this.state.err2,
-    showpassword:this.state.showpassword})
+    showpassword:this.state.showpassword,
+    disabled    :this.state.disabled
+  })
   }
   
    handleChange(event) {
@@ -121,7 +123,10 @@ class Login extends React.Component{
           <div className="container">
             <div onSubmit={this.handleSubmit} className="login-form">
               <form action method="post">
-                <h1>Login</h1>
+                <div className="row">
+                <h1 type="button" className="register">Register</h1>
+                <h1 type="button" className="login">Login</h1>
+                </div>
                 <div>
                   <i />
                   <TextField  className="user-box"

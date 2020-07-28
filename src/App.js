@@ -1,10 +1,10 @@
 import React from 'react';
-import Login from './components/login';
+import Register from './components/register';
 
 class App extends React.Component{
   render(){
   return (
-    <Login/>
+    <Register/>
   );
 }
 }
