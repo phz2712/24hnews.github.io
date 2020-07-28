@@ -8,13 +8,14 @@ class Login extends React.Component{
   constructor(props) {
     super(props);
     this.state={
-       warning   : ' ',
-       username  : '',
-       password  : '',
-       warning2  : ' ',
-       err1: false,
-       err2: false,
-       showpassword:true
+       warning        : ' ',
+       username       : '',
+       password       : '',
+       warning2       : ' ',
+       err1           : false,
+       err2           : false,
+       showpassword   :true,
+       disabled       :true
     }
     this.handleChange       = this.handleChange.bind(this);
     this.Showpass           = this.Showpass.bind(this);
@@ -97,7 +98,13 @@ class Login extends React.Component{
               this.setState({warning2: " ", err2:false})
              }
           }
- 
+            /* dk button */
+      if(this.state.err1===true||this.state.err2===true||this.state.username===''||this.state.password===''){
+        this.setState({disabled: true});
+      }
+      else{
+       this.setState({disabled: false});
+      }
             
    }
    handleSubmit(event) {
@@ -111,16 +118,10 @@ class Login extends React.Component{
       }
   return (
     <div className="bg-contain">
-        <header>
-          <div className="container">
-          
-          </div>
-        </header>
-        <main>
           <div className="container">
             <div onSubmit={this.handleSubmit} className="login-form">
               <form action method="post">
-                <h1>Đăng nhập vào website</h1>
+                <h1>Login</h1>
                 <div>
                   <i />
                   <TextField  className="user-box"
@@ -163,19 +164,13 @@ class Login extends React.Component{
                     </div>
                 </div>
                 <div className="btn-box">
-                  <button type="submit" onClick={()=>alert("đã đăng nhập")} >
-                    Đăng nhập
+                  <button type="submit" className="btn-success" disabled={this.state.disabled} onClick={()=>alert("đã đăng nhập")} >
+                    Login
                   </button>
                 </div>
               </form>
             </div>
           </div>
-        </main>
-        <footer>
-          <div className="container">
-            
-          </div>
-        </footer>
       </div>
   );
 }

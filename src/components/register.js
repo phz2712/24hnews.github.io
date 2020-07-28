@@ -210,7 +210,7 @@ export default function BasicTextFields(props) {
       <div className="bg-contain">
             <div onSubmit={handleSubmit} className="login-form">
               <form action='true' method="post">
-                <h1>Đăng Ký vào website</h1>
+                <h1>Sign in</h1>
                 <div>
                   <i/>
                   <TextField  
@@ -377,8 +377,8 @@ export default function BasicTextFields(props) {
         </Select>
       </FormControl>
                 <div className="btn-box">
-                  <button className="btn-success" disabled={user.disabled} onClick={()=>alert("đã đăng nhập")} >
-                    Đăng Ký
+                  <button className="btn-success" disabled={user.disabled} onClick={()=>alert("đã đăng kí thành công")} >
+                    Sign in
                   </button>
                 </div>
               </form>
