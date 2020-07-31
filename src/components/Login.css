@@ -48,7 +48,7 @@
 h1{
   color: #009999;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .user-box input{
@@ -70,7 +70,7 @@ h1{
   border-bottom: none;
 }
 .row{
-  margin-top: 7px;
+  margin-top: 0px;
   border: 1px solid #cccccc;
   padding: 0px 0px;
   border: 2px solid #dddddd;
@@ -93,7 +93,7 @@ h1{
 }
 .btnl-box{
   text-align: right;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 .btnl-box button{
   margin-top: 0px;

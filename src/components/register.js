@@ -3,7 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import {TextField, Select, Input, MenuItem, InputLabel, FormControlLabel,
 RadioGroup, Radio, FormControl, FormLabel, Typography} from "@material-ui/core";
 import './Register.css';
-
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import * as moment from 'moment'
+import { MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     marginRight:"0px",
   },
   formControl: {
-    marginTop: "0px",
+    marginTop: "-10px",
     width: '100%'
   }
 }));
@@ -70,7 +73,20 @@ export default function Register(props) {
   const [city, setcity] = useState('');
 
   const classes = useStyles();
-  
+
+  const defaultjob=[{title: "artist"},
+  {title:"astronaut"},
+  {title: "chef"},
+  {title: "construction worker"},
+  {title:  "firefighter"},
+  {title: "doctor"},
+  {title: "police"},
+  {title: "teacher"},]
+
+  const date =new Date();
+      
+    const formatdate = moment(date).format('YYYY-MM-DD');
+
   function handleOnchange(event) {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -78,7 +94,7 @@ export default function Register(props) {
     if(name==="username" || name=== "password"){target.value = target.value.replace(/\s/g, "");}
     
     console.log("value", event.target.value);
-    console.log(user.name)
+    console.log(user.job.type)
   
     if(name==="city"){
       setcity(value);
@@ -188,7 +204,7 @@ export default function Register(props) {
       setuser({err4: false});
      }
       /* dk job */
-      if(user.job===""&& city!==""){
+      if(user.job===""& city!==""){
         setuser({warning5: "must be have a job"})
         setuser({err5: true});
       }
@@ -241,7 +257,25 @@ export default function Register(props) {
                     maxLength: 10,
                     }}
                     />
-                              
+                    <TextField  
+                    className="user-box"
+                    error={user.err1} 
+                    autoFocus={true} type="text" 
+                    placeholder="Email" 
+                     name='Email'
+                    onChange={e => 
+                    {
+                      handleOnchange(e);
+                    }}
+                    onKeyUp={e => 
+                    {
+                      handleOnchange(e);
+                    }}
+                    helperText={user.warning}
+                    inputProps={{
+                    maxLength: 10,
+                    }}
+                    />          
                 </div>
                 <div>
                   <i />
@@ -319,47 +353,55 @@ export default function Register(props) {
                     </RadioGroup>
                   </FormControl>
                   <TextField
-            
-                    id        ="date"
-                    label     ="Birthday"
-                    type      ="date"
-                    className ="birth-box"
-                    name      ="birth"
-                    error     ={user.err4}
-                    helperText={user.warning4}
-                    onChange  ={e => 
-                      {
-                        handleOnchange(e);
-                      }}
-                      onMouseOut  ={e => 
-                      {
-                        handleOnchange(e);
-                      }}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                  />
-                  
+            
+                    id        ="date"
+                    label     ="Birthday"
+                    type      ="date"
+                    className ="birth-box"
+                    name      ="birth"
+                    error     ={user.err4}
+                    helperText={user.warning4}
+                    onChange  ={e => 
+                      {
+                        handleOnchange(e);
+                      }}
+                      onMouseOut  ={e => 
+                      {
+                        handleOnchange(e);
+                      }}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
+
                     </div>
                 </div>
-                <TextField  
-                  className ="job-box"  
-                  type      ='text'
-                  name      ='job'
-                  error     ={user.err5}
-                  helperText={user.warning5}
+                <Autocomplete
+                  freeSolo
+                  id="free-solo-2-demo"
+                  name='job'
+                  className="job-box"
+                  options={defaultjob}
+                  getOptionLabel={(option) => option.title}
+                  getOptionSelected={(option, value) => option.title === value.title}
                   onChange  ={e => 
                   {
                     handleOnchange(e);
                   }} 
-                  placeholder='Jobs' 
-                  onKeyUp={e => 
+                  onMouseMove={e => 
+                  {
+                    handleOnchange(e);
+                  }}
+                  renderInput={(params) => <TextField {...params} error={user.err5}
+                  
+                  helperText={user.warning5}  name='job' label='Jobs' margin="normal" onChange  ={e => 
                   {
                     handleOnchange(e);
                   }} 
-                  inputProps={{
-                  maxLength: 10
-                  }}
+                  onKeyUp={e => 
+                  {
+                    handleOnchange(e);
+                  }} />}
                 />
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-mutiple-name-label">Your Place</InputLabel>

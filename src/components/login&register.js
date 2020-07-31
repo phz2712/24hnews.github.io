@@ -4,7 +4,7 @@ import Register from './register';
 import Login from './login';
 
 export default function Login_register(props) {
-   const [islogin, setislogin] = useState(true);
+   const [islogin, setislogin] = useState(false);
 
   const Handleislogin=()=>{
     setislogin(false)
@@ -25,9 +25,9 @@ export default function Login_register(props) {
   return (
       <div className="bg-contain">
             <div className="login-form">
-              <form action='true' method="post">
+              
               {form}
-              </form>
+              
             </div>
           </div>
   );

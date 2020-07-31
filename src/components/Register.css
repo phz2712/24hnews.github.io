@@ -62,7 +62,7 @@
 h1{
   color: #009999;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .user-box input{
@@ -78,26 +78,23 @@ h1{
   width: 333px;
   border: 1px solid #cccccc;
   outline: none;
-  margin-top: 10px;
+  margin-top: 0px;
   border: 2px solid #dddddd;
   border-bottom: none;
 }
-.job-box input{
-  padding: 7.5px 16px;
-  width: 333px;
-  border: 1px solid #cccccc;
+.job-box{
+  margin-bottom: 0px;
+  width: 100%;
   outline: none;
-  margin-top: 10px;
-  border: 2px solid #dddddd;
+  margin-top: -20px;
   border-bottom: none;
+  padding: 0px;
 }
 .birth-box input{
   padding: 7.5px 15px;
   width: 147px;
-  border: 1px solid #cccccc;
   outline: none;
   margin-top: 0px;
-  border: 2px solid #dddddd;
   text-align: right;
 }
 .gender{

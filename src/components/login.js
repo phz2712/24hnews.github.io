@@ -48,8 +48,8 @@ class Login extends React.Component{
          target.value = target.value.replace(/\s/g, "");
          const name = target.name;
          this.setState({
-           [name]: value    });
-          
+           [name]: value});
+         
           switch (this.state.username.length){
             case 0:
             case 4:
@@ -65,7 +65,7 @@ class Login extends React.Component{
             this.setState({warning: "Higher 4 letters", err1:true});
             break;
           }
-            
+          
         
           console.log(this.state.username)
             
@@ -129,7 +129,7 @@ class Login extends React.Component{
     <div className="bg-contain">
           <div className="container">
             <div onSubmit={this.handleSubmit} className="login-form">
-              <form action method="post">
+              <form method="post">
                 <div className="row">
                 <h1 type="button" onClick={this.Register} className="register">Register</h1>
                 <h1 type="button" className="login">Login</h1>
