@@ -369,6 +369,7 @@ export default function Register(props) {
                       {
                         handleOnchange(e);
                       }}
+                    inputProps={{max: "2020-01-24" }}
                     InputLabelProps={{
                       shrink: true,
                     }}
@@ -428,7 +429,7 @@ export default function Register(props) {
         </Select>
       </FormControl>
                 <div className="btn-box">
-                  <button className="btn-success" disabled={user.disabled} onClick={()=>alert("đã đăng kí thành công")} >
+                  <button className="btn-secondary" disabled={user.disabled} onClick={()=>alert("đã đăng kí thành công")} >
                     Register
                   </button>
                 </div>
