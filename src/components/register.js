@@ -5,8 +5,8 @@ RadioGroup, Radio, FormControl, FormLabel, Typography} from "@material-ui/core";
 import './Register.css';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import * as moment from 'moment'
-import { MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -71,7 +71,7 @@ export default function Register(props) {
 
     );
   const [city, setcity] = useState('');
-
+  const [birth, setbirth] = useState(new Date());
   const classes = useStyles();
 
   const defaultjob=[{title: "artist"},
@@ -181,7 +181,7 @@ export default function Register(props) {
         }
      }
         /* dk repassword */
-      if(user.repassword===""&& user.birth!==""){
+      if(user.repassword===""&& birth!==""){
         setuser({warning3: "repassword is false"});
        setuser({err3: true});
       }
@@ -195,7 +195,7 @@ export default function Register(props) {
        setuser({err3: true});
      }
       /* dk birthday */
-     if(user.birth===""&& user.job!==""){
+     if(birth===""&& user.job!==""){
        setuser({warning4: "must be have a birthday"})
        setuser({err4: true});
      }
@@ -322,6 +322,7 @@ export default function Register(props) {
                 </div>
                 <div className="info">
                   <i />
+                  <div className="inline">
                   <div className={classes.formcontrollabel} style={{border:'none'}}>
                   <FormControl className="gender" component="fieldset">
                     <FormLabel className={classes.formlabel} component="legend">Gender</FormLabel>
@@ -352,30 +353,33 @@ export default function Register(props) {
                       
                     </RadioGroup>
                   </FormControl>
-                  <TextField
-            
+                  
+                  <div className="flex">
+                  <div>Birth day</div>
+                  <DatePicker
                     id        ="date"
                     label     ="Birthday"
-                    type      ="date"
                     className ="birth-box"
-                    name      ="birth"
+                    selected  ={birth}
                     error     ={user.err4}
                     helperText={user.warning4}
-                    onChange  ={e => 
+                    maxDate ={new Date()}
+                    onChange  ={d => 
                       {
-                        handleOnchange(e);
+                        setbirth(d);
                       }}
-                      onMouseOut  ={e => 
+                      onMouseOut  ={d => 
                       {
-                        handleOnchange(e);
+                        setbirth(d);
                       }}
-                    inputProps={{max: "2020-01-24" }}
+                  
                     InputLabelProps={{
                       shrink: true,
                     }}
                   />
-
-                    </div>
+                  </div>
+                </div>
+                </div>
                 </div>
                 <Autocomplete
                   freeSolo

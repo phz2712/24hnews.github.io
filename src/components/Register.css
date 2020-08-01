@@ -90,12 +90,23 @@ h1{
   border-bottom: none;
   padding: 0px;
 }
-.birth-box input{
+
+.flex{
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.birth-box{
   padding: 7.5px 15px;
-  width: 147px;
+  width: 160px;
   outline: none;
+  height: 30px;
   margin-top: 0px;
-  text-align: right;
+  text-align: center;
+  border-radius: 3px;
+  border: none;
+  background-color: #95b1ce;
 }
 .gender{
   border: 1px dotted #24977a;
