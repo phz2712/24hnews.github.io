@@ -96,7 +96,10 @@ h1{
   flex-direction: column;
   margin-left: 20px;
 }
-
+.label{
+  opacity: 0.7;
+  margin-top: -7px;
+}
 .birth-box{
   padding: 7.5px 15px;
   width: 160px;
@@ -107,6 +110,7 @@ h1{
   border-radius: 3px;
   border: none;
   background-color: #95b1ce;
+  
 }
 .gender{
   border: 1px dotted #24977a;
