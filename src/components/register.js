@@ -1,4 +1,4 @@
-import React, {useState, useReducer,} from "react";
+import React, {useState, useReducer, useEffect,} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {TextField, Select, Input, MenuItem, InputLabel, FormControlLabel,
 RadioGroup, Radio, FormControl, FormLabel, Typography} from "@material-ui/core";
@@ -61,8 +61,12 @@ const years = range(1990, getYear(new Date()) + 1);
     "November",
     "December"
   ];
+
+
 export default function Register(props) {
   
+  
+
   const [user, setuser] = useReducer(
     (state, newState) => ({...state, ...newState}),
       {
@@ -72,7 +76,7 @@ export default function Register(props) {
       err1          :false,
       err2          :false,
       err3          :false,
-      err4          :false,
+
       err5          :false,
       erre          :false,
       warning       :' ',
@@ -105,22 +109,10 @@ export default function Register(props) {
   const date =new Date();
       
     const formatdate = moment(date).format('YYYY-MM-DD');
+    useEffect(()=>{validate()},[user.username,user.password,user.repassword,user.email,city,user.err5,user.job])
 
-  function handleOnchange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-    if(name==="username" || name=== "password"){target.value = target.value.replace(/\s/g, "");}
-    
-    console.log("value", event.target.value);
-    console.log(user.job.type)
-  
-    if(name==="city"){
-      setcity(value);
-    }
-    else
-    {setuser({[name]: value });}
-    /* dk login */
+    function validate (){
+      /* dk login */
     if(user.username==="" && user.email !==""){
       setuser({warning: "Higher 4 letters"});
       setuser({err1:true})
@@ -136,13 +128,7 @@ export default function Register(props) {
     
     /* dk mail */
     const mail= /\S+@\S+\.\S+/;
-    console.log(mail.test(user.email))
-    if(user.email===""&&user.password !=="")
-    {
-      setuser({warninge: "email is wrong"});
-      setuser({erre: true});
-    }
-    else if(user.email===""||mail.test(user.email))
+    if(user.email===""||mail.test(user.email))
       {
         setuser({warninge: ' '});
         setuser({erre: false});
@@ -161,11 +147,7 @@ export default function Register(props) {
      const special = /^(?=.*(\W|_[!@#$%^&*]_)).{0,}$/;
     
 
-      if(user.password===""&&user.repassword !==""){
-        setuser({warning2: "must be higher 4"});
-        setuser({err2: true});
-      }
-    else if(user.password==="")
+    if(user.password==="")
       {
         setuser({warning2: ' '});
         setuser({err2: false});
@@ -220,11 +202,7 @@ export default function Register(props) {
         }
      }
         /* dk repassword */
-      if(user.repassword===""&& birth!==""){
-        setuser({warning3: "repassword is false"});
-       setuser({err3: true});
-      }
-     else if (user.repassword===user.password||user.repassword==='')
+      if (user.repassword===user.password||user.repassword==='')
      {
        setuser({warning3: " "});
        setuser({err3: false});
@@ -233,31 +211,40 @@ export default function Register(props) {
        setuser({warning3: "repassword is false"});
        setuser({err3: true});
      }
-      /* dk birthday */
-     if(birth===""&& user.job!==""){
-       setuser({warning4: "must be have a birthday"})
-       setuser({err4: true});
-     }
-     else{
-      setuser({warning4: " "});
-      setuser({err4: false});
-     }
       /* dk job */
       if(user.job===""& city!==""){
         setuser({warning5: "must be have a job"})
         setuser({err5: true});
       }
-      else{
+      else if(user.job!==""){
        setuser({warning5: " "});
        setuser({err5: false});
       }
       /* dk button */
-      if(user.err1===false&&user.err2===false&&user.err3===false&&user.err4===false&&user.err5===false&& city!==""){
+      if(user.err1===false&&user.err2===false&&user.err3===false&&user.err5===false&& city!==""){
         setuser({disabled: false});
       }
       else{
        setuser({disabled: true});
       }
+    }
+    
+
+  function handleOnchange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    if(name==="username" || name=== "password"){target.value = target.value.replace(/\s/g, "");}
+    
+    console.log("value", event.target.value);
+    console.log(user.job.type)
+  
+    if(name==="city"){
+      setcity(value);
+    }
+    else
+    {setuser({[name]: value });}
+    validate();
   };
 
   function handleSubmit(event) {
@@ -287,10 +274,7 @@ export default function Register(props) {
                     {
                       handleOnchange(e);
                     }}
-                    onKeyUp={e => 
-                    {
-                      handleOnchange(e);
-                    }}
+                   
                     helperText={user.warning}
                     inputProps={{
                     maxLength: 10,
@@ -299,14 +283,9 @@ export default function Register(props) {
                     <TextField  
                     className="user-box"
                     error={user.erre} 
-                    autoFocus={true} type="text" 
                     placeholder="Email" 
                      name='email'
                     onChange={e => 
-                    {
-                      handleOnchange(e);
-                    }}
-                    onKeyUp={e => 
                     {
                       handleOnchange(e);
                     }}
@@ -328,10 +307,6 @@ export default function Register(props) {
                     {
                       handleOnchange(e);
                     }}
-                    onKeyUp={e => 
-                    {
-                      handleOnchange(e);
-                    }}
                     placeholder='password' 
                     helperText={user.warning2}
                     inputProps={{
@@ -347,10 +322,6 @@ export default function Register(props) {
                       {
                         handleOnchange(e);
                       }}
-                      onKeyUp={e => 
-                    {
-                      handleOnchange(e);
-                    }}
                       placeholder='repassword' 
                       helperText={user.warning3}
                       inputProps={{
@@ -368,7 +339,6 @@ export default function Register(props) {
                     <RadioGroup 
                       row aria-label="position"  
                       onClick={e => {handleOnchange(e);}} 
-                      onFocus={e => {handleOnchange(e);}} 
                       value={user.gender} 
                       name="gender" 
                       defaultValue="top"
@@ -449,18 +419,13 @@ export default function Register(props) {
                       </div>
                     )}
                     selected  ={birth}
-                    error     ={user.err4}
+   
                     helperText={user.warning4}
                     maxDate ={new Date()}
                     onChange  ={d => 
                       {
                         setbirth(d);
-                      }}
-                      onMouseOut  ={d => 
-                      {
-                        setbirth(d);
-                      }}
-                  
+                      }}                  
                     InputLabelProps={{
                       shrink: true,
                     }}
@@ -473,28 +438,23 @@ export default function Register(props) {
                   freeSolo
                   id="free-solo-2-demo"
                   name='job'
+                  
                   className="job-box"
                   options={defaultjob}
                   getOptionLabel={(option) => option.title}
                   getOptionSelected={(option, value) => option.title === value.title}
-                  onChange  ={e => 
-                  {
-                    handleOnchange(e);
-                  }} 
-                  onMouseMove={e => 
-                  {
-                    handleOnchange(e);
-                  }}
-                  renderInput={(params) => <TextField {...params} error={user.err5}
+                  renderInput={(params) => <TextField {...params}  error={user.err5}
                   
-                  helperText={user.warning5}  name='job' label='Jobs' margin="normal" onChange  ={e => 
+                  helperText={user.warning5}  name='job' label='Jobs' margin="normal" 
+                  onMouseOver  ={e => 
                   {
                     handleOnchange(e);
                   }} 
-                  onKeyUp={e => 
+                  onKeyUp  ={e => 
                   {
                     handleOnchange(e);
-                  }} />}
+                  }} 
+                  />}
                 />
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-mutiple-name-label">Your Place</InputLabel>
@@ -504,10 +464,6 @@ export default function Register(props) {
           value={city}
           name='city'
           onClick={e => 
-            {
-              handleOnchange(e);
-            }} 
-          onMouseOut={e => 
             {
               handleOnchange(e);
             }} 
