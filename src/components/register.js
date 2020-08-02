@@ -74,15 +74,18 @@ export default function Register(props) {
       err3          :false,
       err4          :false,
       err5          :false,
+      erre          :false,
       warning       :' ',
       warning2      :' ',
       warning3      :' ',
       warning4      :' ',
       warning5      :' ',
+      warninge      :' ',
       gender        :"male",
       birth         :"",
       job           :"",
-      disabled      :true
+      disabled      :true,
+      email         : "",
       }
 
     );
@@ -118,7 +121,7 @@ export default function Register(props) {
     else
     {setuser({[name]: value });}
     /* dk login */
-    if(user.username==="" && user.password !==""){
+    if(user.username==="" && user.email !==""){
       setuser({warning: "Higher 4 letters"});
       setuser({err1:true})
     }
@@ -130,6 +133,26 @@ export default function Register(props) {
       setuser({warning: "Higher 4 letters"});
       setuser({err1:true})
     }
+    
+    /* dk mail */
+    const mail= /\S+@\S+\.\S+/;
+    console.log(mail.test(user.email))
+    if(user.email===""&&user.password !=="")
+    {
+      setuser({warninge: "email is wrong"});
+      setuser({erre: true});
+    }
+    else if(user.email===""||mail.test(user.email))
+      {
+        setuser({warninge: ' '});
+        setuser({erre: false});
+      }
+    else if(!mail.test(user.email))
+    {
+      setuser({warninge: "email is wrong"});
+         setuser({erre: true});
+    }
+
       /* dk password */
      /*const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_[!@#$%^&*]_)).{3,}$/;*/
      const lower   = /^(?=.*[a-z]).{0,}$/;
@@ -275,10 +298,10 @@ export default function Register(props) {
                     />
                     <TextField  
                     className="user-box"
-                    error={user.err1} 
+                    error={user.erre} 
                     autoFocus={true} type="text" 
                     placeholder="Email" 
-                     name='Email'
+                     name='email'
                     onChange={e => 
                     {
                       handleOnchange(e);
@@ -287,9 +310,9 @@ export default function Register(props) {
                     {
                       handleOnchange(e);
                     }}
-                    helperText={user.warning}
+                    helperText={user.warninge}
                     inputProps={{
-                    maxLength: 10,
+                    maxLength: 30,
                     }}
                     />          
                 </div>
@@ -378,53 +401,53 @@ export default function Register(props) {
                     className ="birth-box"
                     type      ="date"
                     renderCustomHeader={({
-        date,
-        changeYear,
-        changeMonth,
-        decreaseMonth,
-        increaseMonth,
-        prevMonthButtonDisabled,
-        nextMonthButtonDisabled
-      }) => (
-        <div
-          style={{
-            margin: 10,
-            display: "flex",
-            justifyContent: "center"
-          }}
-        >
-          <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
-            {"<"}
-          </button>
-          <select
-            value={getYear(date)}
-            onChange={({ target: { value } }) => changeYear(value)}
-          >
-            {years.map(option => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+                      date,
+                      changeYear,
+                      changeMonth,
+                      decreaseMonth,
+                      increaseMonth,
+                      prevMonthButtonDisabled,
+                      nextMonthButtonDisabled
+                    }) => (
+                      <div
+                        style={{
+                          margin: 10,
+                          display: "flex",
+                          justifyContent: "center"
+                        }}
+                      >
+                        <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+                          {"<"}
+                        </button>
+                        <select
+                          value={getYear(date)}
+                          onChange={({ target: { value } }) => changeYear(value)}
+                        >
+                          {years.map(option => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
 
-          <select
-            value={months[getMonth(date)]}
-            onChange={({ target: { value } }) =>
-              changeMonth(months.indexOf(value))
-            }
-          >
-            {months.map(option => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+                        <select
+                          value={months[getMonth(date)]}
+                          onChange={({ target: { value } }) =>
+                            changeMonth(months.indexOf(value))
+                          }
+                        >
+                          {months.map(option => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
 
-          <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
-            {">"}
-          </button>
-        </div>
-      )}
+                        <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+                          {">"}
+                        </button>
+                      </div>
+                    )}
                     selected  ={birth}
                     error     ={user.err4}
                     helperText={user.warning4}
