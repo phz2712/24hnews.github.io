@@ -257,17 +257,16 @@ export default function Register(props) {
   return (
       <div className="bg-contain">
             <div onSubmit={handleSubmit} className="login-form">
-              <form action='true' method="post">
+             
               <div className="row">
                 <h1 type="button" className="registerr">Register</h1>
                 <h1 type="button" onClick={onlogin} className="loginr">Login</h1>
               </div>
-                <div>
-                  <i/>
+                  <div className="userr-box">
                   <TextField  
-                    className="user-box"
+                   className="userr-box"
                     error={user.err1} 
-                    autoFocus={true} type="text" 
+                    autoFocus={true}
                     placeholder="username" 
                      name='username'
                     onChange={e => 
@@ -281,7 +280,7 @@ export default function Register(props) {
                     }}
                     />
                     <TextField  
-                    className="user-box"
+                    className="userr-box"
                     error={user.erre} 
                     placeholder="Email" 
                      name='email'
@@ -291,12 +290,12 @@ export default function Register(props) {
                     }}
                     helperText={user.warninge}
                     inputProps={{
-                    maxLength: 30,
+                    maxLength: 40,
                     }}
                     />          
-                </div>
-                <div>
-                  <i />
+                  </div>
+                <div className="passwordr-box">
+                  
                 
                   <TextField  
                     className="passwordr-box" 
@@ -481,7 +480,7 @@ export default function Register(props) {
                     Register
                   </button>
                 </div>
-              </form>
+             
             </div>
           </div>
   );

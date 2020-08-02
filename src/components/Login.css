@@ -18,16 +18,16 @@
 }
 .login{
   text-align: right;
-  padding-right: 67px;
-  padding-left: 67px;
+  width: 50%;
+  text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: #abe4ae;
 }
 .register{
   text-align: left;
-  padding-left: 53px;
-  padding-right: 53px;
+  width: 50%;
+  text-align: center;
   padding-bottom: 10px;
   padding-top: 10px;
   margin-left: 0px;
@@ -50,18 +50,23 @@ h1{
   font-size: 20px;
   margin-bottom: 20px;
 }
-
+.user-box{
+  width: 100%
+}
 .user-box input{
   padding: 7.5px 15px;
-  width: 333px;
+  width: 100%;
   border: 1px solid #cccccc;
   outline: none;
   margin-top: 0px;
   border: 2px solid #dddddd;
 }
+.password-box{
+  width: 100%
+}
 .password-box input{
   padding: 7.5px 16px;
-  width: 333px;
+  width: 100%;
   border: 1px solid #cccccc;
   outline: none;
   margin-top: -5px;

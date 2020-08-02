@@ -134,7 +134,7 @@ class Login extends React.Component{
                 <h1 type="button" onClick={this.Register} className="register">Register</h1>
                 <h1 type="button" className="login">Login</h1>
                 </div>
-                <div>
+                <div className="user-box">
                   <i />
                   <TextField  className="user-box"
                               error={this.state.err1} 
