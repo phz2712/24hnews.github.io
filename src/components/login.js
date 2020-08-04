@@ -2,6 +2,10 @@ import React from 'react';
 import './Login.css';
 import {TextField, InputAdornment,} from '@material-ui/core';
 import { Visibility, VisibilityOff} from '@material-ui/icons';
+import { data } from 'jquery';
+
+
+
 
 class Login extends React.Component{
 
@@ -9,37 +13,43 @@ class Login extends React.Component{
     super(props);
     this.state={
        warning        : ' ',
-       username       : '',
-       password       : '',
+       username       : "",
+       password       : "",
        warning2       : ' ',
        err1           : false,
        err2           : false,
-       showpassword   :true,
-       disabled       :true
+       showpassword   : true,
+       disabled       : true
     }
     this.handleChange       = this.handleChange.bind(this);
     this.Showpass           = this.Showpass.bind(this);
-    this.componentWillMount = this.componentWillMount.bind(this);
     this.Register           = this.Register.bind(this);
+    // this.UNSAFE_componentWillMount           = this.UNSAFE_componentWillMount.bind(this);
   }
 
-  
+  // UNSAFE_componentWillMount()
+  // {
+    // let user=this.props.user
+    // if(user!==data){}
+    // else{
+      // this.setState({username: user.username,password:user.password})
+    // }
+  //   console.log(this.props.user)
+  // }
+  // UNSAFE_componentWillReceiveProps(nextprops)
+  // {
+  //   let user=nextprops.props.user
+  //   if(user===[]){}
+  //   else{
+  //     this.setState({username: user.username,password:user.password})
+  //   }
+  // }
 
   Showpass(){
     this.setState({showpassword: !this.state.showpassword})
   }
-  componentWillMount(){
-    this.setState({
-    warning     : this.state.warning,
-    username    : this.state.username,
-    password    : this.state.password,
-    warning2    : this.state.warning2,
-    err1        : this.state.err1,
-    err2        : this.state.err2,
-    showpassword:this.state.showpassword,
-    disabled    :this.state.disabled
-  })
-  }
+  
+ 
   
    handleChange(event) {
         
@@ -49,6 +59,7 @@ class Login extends React.Component{
          const name = target.name;
          this.setState({
            [name]: value});
+
          
           switch (this.state.username.length){
             case 0:
@@ -67,7 +78,7 @@ class Login extends React.Component{
           }
           
         
-          console.log(this.state.username)
+          console.log(this.props.user)
             
  
           /*const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_[!@#$%^&*]_)).{3,}$/;*/
@@ -115,6 +126,7 @@ class Login extends React.Component{
    }
    handleSubmit(event) {
      event.preventDefault();
+    
    }
     
    Register(){
@@ -125,6 +137,15 @@ class Login extends React.Component{
       if (!this.state.showpassword){
         icon=<Visibility onClick={this.Showpass}/>
       }
+    // let valueuser=this.state.username;
+    //   if (this.props.user!==null){
+    //     valueuser=this.props.user.username;
+    //   }
+    //   let valuepassword=this.state.password;
+    //   if (this.props.user!==null){
+    //     valuepassword=this.props.user.password;
+    //   }
+    console.log(this.props.user)
   return (
     <div className="bg-contain">
           <div className="container">
@@ -140,6 +161,7 @@ class Login extends React.Component{
                               error={this.state.err1} 
                               autoFocus={true}
                               type='username' name='username' 
+                              value={this.props.user.username}
                               onKeyUp={this.handleChange} 
                               onChangeCapture={this.handleChange}
                               placeholder='username' 
@@ -159,6 +181,7 @@ class Login extends React.Component{
                               type={this.state.showpassword ? "password" : "text"} 
                               name='password' 
                               onKeyUp={this.handleChange}
+                              value={this.props.user.password}
                               onChangeCapture={this.handleChange} 
                               placeholder='password' 
                               helperText={this.state.warning2}
@@ -179,6 +202,7 @@ class Login extends React.Component{
                   <button type="submit" className="btn-secondary" disabled={this.state.disabled} onClick={()=>alert("đã đăng nhập")} >
                     Login
                   </button>
+                 
                 </div>
               </form>
             </div>
@@ -188,4 +212,8 @@ class Login extends React.Component{
 }
 }
 
+
+const mapStateToProps = state =>{return{
+    users: state.submit
+}};
 export default Login;

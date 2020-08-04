@@ -9,6 +9,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { getYear, getMonth } from "date-fns";
 import range from "lodash/range";
+import { connect } from 'react-redux'
+import * as action from '../actions'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -63,7 +65,7 @@ const years = range(1990, getYear(new Date()) + 1);
   ];
 
 
-export default function Register(props) {
+function Register(props, {dispatch}) {
   
   
 
@@ -76,7 +78,6 @@ export default function Register(props) {
       err1          :false,
       err2          :false,
       err3          :false,
-
       err5          :false,
       erre          :false,
       warning       :' ',
@@ -88,7 +89,7 @@ export default function Register(props) {
       gender        :"male",
       birth         :"",
       job           :"",
-      disabled      :true,
+      disabled      :false,
       email         : "",
       }
 
@@ -248,7 +249,9 @@ export default function Register(props) {
   };
 
   function handleSubmit(event) {
+    console.log(event)
     event.preventDefault();
+    props.onAddUser(user);
   }
   function onlogin() {
     props.isregister();
@@ -257,7 +260,7 @@ export default function Register(props) {
   return (
       <div className="bg-contain">
             <div onSubmit={handleSubmit} className="login-form">
-             
+            <form method="post">
               <div className="row">
                 <h1 type="button" className="registerr">Register</h1>
                 <h1 type="button" onClick={onlogin} className="loginr">Login</h1>
@@ -476,12 +479,21 @@ export default function Register(props) {
         </Select>
       </FormControl>
                 <div className="btn-box">
-                  <button className="btn-secondary" disabled={user.disabled} onClick={()=>alert("đã đăng kí thành công")} >
+                  <button type="submit" className="btn-secondary" disabled={user.disabled}>
                     Register
                   </button>
                 </div>
-             
+                </form>
             </div>
           </div>
   );
 }
+const mapStateToProps = state =>{return{
+
+}};
+const mapDispatchToProps = (dispatch, props) =>{return{
+      onAddUser: (user) =>{
+        dispatch(action.adduser(user))
+      }
+}};
+export default connect(mapStateToProps,mapDispatchToProps)(Register)
