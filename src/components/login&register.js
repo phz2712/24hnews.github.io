@@ -4,10 +4,9 @@ import Register from './register';
 import Login2 from './login2';
 import Login from './login';
 import { connect } from 'react-redux';
-import { data } from "jquery";
 
- function Login_register(props) {
-   const [islogin, setislogin] = useState(false);
+function Login_register(props) {
+  const [islogin, setislogin] = useState(false);
 
   const Handleislogin=()=>
 {

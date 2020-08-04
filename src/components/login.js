@@ -2,7 +2,7 @@ import React from 'react';
 import './Login.css';
 import {TextField, InputAdornment,} from '@material-ui/core';
 import { Visibility, VisibilityOff} from '@material-ui/icons';
-import { data } from 'jquery';
+
 
 
 
@@ -24,26 +24,8 @@ class Login extends React.Component{
     this.handleChange       = this.handleChange.bind(this);
     this.Showpass           = this.Showpass.bind(this);
     this.Register           = this.Register.bind(this);
-    // this.UNSAFE_componentWillMount           = this.UNSAFE_componentWillMount.bind(this);
+   
   }
-
-  // UNSAFE_componentWillMount()
-  // {
-    // let user=this.props.user
-    // if(user!==data){}
-    // else{
-      // this.setState({username: user.username,password:user.password})
-    // }
-  //   console.log(this.props.user)
-  // }
-  // UNSAFE_componentWillReceiveProps(nextprops)
-  // {
-  //   let user=nextprops.props.user
-  //   if(user===[]){}
-  //   else{
-  //     this.setState({username: user.username,password:user.password})
-  //   }
-  // }
 
   Showpass(){
     this.setState({showpassword: !this.state.showpassword})
@@ -81,7 +63,7 @@ class Login extends React.Component{
           console.log(this.props.user)
             
  
-          /*const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_[!@#$%^&*]_)).{3,}$/;*/
+         
           const lower   = /^(?=.*[a-z]).{0,}$/;
           const upper   = /^(?=.*[A-Z]).{0,}$/;
           const number  = /^(?=.*\d).{0,}$/;
@@ -211,9 +193,4 @@ class Login extends React.Component{
   );
 }
 }
-
-
-const mapStateToProps = state =>{return{
-    users: state.submit
-}};
 export default Login;

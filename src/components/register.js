@@ -4,7 +4,6 @@ import {TextField, Select, Input, MenuItem, InputLabel, FormControlLabel,
 RadioGroup, Radio, FormControl, FormLabel, Typography} from "@material-ui/core";
 import './Register.css';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import * as moment from 'moment'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { getYear, getMonth } from "date-fns";
@@ -65,7 +64,7 @@ const years = range(1990, getYear(new Date()) + 1);
   ];
 
 
-function Register(props, {dispatch}) {
+function Register(props) {
   
   
 
@@ -107,9 +106,6 @@ function Register(props, {dispatch}) {
   {title: "police"},
   {title: "teacher"},]
 
-  const date =new Date();
-      
-    const formatdate = moment(date).format('YYYY-MM-DD');
     useEffect(()=>{validate()},[user.username,user.password,user.repassword,user.email,city,user.err5,user.job])
 
     function validate (){
