@@ -137,14 +137,14 @@ class Login extends React.Component{
       if (!this.state.showpassword){
         icon=<Visibility onClick={this.Showpass}/>
       }
-    // let valueuser=this.state.username;
-    //   if (this.props.user!==null){
-    //     valueuser=this.props.user.username;
-    //   }
-    //   let valuepassword=this.state.password;
-    //   if (this.props.user!==null){
-    //     valuepassword=this.props.user.password;
-    //   }
+    let valueuser=this.state.username;
+      if (this.props.user!==""){
+        valueuser=this.props.user.username;
+      }
+      let valuepassword=this.state.password;
+      if (this.props.user!==""){
+        valuepassword=this.props.user.password;
+      }
     console.log(this.props.user)
   return (
     <div className="bg-contain">
@@ -161,7 +161,7 @@ class Login extends React.Component{
                               error={this.state.err1} 
                               autoFocus={true}
                               type='username' name='username' 
-                              value={this.props.user.username}
+                              value={valueuser}
                               onKeyUp={this.handleChange} 
                               onChangeCapture={this.handleChange}
                               placeholder='username' 
@@ -181,7 +181,7 @@ class Login extends React.Component{
                               type={this.state.showpassword ? "password" : "text"} 
                               name='password' 
                               onKeyUp={this.handleChange}
-                              value={this.props.user.password}
+                              value={valuepassword}
                               onChangeCapture={this.handleChange} 
                               placeholder='password' 
                               helperText={this.state.warning2}

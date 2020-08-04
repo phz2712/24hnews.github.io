@@ -22,11 +22,11 @@ import { data } from "jquery";
    let form 
     if(islogin)
     { 
-      // if(props.users!== data)
-      // form = <Login islogin={Handleislogin} />
-      // else{
+      if(props.users === null)
+      form = <Login user="" islogin={Handleislogin} />
+      else{
         form = <Login2 islogin={Handleislogin} />
-      // }
+      }
     }
     else if(!islogin)
     {

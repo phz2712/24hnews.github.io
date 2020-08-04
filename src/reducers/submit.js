@@ -1,4 +1,4 @@
-const submit = (state = [], action) => {
+const submit = (state = null, action) => {
   
 
     switch (action.type) {
