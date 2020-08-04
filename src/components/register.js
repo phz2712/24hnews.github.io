@@ -252,6 +252,7 @@ function Register(props, {dispatch}) {
     console.log(event)
     event.preventDefault();
     props.onAddUser(user);
+    onlogin();
   }
   function onlogin() {
     props.isregister();
