@@ -9,7 +9,7 @@ function Login_register(props) {
   const [islogin, setislogin] = useState(false);
 
   const Handleislogin=()=>
-{
+  {
     setislogin(false)
   }
 
@@ -23,13 +23,12 @@ function Login_register(props) {
     { 
       if(props.users === null)
       form = <Login user="" islogin={Handleislogin} />
-      else{
+      else
         form = <Login2 islogin={Handleislogin} />
-      }
     }
     else if(!islogin)
     {
-     form= <Register isregister={handleisregister} />
+      form= <Register isregister={handleisregister} />
     }
 
   return (

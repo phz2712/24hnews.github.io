@@ -3,23 +3,16 @@ import PropTypes from 'prop-types'
 import Login from "./login"
 import { connect } from 'react-redux';
 
-
-const Login2 = ({users}) => (
-    users.map(user => (
-        <Login key={user.id} user={user} />
-))
-
-)
-
-Login2.propTypes = {
-  users: PropTypes.arrayOf(
-    PropTypes.shape({
-      id      : PropTypes.number.isRequired,
-      username: PropTypes.string.isRequired,
-      password: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
-}
+function Login2(props) {
+    const {users, islogin}=props
+    const logins =  users.map(user =>{return (
+          <Login key={user.id} islogin={islogin} user={user} />
+    )})
+   return(
+     logins
+   )
+  }
+  
 
 const mapStateToProps = state =>{return{
     users: state.submit
