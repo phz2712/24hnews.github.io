@@ -1,7 +1,29 @@
 import React from 'react';
-import './Login.css';
 import {TextField, InputAdornment,} from '@material-ui/core';
 import { Visibility, VisibilityOff} from '@material-ui/icons';
+import {StyleDiv, Styleh1} from "./styleLogin";
+import "../index.css"
+
+
+// const useStyles = makeStyles(theme => ({
+//   root: 
+//   {
+//     "& > *": {
+//       margin: theme.spacing(1),
+//       width: "100%"
+//     }
+//   },
+//   formtextfield: 
+//   {
+//     width: "100%",
+//     outline: "none",
+//     marginTop: "-5px",
+//     border: "2px solid #dddddd",
+//     borderRight: "none",
+//     borderBottom: "none",
+//   },
+  
+// }));
 
 class Login extends React.Component{
   constructor(props) {
@@ -19,6 +41,7 @@ class Login extends React.Component{
     this.handleChange       = this.handleChange.bind(this);
     this.Showpass           = this.Showpass.bind(this);
     this.Register           = this.Register.bind(this);
+    
   }
   Showpass(){
     this.setState({showpassword: !this.state.showpassword})
@@ -95,6 +118,7 @@ class Login extends React.Component{
   {
     this.props.islogin();
   }
+  
   render(){
     let icon=<VisibilityOff onClick={this.Showpass}/>
       if (!this.state.showpassword){
@@ -108,17 +132,18 @@ class Login extends React.Component{
       if (this.props.user!==""){
         valuepassword=this.props.user.password;
       }
+    //  const classes = useStyles();
     console.log(this.props.user)
   return (
-    <div className="bg-contain">
-      <div className="container">
-        <div onSubmit={this.handleSubmit} className="login-form">
+    <StyleDiv className="bg-contain">
+      <StyleDiv className="container">
+        <StyleDiv onSubmit={this.handleSubmit} className="login-form">
           <form method="post">
-            <div className="row">
-              <h1 type="button" onClick={this.Register} className="register">Register</h1>
-              <h1 type="button" className="login">Login</h1>
-            </div>
-            <div className="user-box">
+            <StyleDiv className="row">
+              <Styleh1 type="button" onClick={this.Register} className="register">Register</Styleh1>
+              <Styleh1 type="button" className="login">Login</Styleh1>
+            </StyleDiv>
+            <StyleDiv className="user-box">
               <i />
               <TextField  
                 className="user-box"
@@ -134,10 +159,10 @@ class Login extends React.Component{
                 maxLength: 10,
                 }}
               />            
-            </div>
-            <div>
+            </StyleDiv>
+            <StyleDiv>
               <i />
-              <div className="row">
+              <StyleDiv className="row">
               <TextField  
                 className="password-box" 
                 error={this.state.err2} 
@@ -160,17 +185,17 @@ class Login extends React.Component{
                   maxLength: 10,
                 }}
                 />
-                </div>
-            </div>
-            <div className="btnl-box">
+                </StyleDiv>
+            </StyleDiv>
+            <StyleDiv className="btnl-box">
               <button type="submit" className="btn-secondary" disabled={this.state.disabled} onClick={()=>alert("đã đăng nhập")} >
                 Login
               </button>
-            </div>
+            </StyleDiv>
           </form>
-        </div>
-      </div>
-    </div>
+        </StyleDiv>
+      </StyleDiv>
+    </StyleDiv>
   );
 }
 }

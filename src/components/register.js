@@ -2,7 +2,7 @@ import React, {useState, useReducer, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {TextField, Select, Input, MenuItem, InputLabel, FormControlLabel, Radio,
 RadioGroup, FormControl, FormLabel, Typography} from "@material-ui/core";
-import './Register.css';
+import './styleRegister.js';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -10,6 +10,8 @@ import { getYear, getMonth } from "date-fns";
 import range from "lodash/range";
 import { connect } from 'react-redux'
 import * as action from '../actions'
+import {StyleDiv, Styleh1} from "./styleRegister";
+import "../index.css";
 
 const useStyles = makeStyles(theme => ({
   root: 
@@ -29,6 +31,8 @@ const useStyles = makeStyles(theme => ({
   {
     fontSize:13,
     textAlign:'left',
+    width:"60%",
+    padding:"15px"
   },
   textField: 
   {
@@ -52,7 +56,7 @@ const citis = [
   ,"Tây Ninh", "An Giang","Bạc Liêu","Bến Tre","Cà Mau","Cần Thơ","Đồng Tháp","Hậu Giang","Kiên Giang","Long An"
   ,"Sóc Trăng","Tiền Giang","Trà Vinh","Vĩnh Long"
 ];
-const years = range(1990, getYear(new Date()) + 1);
+const years = range(1900, getYear(new Date()) + 1);
 const months = [
   "January",
   "February",
@@ -261,14 +265,14 @@ function Register(props) {
   }
   
   return (
-      <div className="bg-contain">
-          <div onSubmit={handleSubmit} className="login-form">
+      <StyleDiv className="bg-contain">
+          <StyleDiv onSubmit={handleSubmit} className="login-form">
             <form method="post">
-              <div className="row">
-                <h1 type="button" className="registerr">Register</h1>
-                <h1 type="button" onClick={onlogin} className="loginr">Login</h1>
-              </div>
-              <div className="userr-box">
+              <StyleDiv className="row">
+                <Styleh1 type="button" className="registerr">Register</Styleh1>
+                <Styleh1 type="button" onClick={onlogin} className="loginr">Login</Styleh1>
+              </StyleDiv>
+              <StyleDiv className="userr-box">
                 <TextField  
                   className     ="userr-box"
                   error         ={user.err1} 
@@ -288,8 +292,8 @@ function Register(props) {
                   helperText    ={user.warninge}
                   inputProps    ={{ maxLength: 40,}}
                 />          
-              </div>
-              <div className="passwordr-box">
+              </StyleDiv>
+              <StyleDiv className="passwordr-box">
                 <TextField  
                   className     ="passwordr-box" 
                   error         ={user.err2} 
@@ -310,11 +314,10 @@ function Register(props) {
                   helperText  ={user.warning3}
                   inputProps  ={{maxLength: 10,}}
                 />
-              </div>
-              <div className="info">
+              </StyleDiv>
+              <StyleDiv className="info">
                 <i />
-                <div className="inline">
-                  <div className={classes.formcontrollabel} style={{border:'none'}}>
+                <div className="row">
                     <FormControl className="gender" component="fieldset">
                       <FormLabel className={classes.formlabel} component="legend">Gender</FormLabel>
                       <RadioGroup 
@@ -342,8 +345,8 @@ function Register(props) {
                       />
                       </RadioGroup>
                     </FormControl>
-                  <div className="flex">
-                  <div className="label">Birth day</div>
+                  <StyleDiv className="flex">
+                  <StyleDiv className="label">Birth day</StyleDiv>
                   <DatePicker
                     id        ="date"
                     label     ="Birthday"
@@ -360,7 +363,7 @@ function Register(props) {
                       nextMonthButtonDisabled}) => 
                     (
                       <div style={{margin: 10, display: "flex", justifyContent: "center"}}>
-                        <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+                        <button onClick={decreaseMonth} type="button" disabled={prevMonthButtonDisabled}>
                           {"<"}
                         </button>
                         <select value={getYear(date)} onChange={({target: { value }}) => changeYear(value)}>
@@ -377,7 +380,7 @@ function Register(props) {
                                                   </option> ))
                           }
                         </select>
-                        <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+                        <button onClick={increaseMonth} type="button" disabled={nextMonthButtonDisabled}>
                           {">"}
                         </button>
                       </div>
@@ -388,10 +391,10 @@ function Register(props) {
                       onChange        ={d => {setbirth(d);}}                  
                       InputLabelProps ={{shrink: true, }}
                     />
-                  </div>
-                </div>
+                  </StyleDiv>
+               
               </div>
-            </div>
+            </StyleDiv>
             <Autocomplete
               freeSolo
               id                ="free-solo-2-demo"
@@ -420,14 +423,14 @@ function Register(props) {
                 {citis.map((city) => (<MenuItem key={city} value={city}> {city} </MenuItem>))}
               </Select>
             </FormControl>
-            <div className="btn-box">
+            <StyleDiv className="btn-box">
               <button type="submit" className="btn-secondary" disabled={user.disabled}>
                 Register
               </button>
-            </div>
+            </StyleDiv>
           </form>
-        </div>
-      </div>
+        </StyleDiv>
+      </StyleDiv>
   );
 }
 const mapStateToProps = state =>{return{

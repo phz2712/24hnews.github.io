@@ -1,5 +1,5 @@
 import React, {useState,} from "react";
-import './Register.css';
+import './styleRegister.js';
 import Register from './register';
 import Login2 from './login2';
 import Login from './login';
