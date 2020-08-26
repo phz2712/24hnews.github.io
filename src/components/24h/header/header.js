@@ -15,6 +15,7 @@ import sport from '../image/TheThao.png';
 import specialsport from '../image/NgoaiHangAnh.png';
 import date from '../image/XemLich.png';
 import search from '../image/search.png';
+import {BongDa} from './listTitle'
 
 function Header(props) {
     return (
@@ -23,9 +24,12 @@ function Header(props) {
             <StyleDiv className=" content">
                 <img className="icon" src={homapage} alt="Trang chủ"></img>
                 <img className="icon-menu" src={menu} alt="Menu"></img>
-                <div className="group_icon">
-                    <span className="icon-span"><img className="icon2" src={soccer} alt="Bóng Đá"></img></span>
-                    <span className="header_title">BÓNG ĐÁ</span>
+                <div className='group-title'>
+                    <div type='button' className="group_icon">
+                        <span className="icon-span"><img className="icon2" src={soccer} alt="Bóng Đá"></img></span>
+                        <span className="header_title">BÓNG ĐÁ</span>  
+                    </div>
+                    <span className="listTitle"><BongDa /></span>
                 </div>
                 <div className="group_icon">
                     <span className="icon-span"><img className="icon2" src={business} alt="Kinh Doanh"></img></span>
@@ -68,6 +72,7 @@ function Header(props) {
                     <span className="header_title">XEM LỊCH</span>
                 </div>
                 <div className="icon-search"><img src={search} alt="search"></img></div>
+                <input className="typeSearch" placeholder='Nhập tin tức cần tìm'></input>
             </StyleDiv>
             <div className="blank"></div>
         </StyleDiv>
