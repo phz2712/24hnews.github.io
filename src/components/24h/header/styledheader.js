@@ -10,12 +10,14 @@ export const StyleDiv = styled.div`
     }
     &.content{
         ${'' /* width: 74.6%; */}
-        height: 100%;
+        height: 50px;
         background-color: #78b43d;
         display:flex;
         align-items: center;
         margin: 0;
-        width:74.6%
+        width:74.6%;
+        position: fixed;
+        ${'' /* z-index: 2; */}
         ${'' /* flex-grow:1; */}
     }
     .blank{
@@ -26,34 +28,61 @@ export const StyleDiv = styled.div`
         display: inline-flex;
         justify-content: center;
         flex-direction: column;
-        max-height: 100%;
-        
+        height: 100%;
         align-items:center;
         text-align: center;
         margin-bottom:-3px;
         min-width: 50px;
         white-space: nowrap;
-        ${'' /* :hover + .title{
+        ${'' /* position: absolute; */}
+        :hover + .listTitle{
             display: inline;
+        }
+        ${'' /* :hover{
+            background-color: #609A26;
+            text-decoration: underline;
         } */}
-        ${'' /* z-index: 1; */}
+        ${'' /* z-index: -1; */}
     }
     .group-title{
+        color: #FFFFFF;
         display: flex;
+        height: 100%;
         flex-direction: column;
+        :hover{
+            background-color: #609A26;
+            text-decoration: underline;
+        }
+    }
+    .between{
+        flex-grow:1;
     }
     .listTitle{
-        ${'' /* display: none; */}
+        display: none;
+        margin-top: 9px;
+        :hover {
+            display: inline;
+        }
+        ${'' /* position: absolute; */}
     }
     .icon{
         margin-top: -3px;
         margin-right: 15px;
     }
     .icon-menu{
-        margin-top: -1px;
+        margin-top: 4px;
+        ${'' /* position: fixed; */}
+        background-color: blue;
         margin-right: 15px;
-        
+        :hover + .listTitle{
+            display: inline;
+        }
     }
+    .icon-menu + .listTitle{
+        margin-top: 7px;
+        margin-left:-300px;
+    }
+
     .typeSearch{
         position: absolute;
         margin-left:178px;
@@ -73,7 +102,7 @@ export const StyleDiv = styled.div`
         }
     }
     .icon-search{
-        flex-grow: 1;
+        ${'' /* flex-grow: 1; */}
         text-align: right;
         margin-right:14px;
         :hover + .typeSearch{
