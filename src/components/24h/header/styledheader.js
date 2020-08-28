@@ -72,7 +72,7 @@ export const StyleDiv = styled.div`
     .icon-menu{
         margin-top: 4px;
         ${'' /* position: fixed; */}
-        background-color: blue;
+        ${'' /* background-color: blue; */}
         margin-right: 15px;
         :hover + .listTitle{
             display: inline;
