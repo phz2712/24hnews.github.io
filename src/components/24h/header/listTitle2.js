@@ -20,12 +20,17 @@ const StyleDiv = styled.div`
         width: 100%;
         /* position: relative; */
         .title2 li{
-            width: 100%; 
+            width: calc(100% + 50px); 
    
         }
         .titleMenu{
             width: 100%; 
-           
+            border-style: ridge;
+            border-top: 1px;
+            border-width: 0.5px;
+            border-left: none;
+            border-right: none;
+            border-color: #aad862;
         }
         /* .title{
             position: relative;
@@ -84,7 +89,9 @@ const StyleDiv = styled.div`
         white-space: nowrap;
         :hover{
             background-color:#78b43d;
+            /* border-color: black; */
             color: #ffffff;
+            /* border-bottom: 1px; */
             /* list-style-image: url(${arrowA}); */
         }
         :hover .title2{
@@ -101,10 +108,10 @@ const StyleDiv = styled.div`
         /* position: absolute; */
     }
     .title2 li{
-        width: 180px; 
+        /* width: 180px;  */
         background-color:#78b43d;
         border-color: #aad862;
-        
+      
         /* list-style-image: url(${arrowA}); */
     }
     
@@ -125,8 +132,7 @@ const StyleDiv = styled.div`
     }
 `;
 
-
-export const DanhMuc =()=>{
+export const Menu02 =()=>{
     return(
         <StyleDiv className="DanhMuc">
             <li className='title' href="# ">Trang chủ 24giờ</li>
@@ -236,7 +242,7 @@ export const DanhMuc =()=>{
 
 export const BongDa=()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Lịch thi đấu</li>
             <li className='title' href="# ">Video</li>
             <li className='title' href="# ">Lịch thi đấu ngày hôm nay</li>
@@ -268,13 +274,13 @@ export const BongDa=()=>{
             <li className='title' href="# ">Bạn đọc tương tác</li>
             <li className='title' href="# ">Thuê sân bóng HCM</li>
             <li className='title' href="# ">Thuê sân bóng HN</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const KinhDoanh=()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Doanh nhân</li>
             <li className='title' href="# ">Tài chính</li>
             <li className='title' href="# ">Bất động sản</li> 
@@ -285,25 +291,25 @@ export const KinhDoanh=()=>{
             <li className='title' href="# ">Tỷ giá ngoại tệ</li>
             <li className='title' href="# ">Giá vàng hôm nay</li> 
             <li className='title' href="# ">Tiền tiền tiền</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const ThiTruong =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Thị trường 24h</li>
             <li className='title' href="# ">Giá cả hàng hóa</li>
             <li className='title' href="# ">Xu hướng tiêu dùng độc lạ</li>
             <li className='title' href="# ">Trung tâm mua sắm</li>
             <li className='title' href="# ">Sản xuất_Tiêu dùng</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const SucKhoe =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Bệnh đàn ông</li>
             <li className='title' href="# ">Bệnh phụ nữ</li>
             <li className='title' href="# ">Sức khỏe dinh dưỡng</li>
@@ -311,13 +317,13 @@ export const SucKhoe =()=>{
             <li className='title' href="# ">Ung thư</li>
             <li className='title' href="# ">Bài thuốc dân gian</li>
             <li className='title' href="# ">Tin tức sức khỏe</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const HiTech =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Điện thoại</li>
             <li className='title' href="# ">Điện tử gia dụng</li>
             <li className='title' href="# ">Đánh giá sản phẩm</li>
@@ -328,36 +334,36 @@ export const HiTech =()=>{
             <li className='title' href="# ">Phụ kiện hitech</li>
             <li className='title' href="# ">Máy tính để bản</li>
             <li className='title' href="# ">Thế giới công nghệ</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const ShowBiz =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Sao việt</li>
             <li className='title' href="# ">Talk với sao</li>
             <li className='title' href="# ">Sao châu á</li>
             <li className='title' href="# ">Sao hollywood và các nước khác</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const TheGioi =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Điểm nóng</li>
             <li className='title' href="# ">Quân sự</li>
             <li className='title' href="# ">Hồ sơ</li>
             <li className='title' href="# ">Thế giới động vật</li>
             <li className='title' href="# ">AMACCAO</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const TinTuc =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Tin Hà Nội</li>
             <li className='title' href="# ">Tin Tp Hồ Chí Minh</li>
             <li className='title' href="# ">Tin Đà Nẵng</li>
@@ -365,12 +371,12 @@ export const TinTuc =()=>{
             <li className='title' href="# ">Tin Cần Thơ</li>
             <li className='title' href="# ">Dự báo thời tiết</li>
             <li className='title' href="# ">Lịch vạn niên</li>
-        </StyleDiv>
+        </ul>
     )
 }
 export const ThoiTrang =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Thời trang công sở</li>
             <li className='title' href="# ">Bí quyết mặc đẹp</li>
             <li className='title' href="# ">Xu hướng thời trang</li>
@@ -378,13 +384,13 @@ export const ThoiTrang =()=>{
             <li className='title' href="# ">Người mẫu-Hoa hậu</li>
             <li className='title' href="# ">Thời trang bốn mùa</li>
             <li className='title' href="# ">Thế giới thời trang</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const PhapLuat =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Vụ án nỗi tiếng</li>
             <li className='title' href="# ">kỳ án thế giới</li>
             <li className='title' href="# ">Trọng án</li>
@@ -392,69 +398,69 @@ export const PhapLuat =()=>{
             <li className='title' href="# ">Cảnh giác</li>
             <li className='title' href="# ">Hồ sơ vụ án</li>
             <li className='title' href="# ">Phóng sự</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const AmThuc =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Món ngon mỗi ngày</li>
             <li className='title' href="# ">Thức đơn hằng ngày</li>
             <li className='title' href="# ">Đặc sản 3 miền</li>
             <li className='title' href="# ">Clip ẩm thực</li>
             <li className='title' href="# ">Tin tức ẩm thực</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const LamDep =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Thẩm mỹ viện</li>
             <li className='title' href="# ">Tư vấn làm đẹp</li>
             <li className='title' href="# ">Làm đẹp cùng sao</li>
             <li className='title' href="# ">Phong cách đàn ông</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const GiaiTri =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Phim</li>
             <li className='title' href="# ">Ca nhạc-MTV</li>
             <li className='title' href="# ">TV show</li>
             <li className='title' href="# ">Tin tức giải trí</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const BanBe =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Chuyện công sở</li>
             <li className='title' href="# ">Tình yêu-Giới Tính</li>
             <li className='title' href="# ">Ngoại tình</li>
             <li className='title' href="# ">Giới trẻ</li>
             <li className='title' href="# ">Hotgirl-Hot boy</li>
             <li className='title' href="# ">Nhịp sống trẻ</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const GiaoDuc =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Tuyển sinh 2020</li>
             <li className='title' href="# ">Tin tức giáo dục</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const TheThao =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Tennis</li>
             <li className='title' href="# ">Võ thuật-UFC Quyền anh</li>
             <li className='title' href="# ">Lịch thi đấu thể thao</li>
@@ -476,24 +482,24 @@ export const TheThao =()=>{
             <li className='title' href="# ">Thuê sân tennis HCM</li>
             <li className='title' href="# ">Tin tức thể thao</li>
             <li className='title' href="# ">Bóng rổ NBA-VBA</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const PhiThuong =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Kỷ lục guiness</li>
             <li className='title' href="# ">Bí ẩn lịch sử</li>
             <li className='title' href="# ">Video clip chuyện lạ</li>
             <li className='title' href="# ">Chuyện lạ</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const CongNghe =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Thủ thuật-Tiện ích</li>
             <li className='title' href="# ">Game</li>
             <li className='title' href="# ">Phần mềm</li>
@@ -501,37 +507,37 @@ export const CongNghe =()=>{
             <li className='title' href="# ">Sợ virus???</li>
             <li className='title' href="# ">Máy in/phụ kiện</li>
             <li className='title' href="# ">Khám phá công nghệ</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const Xemay =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Thế giới xe</li>
             <li className='title' href="# ">Bảng giá xe</li>
             <li className='title' href="# ">Xe tay ga</li>
             <li className='title' href="# ">Xe phân khối lớn</li>
             <li className='title' href="# ">Xe máy điện</li>
             <li className='title' href="# ">Xe độc lạ</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const DuLich =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Du lịch Việt Nam</li>
             <li className='title' href="# ">Tin tức du lịch</li>
             <li className='title' href="# ">Điểm du lịch</li>
             <li className='title' href="# ">Ảnh</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const Cuoi24H =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Hội quán 24H</li>
             <li className='title' href="# ">Video clip cười</li>
             <li className='title' href="# ">Tin vịt</li>
@@ -544,24 +550,24 @@ export const Cuoi24H =()=>{
             <li className='title' href="# ">Tiểu phẩm hài</li>
             <li className='title' href="# ">Cười dân gian</li>
             <li className='title' href="# ">Danh hài 3 miền</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const Media =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Infographics</li>
             <li className='title' href="# ">Video</li>
             <li className='title' href="# ">Manazine</li>
             <li className='title' href="# ">quiz</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const Video =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Video tổng hợp</li>
             <li className='title' href="# ">Clip nóng</li>
             <li className='title' href="# ">Video tin tức</li>
@@ -572,14 +578,14 @@ export const Video =()=>{
             <li className='title' href="# ">Video an ninh xã hội</li>
             <li className='title' href="# ">Video ẩm thực-Du lịch</li>
             <li className='title' href="# ">Video thời trang Hi-tech</li>
-        </StyleDiv>
+        </ul>
     )
 }
 
 export const TuyenDung =()=>{
     return(
-        <StyleDiv>
+        <ul>
             <li className='title' href="# ">Tuyển dụng</li>
-        </StyleDiv>
+        </ul>
     )
 }
