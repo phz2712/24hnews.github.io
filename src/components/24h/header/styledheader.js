@@ -51,6 +51,9 @@ export const StyleDiv = styled.div`
             text-decoration: underline;
             }
         }
+        .content{
+            margin-left: 17px;
+        }
     }
     .menu{
         :hover + .titleMobi{
@@ -84,8 +87,7 @@ export const StyleDiv = styled.div`
         background-color: #78b43d;
         display:flex;
         align-items: center;
-        margin: 0;
-        position: fixed;
+        position: absolute;
         ${'' /* z-index: 2; */}
         /* flex-grow:1; */
     }
@@ -97,7 +99,7 @@ export const StyleDiv = styled.div`
     .blank{
         /* flex-grow: 3.5;  */
         /* display:none; */
-        flex-shrink: 4;
+        /* flex-shrink: 4; */
     }
     .group_icon{
         ${'' /* background-color: yellow; */}

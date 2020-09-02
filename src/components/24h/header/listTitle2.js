@@ -45,25 +45,6 @@ const StyleDiv = styled.div`
             flex-direction: column;
         }
     }
-    @media (min-width: 1023px) {
-        .title2 ul{
-            width: 180px; 
-            position: absolute;
-        }
-        &.DanhMuc{
-            width: 180px;
-        }
-        .titleMenu{
-            width: 180px;
-        }
-        .list{
-            display:flex;
-            
-        }
-        .title2{
-            margin-top: -18px;
-        }
-    }
     .title{
         list-style-image: url(${arrow});
         list-style-position: inside;

@@ -12,33 +12,7 @@ const StyleDiv = styled.div`
     margin-top: -6px;
     
     @media (max-width: 1022px) {
-        &.DanhMuc{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        width: 100%;
-        /* position: relative; */
-        .title2 li{
-            width: 100%; 
-   
-        }
-        .titleMenu{
-            width: 100%; 
-           
-        }
-        /* .title{
-            position: relative;
-        } */
-        .title2{
-            /* position: absolute; */
-            width: 100%;
-            margin-top:0px
-        }
-        .list{
-            display:flex;
-            flex-direction: column;
-        }
+       
     }
     @media (min-width: 1023px) {
         .title2 ul{
