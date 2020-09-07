@@ -41,12 +41,12 @@ const StyleDiv = styled.div`
         text-align: left;
         min-width: 180px;
         ${'' /* display: block; */}
-        border-color: #78b43d;
-        border-style: ridge;
-        border-top: 1px;
-        border-width: 0.5px;
-        border-left: none;
-        border-right: none;
+        /* border-color: #78b43d;
+        border-style: ridge; */
+        border-bottom: 1px ridge #78b43d;
+        /* border-width: 0.5px; */
+        /* border-left: none;
+        border-right: none; */
         background-color: #aad862;
         font-size: 12px;
         font-family: Arial, Helvetica, sans-serif;
