@@ -1,11 +1,14 @@
-import React from 'react';
-import {StyleDiv} from './stylebody';
+import React, {useState} from 'react';
+import {StyleDiv, StyleDiv2, StyleButtonI, StyleButtonD, StyleButton} from './stylebody';
 import Formnews from './formnews';
 import Video from '../video/[From Up On Poppy Hill] Sayonara no natsu.mp4';
-import smallV from '../image/small-iconvideo.png'
-import Cloud from '../image/261.png'
-import cloud1 from '../image/chisokhongkhi_clound.png'
-import arrowWeather from '../image/chisokhongkhi_next.png'
+import smallV from '../image/small-iconvideo.png';
+import Cloud from '../image/261.png';
+import cloud1 from '../image/chisokhongkhi_clound.png';
+import arrowWeather from '../image/chisokhongkhi_next.png';
+import down from '../image/btn_down2019.png';
+import arrowBack from '../image/arrowBack.png';
+import arrowNext from '../image/arrownext.png';
 
 function Body(props) {
     const smallVideo =
@@ -16,8 +19,21 @@ function Body(props) {
             <div className='titleSmallVideo'>
                 abc
             </div>
-        </div>      
-    
+        </div>  
+    const [numDisappear, setNumDisappear]=useState(1);
+
+    function increase(){
+        setNumDisappear(numDisappear + 1)
+    }
+
+    function decrease(){
+        setNumDisappear(numDisappear - 1)
+    }
+
+    function changeNum(e){
+        setNumDisappear(e)
+        console.log(e)
+    }
 
     return(
         <StyleDiv className='cover'>
@@ -162,25 +178,47 @@ function Body(props) {
                         <div className='title2'><li className='ck'><span>Thông Tin Chứng Khoán</span></li></div>
                         <div className='tableCk'>
                             <div className='ckTr'>
-                                <div className='ckTh1'>a</div>
-                                <div className='ckTh1'></div>
-                                <div className='ckTh1'></div>
+                                <div className='ckTh1'>VN-INDEX</div>
+                                <div className='ckTh1'>VN30-INDEX</div>
+                                <div className='ckTh1'>HNX-INDEX</div>
                             </div>
                             <div className='ckTr'>
-                                <div className='ckTh'></div>
-                                <div className='ckTh'></div>
-                                <div className='ckTh'></div>
+                                <div className='ckTh'>905.41</div>
+                                <div className='ckTh'>842.81</div>
+                                <div className='ckTh'>125.77</div>
                             </div>
                             <div className='ckTr'>
-                                <div className='ckTh'></div>
-                                <div className='ckTh'></div>
-                                <div className='ckTh'></div>
+                                <div className='ckTh'>+3.87</div>
+                                <div className='ckTh'>+2.27</div>
+                                <div className='ckTh'>-0.38</div>
                             </div>
                             <div className='ckTr'>
-                                <div className='ckTh'></div>
-                                <div className='ckTh'></div>
-                                <div className='ckTh'></div>
+                                <div className='ckTh'>(+0.43%)</div>
+                                <div className='ckTh'>(+0.27%)</div>
+                                <div className='ckTh'>(-0.3%)</div>
                             </div>
+                        </div>
+                        <div className='smallCk'>
+                            <div>CK Mỹ <img alt='down' src={down}></img></div>
+                            <div>CK Trung Quốc <img alt='down' src={down}></img></div>
+                            <div>S&P 500 <img alt='down' src={down}></img></div>
+                        </div>
+                        <span className='normal3'>
+                            <div className='formnews'><Formnews /></div>
+                            <div className='formnews'><Formnews /></div>
+                        </span>
+                        <div className='titlePhuNu'><li className='Phunu'><span>DÀNH RIÊNG CHO PHÁI ĐẸP</span></li></div>
+                        <span className='normal4'>
+                            <StyleDiv2 className='formnews' disabled={numDisappear} vl={1}><Formnews /></StyleDiv2>
+                            <StyleDiv2 className='formnews' disabled={numDisappear} vl={2}><Formnews /></StyleDiv2>
+                            <StyleDiv2 className='formnews' disabled={numDisappear} vl={3}><Formnews /></StyleDiv2>
+                        </span>
+                        <div className="group-button">
+                            <StyleButtonD type='button' disabled={numDisappear} onClick={decrease}> <img alt='arrowBack' src={arrowBack}></img> </StyleButtonD>
+                            <StyleButton type='button' disabled={numDisappear} onClick={() => {changeNum(1);}} vl={1}>1</StyleButton>
+                            <StyleButton type='button' disabled={numDisappear} onClick={() => {changeNum(2);}} vl={2}>2</StyleButton>
+                            <StyleButton type='button' disabled={numDisappear} onClick={() => {changeNum(3);}} vl={3}>3</StyleButton>
+                            <StyleButtonI type='button' disabled={numDisappear} onClick={increase}> <img alt='arrowNext' src={arrowNext}></img> </StyleButtonI>
                         </div>
                     </div>
                 </div>

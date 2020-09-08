@@ -6,6 +6,7 @@ import Link from '../image/link1.png'
 import Link2 from '../image/link2.png'
 
 export const StyleDiv = styled.div`
+    
     /* position: absolute; */
     @media (min-width: 1023px) {
       
@@ -51,6 +52,9 @@ export const StyleDiv = styled.div`
         overflow: hidden;
         text-overflow: ellipsis;
         margin-top: 5px;
+    }
+    .title1{
+        display: none;
     }
     .headimg{
         background-image: url(${Form1});
@@ -108,34 +112,33 @@ export const StyleDiv = styled.div`
         background-color: #EAF8D2;
         width: 100%;
         margin-top: 2px;
-    }
-    .link li{
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 400px;
-        font-size: 12px;
-        margin-left: 8px;
-        list-style-image: url(${Link});
-        list-style-position: inside;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        li{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400px;
+            font-size: 12px;
+            margin-left: 8px;
+            list-style-image: url(${Link});
+            list-style-position: inside;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
     .link2{
         background-color: #D5ECAB;
         width: 100%;
-    }
-    .link2 li{
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 400px;
-        font-size: 12px;
-        margin-left: 5px;
-        list-style-image: url(${Link2});
-        list-style-position: inside;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    .link2 span{
-        margin-left: -2px;
+        li{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400px;
+            font-size: 12px;
+            margin-left: 5px;
+            list-style-image: url(${Link2});
+            list-style-position: inside;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        span{
+            margin-left: -2px;
+        }
     }
 `

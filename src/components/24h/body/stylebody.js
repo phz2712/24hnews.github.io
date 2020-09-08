@@ -1,7 +1,9 @@
-import styled from 'styled-components'
-import Video from '../image/video.png'
-import SmallVideo from '../image/video1.jpg'
-import Ck from '../image/icon_topck.png'
+import styled from 'styled-components';
+import Video from '../image/video.png';
+import SmallVideo from '../image/video1.jpg';
+import Ck from '../image/icon_topck.png';
+import Phunu from '../image/phunu.png'
+import LiPhunu from '../image/liphunu.png'
 
 export const StyleDiv = styled.div`
     @media (min-width: 1023px) {
@@ -25,11 +27,11 @@ export const StyleDiv = styled.div`
     }
     .formnews{
         /* width: calc(100% - 6px); */
-        width: 99%;
+        width: 100%;
         /* flex-grow:1; */
         height: 260px;
         background-color: #ffffff;
-        margin: 3px;
+        padding: 3px;
     }
     .top1{
         width: 100%;
@@ -37,6 +39,9 @@ export const StyleDiv = styled.div`
         margin-top: 3px; 
         /* flex-wrap: no-wrap; */
         /* flex-direction: column; */
+        .formnews{
+            width: 50%;
+        }
     }
     .normal1{
         width: 100%;
@@ -45,49 +50,121 @@ export const StyleDiv = styled.div`
         /* height: 800px; */
         /* flex-direction: column; */
         /* flex-wrap: wrap; */
-    }
-    .normal1 .link2{
+        .formnews{
+            width: 50%;
+        }
+        .link2{
         display: none;
-    }
-    .normal1 .link{
+        }
+        .link{
         background-color: #ffffff;
+        }
     }
+    
     .normal2{
         width: 100%;
+        .link2{
+            display: none;
+        }
+        .link{
+            background-color: #ffffff;
+        }
     }
-    .normal2 .link2{
-        display: none;
-    }
-    .normal2 .link{
-        background-color: #ffffff;
-    }
-    .normal3 .listType{
-        display: none;
-    }
-    .normal3 .title{
-        display: none;
-    }
-    .normal3 .hotkey{
-        display: none;
-    }
-    .normal3 .link{
-        display: none;
-    }
-    .normal3 .link2{
-        display: none;
-    }
-    .normal3 .formnews{
-        height: auto;
-    }
-    .normal3 img{
-        height: 75px;
-        width: 100px;
-    }
-    .normal3 .contentimg{
-        width: calc(100% - 100px);
-    }
+    .normal3{
+        .listType{
+            display: none;
+        }
+        .a2{
+            display: none;
+        }
+        .title1{
+            display: inline;
+        }
+        .title{
+            max-height: 80px;
+            /* white-space: nowrap; */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400px;
+            font-size: 13px;
+            font-weight: normal;
+            height: 60px;
+        }
+        .ctn{
+            display: none;
+        }
+        .hotkey{
+            display: none;
+        }
+        .link{
+            display: none;
+        }
+        .link2{
+            display: none;
+        }
+        .formnews{
+            height: auto;
+        }
+        img{
+            height: 75px;
+            width: 100px;
+        }
+        .contentimg{
+            width: calc(100% - 100px);
+        }
+    }  
+    .normal4{
+        .listType{
+            display: none;
+        }
+        .a2{
+            display: none;
+        }
+        .title1{
+            display: inline;
+        }
+        .title{
+            max-height: 80px;
+            /* white-space: nowrap; */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400px;
+            font-size: 13px;
+            font-weight: normal;
+            height: 60px;
+        }
+        .ctn{
+            display: none;
+        }
+        .hotkey{
+            display: none;
+        }
+        .link2{
+            display: none;
+        }
+        .link{
+            background-color: #ffffff;
+            li{
+                height:40px;
+                list-style-image: url(${LiPhunu});
+            }
+        }
+        .formnews{
+            height: auto;
+            /* display: ${props => props.disabled ? "inline" : "none"}; */
+        }
+        img{
+            height: 75px;
+            width: 100px;
+        }
+        .contentimg{
+            width: calc(100% - 100px);
+        }
+    }   
     .content1{
-        margin: 2px;
+        padding: 1px;
         width: 70%;
         /* background-color: blueviolet; */
         /* display: flex; */
@@ -95,7 +172,7 @@ export const StyleDiv = styled.div`
         /* flex-wrap: wrap; */
     }
     .content2{
-        margin: 2px;
+        padding: 4px;
         width: 30%;
         /* background-color: greenyellow; */
     }
@@ -110,18 +187,18 @@ export const StyleDiv = styled.div`
         /* border-style: ridge; */
         border-bottom: solid #78b43d 2px;
         /* border-width: 3px; */
-    }
-    .headVideo li{
-        /* margin-left: 10px; */
-        list-style-image: url(${Video});
-        list-style-position: inside;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 700px;
-        line-height: 34px;
-        text-transform: uppercase;
-        font-size: 17px;
-        font-weight: bold;
-        color: #78b43d;
+        li{
+            /* margin-left: 10px; */
+            list-style-image: url(${Video});
+            list-style-position: inside;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700px;
+            line-height: 34px;
+            text-transform: uppercase;
+            font-size: 17px;
+            font-weight: bold;
+            color: #78b43d;
+        }
     }
     .groupVideo{
         width: 100%;
@@ -138,10 +215,10 @@ export const StyleDiv = styled.div`
         flex-direction: column;
         border-right: 1px solid #dddddd;
         padding-right: 5px;
-    }
-    .mainVideo video{
-        width: 403px;
-        height: 220px;
+        video{
+            width: 400px;
+            height: 225px;
+        }
     }
     .titleVideo{
         font-family: Arial, Helvetica, sans-serif;
@@ -241,74 +318,82 @@ export const StyleDiv = styled.div`
         font-size: 11px;
         font-weight: bold;
         color: #2C90D0;
-    }
-    .a01 .a011{
-        /* margin-left: 10px; */
-        margin-right: 10px;
-    }
-    .a01 .a012{
-        margin-left: 10px;
-        /* margin-right: 10px; */
-    }
-    .a01 div{
-        /* display: flex; */
-        margin-left: 40px;
-        margin-top: 2px;
-    }
-    .a01 img{
-        margin-top:-2px;
-    }
+        .a011{
+            /* margin-left: 10px; */
+            margin-right: 10px;
+        }
+        .a012{
+            margin-left: 10px;
+            /* margin-right: 10px; */
+        }
+        div{
+            /* display: flex; */
+            margin-left: 40px;
+            margin-top: 2px;
+        }
+        img{
+            margin-top:-2px;
+        }
+    } 
+
     .tr{
         display: flex;
         /* margin: 3px; */
     }
-    .golden .childTable{
-        border-top: solid #E3B014 1px;
-    }
-    .golden span{
-        background-color: #E3B014;
-    }
-    .price .childTable{
-        border-top: solid #08B089 1px;
-    }
-    .price span{
-        background-color: #08B089;
-    }
-    .weather .childTable{
-        border-top: solid #2C90D0 1px;
-    }
-    .weather span{
-        background-color: #2C90D0;
+    .golden{
+        .childTable{
+            border-top: solid #E3B014 1px;
+        }
+        span{
+            background-color: #E3B014;
+        }
+    } 
+
+    .price{
+        .childTable{
+            border-top: solid #08B089 1px;
+        }
+        span{
+            background-color: #08B089;
+        }
+    } 
+    .weather{
+        .childTable{
+            border-top: solid #2C90D0 1px;
+        }
+        span{
+            background-color: #2C90D0;
+        }
     }
     .th2{
         display: flex;
-       
         /* justify-content: center; */
+        img{
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+        }
+        .a2{
+            color: grey;
+        }
+        div{
+            margin: 1px;
+            margin-left: 2px;
+        }
     }
-    .th2 img{
-        width: 15px;
-        height: 15px;
-        margin-right: 5px;
-    }
-    .th2 .a2{
-        color: grey;
-    }
-    .th2 div{
-        
-        margin: 1px;
-        margin-left: 2px;
-    }
-    .tr .th{
-        margin-right: 3px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 400px;
-        font-size: 11px;
-        /* display: flex; */
-        width: 100%;
-        background-color: #ffffff;
-        padding-left: 10px;
-        padding-top: 3px;
-    }
+    .tr{
+        .th{
+            margin-right: 3px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400px;
+            font-size: 11px;
+            /* display: flex; */
+            width: 100%;
+            background-color: #ffffff;
+            padding-left: 10px;
+            padding-top: 3px;
+        }
+    } 
     .th1{
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 400px;
@@ -330,9 +415,39 @@ export const StyleDiv = styled.div`
         margin-top: 10px;
         border-bottom: solid #78b43d 2px;
     }
+    .titlePhuNu{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600px;
+        font-size: 17px;
+        color: #D2577E;
+        font-weight: bold;
+        line-height: 30px;
+        text-transform: uppercase;
+        margin-top: 10px;
+        border-bottom: solid #D2577E 2px;
+    }
+    .group-button{
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        div{
+            height:30px;
+            width: 30px;
+            border: solid 1px #DDDDDD;
+            margin: 2px;
+            font-size: 12px;
+            padding: 5px;
+            text-align: center;
+        }
+    }
     .ck{
         list-style-image: url(${Ck});
         list-style-position: inside;
+    }
+    .Phunu{
+        list-style-image: url(${Phunu});
+        list-style-position: inside;
+        
     }
     .tableCk{
         margin-top: 10px;
@@ -341,5 +456,52 @@ export const StyleDiv = styled.div`
         background-color: #FaFaFa;
         border: solid 1px #EDEDED;
         border-radius: 5px;
+        display: flex;
     }
+    .smallCk{
+        display: flex;
+        div{
+            margin-top: 10px;
+            /* width: 290px;
+            height: 75px; */
+            background-color: #FaFaFa;
+            border-radius: 5px;
+            margin: 5px;
+            padding: 3px;
+            padding-left: 8px;
+            padding-right: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600px;
+            font-size: 13px;
+        }
+    }
+    .ckTh1{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600px;
+        font-size: 13px;
+        font-weight: bold;
+        margin: 5px;
+    }
+    .ckTh{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600px;
+        font-size: 13px;
+        margin: 5px;
+        text-align: right;
+    }
+`
+export const StyleDiv2 = styled.div`
+    display: ${props => props.disabled === props.vl ? "inline" : "none"};
+`
+
+export const StyleButtonI = styled.div`
+    display: ${props => props.disabled !== 3 ? "inline" : "none"};
+`
+export const StyleButtonD = styled.div`
+    display: ${props => props.disabled !== 1 ? "inline" : "none"};
+`
+
+export const StyleButton = styled.div`
+    background-color: ${props => props.disabled === props.vl ? "#D2577E" : "#FFFFFF"};
+    color: ${props => props.disabled === props.vl ? "#FFFFFF" : "#black"};
 `
