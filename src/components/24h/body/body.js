@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleDiv, StyleDiv2, StyleButtonI, StyleButtonD, StyleButton} from './stylebody';
+import {StyleDiv, StyleDiv2, StyleButtonI, StyleButtonD, StyleButton, Styleimg, Styleimg2, StyleCk} from './stylebody';
 import Formnews from './formnews';
 import Video from '../video/[From Up On Poppy Hill] Sayonara no natsu.mp4';
 import smallV from '../image/small-iconvideo.png';
@@ -7,6 +7,7 @@ import Cloud from '../image/261.png';
 import cloud1 from '../image/chisokhongkhi_clound.png';
 import arrowWeather from '../image/chisokhongkhi_next.png';
 import down from '../image/btn_down2019.png';
+import up from '../image/btn_up2019.png';
 import arrowBack from '../image/arrowBack.png';
 import arrowNext from '../image/arrownext.png';
 
@@ -188,14 +189,19 @@ function Body(props) {
                                 <div className='ckTh'>125.77</div>
                             </div>
                             <div className='ckTr'>
-                                <div className='ckTh'>+3.87</div>
-                                <div className='ckTh'>+2.27</div>
-                                <div className='ckTh'>-0.38</div>
+                                <div className='ckTh'><Styleimg src={down} vl={+3.87}></Styleimg><Styleimg2 src={up} vl={+3.87}></Styleimg2></div>
+                                <div className='ckTh'><Styleimg src={down} vl={+2.27}></Styleimg><Styleimg2 src={up} vl={+2.27}></Styleimg2></div>
+                                <div className='ckTh'><Styleimg src={down} vl={-0.38}></Styleimg><Styleimg2 src={up} vl={-0.38}></Styleimg2></div>
                             </div>
                             <div className='ckTr'>
-                                <div className='ckTh'>(+0.43%)</div>
-                                <div className='ckTh'>(+0.27%)</div>
-                                <div className='ckTh'>(-0.3%)</div>
+                                <StyleCk className='ckTh' vl={+3.87}>+3.87</StyleCk>
+                                <StyleCk className='ckTh' vl={+2.27}>+2.27</StyleCk>
+                                <StyleCk className='ckTh' vl={-0.38}>-0.38</StyleCk>
+                            </div>
+                            <div className='ckTr'>
+                                <StyleCk className='ckTh' vl={+0.43}>(+0.43%)</StyleCk>
+                                <StyleCk className='ckTh' vl={+0.27}>(+0.27%)</StyleCk>
+                                <StyleCk className='ckTh' vl={-0.3}>(-0.3%)</StyleCk>
                             </div>
                         </div>
                         <div className='smallCk'>

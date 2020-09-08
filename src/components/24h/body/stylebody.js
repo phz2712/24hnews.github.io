@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import Video from '../image/video.png';
 import SmallVideo from '../image/video1.jpg';
 import Ck from '../image/icon_topck.png';
-import Phunu from '../image/phunu.png'
-import LiPhunu from '../image/liphunu.png'
+import Phunu from '../image/phunu.png';
+import LiPhunu from '../image/liphunu.png';
 
 export const StyleDiv = styled.div`
     @media (min-width: 1023px) {
@@ -487,8 +487,13 @@ export const StyleDiv = styled.div`
         font-weight: 600px;
         font-size: 13px;
         margin: 5px;
+        margin-left: 8px;
+        margin-right: 8px;
         text-align: right;
     }
+    /* .ckTr div{
+        display: flex;
+    } */
 `
 export const StyleDiv2 = styled.div`
     display: ${props => props.disabled === props.vl ? "inline" : "none"};
@@ -504,4 +509,15 @@ export const StyleButtonD = styled.div`
 export const StyleButton = styled.div`
     background-color: ${props => props.disabled === props.vl ? "#D2577E" : "#FFFFFF"};
     color: ${props => props.disabled === props.vl ? "#FFFFFF" : "#black"};
+`
+
+export const Styleimg = styled.img`
+    display: ${props => props.vl < 0 ? 'inline': 'none'}
+`
+
+export const Styleimg2 = styled.img`
+    display: ${props => props.vl >= 0 ? 'inline': 'none'}
+`
+export const StyleCk = styled.div`
+    color: ${props => props.vl >= 0 ? '#058205': '#FF0000'}
 `
