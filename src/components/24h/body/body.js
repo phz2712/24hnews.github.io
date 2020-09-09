@@ -266,8 +266,8 @@ function Body(props) {
                                 <div className='formnews'><Formnews /></div>
                             </li>
                         </ul>
-                        <img className="uk-position-center-right" src={NextDoanhNghiep} alt="ndn"></img>
-                        <img className="uk-position-center-left" src={PrevDoanhNghiep} alt="pdn"></img>
+                        <img className="uk-position-center-right" src={NextDoanhNghiep} alt="ndn" uk-slider-item="next"></img>
+                        <img className="uk-position-center-left" src={PrevDoanhNghiep} alt="pdn" uk-slider-item="previous"></img>
                     </div>
                 </div>
             <div className='blank'></div>
