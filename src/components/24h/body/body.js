@@ -12,6 +12,8 @@ import arrowBack from '../image/arrowBack.png';
 import arrowNext from '../image/arrownext.png';
 import NextDoanhNghiep from '../image/nextDoanhNghiep.png';
 import PrevDoanhNghiep from '../image/prevDoanhNghiep.png';
+import home from '../image/home.png';
+import gotohead from '../image/gotoheadpage.png';
 
 function Body(props) {
     const smallVideo =
@@ -268,6 +270,11 @@ function Body(props) {
                         </ul>
                         <img className="uk-position-center-right" src={NextDoanhNghiep} alt="ndn" uk-slider-item="next"></img>
                         <img className="uk-position-center-left" src={PrevDoanhNghiep} alt="pdn" uk-slider-item="previous"></img>
+                    </div>
+                    <div className='gotohome'>
+                    
+                        <img alt='home' src={home}></img>
+                        <img alt='gotohead' src={gotohead}></img>
                     </div>
                 </div>
             <div className='blank'></div>

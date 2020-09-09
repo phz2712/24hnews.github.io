@@ -47,7 +47,7 @@ export const StyleDiv = styled.div`
         font-weight: 600px;
         font-size: 14px;
         font-weight: bold;
-        background-color: orange;
+        /* background-color: orange; */
         height: 40px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -73,7 +73,7 @@ export const StyleDiv = styled.div`
         
     }
     .ctn{
-        background-color: blue;
+        /* background-color: blue; */
         max-height: 80px;
         /* white-space: nowrap; */
         overflow: hidden;

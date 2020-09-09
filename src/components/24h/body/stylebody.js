@@ -17,7 +17,7 @@ export const StyleDiv = styled.div`
         background-color: brown;
         display: flex;
         justify-content: center;
-        height: 5000px;
+        height: 4730px;
      
     }
     .content{
@@ -570,6 +570,14 @@ export const StyleDiv = styled.div`
         ul{
             width: 1000px;
             margin-left: 30px;
+        }
+    }
+    .gotohome{
+        width: 1011px;
+        text-align: right;
+        img{
+            margin-top: 15px;
+            margin-left: 5px;
         }
     }
 `
