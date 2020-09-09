@@ -121,6 +121,7 @@ export const StyleDiv = styled.div`
             list-style-position: inside;
             overflow: hidden;
             text-overflow: ellipsis;
+            height: 18px;
         }
     }
     .link2{
@@ -135,7 +136,7 @@ export const StyleDiv = styled.div`
             list-style-position: inside;
             overflow: hidden;
             text-overflow: ellipsis;
-            white-space: nowrap;
+            height: 18px;
         }
         span{
             margin-left: -2px;

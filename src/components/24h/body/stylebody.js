@@ -4,6 +4,7 @@ import SmallVideo from '../image/video1.jpg';
 import Ck from '../image/icon_topck.png';
 import Phunu from '../image/phunu.png';
 import LiPhunu from '../image/liphunu.png';
+import LiDoanhNghiep from '../image/doanhNghiep.png';
 
 export const StyleDiv = styled.div`
     @media (min-width: 1023px) {
@@ -21,9 +22,12 @@ export const StyleDiv = styled.div`
     }
     .content{
         background-color: #ffffff;
-        display: flex;
         /* width: 75.4%; */
         width: 1011px;
+        .content0{
+            display: flex;
+            width: 1011px;
+        }
     }
     .formnews{
         /* width: calc(100% - 6px); */
@@ -147,7 +151,7 @@ export const StyleDiv = styled.div`
         .link{
             background-color: #ffffff;
             li{
-                height:40px;
+                height:36px;
                 list-style-image: url(${LiPhunu});
             }
         }
@@ -163,6 +167,56 @@ export const StyleDiv = styled.div`
             width: calc(100% - 100px);
         }
     }   
+    .normal5{
+        
+        .listType{
+            display: none;
+        }
+        .a2{
+            display: none;
+        }
+        .title1{
+            display: inline;
+        }
+        .title{
+            max-height: 80px;
+            /* white-space: nowrap; */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400px;
+            font-size: 13px;
+            font-weight: bold;
+            height: 60px;
+        }
+        .ctn{
+            display: none;
+        }
+        .hotkey{
+            display: none;
+        }
+        .link{
+            display: none;
+        }
+        .link2{
+            display: none;
+        }
+        .formnews{
+            height: auto;
+            width: 220px;
+            background-color: #FFF1D9;
+            margin-bottom: 5px;
+            
+        }
+        img{
+            height: 80px;
+            width: 110px;
+        }
+        .contentimg{
+            width: calc(100% - 100px);
+            background-color: #FFF1D9;
+        }
+    }  
     .content1{
         padding: 1px;
         width: 70%;
@@ -491,9 +545,33 @@ export const StyleDiv = styled.div`
         margin-right: 8px;
         text-align: right;
     }
-    /* .ckTr div{
+    .titleDoanhNghiep{
+        
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600px;
+        font-size: 17px;
+        color: #EF7930;
+        font-weight: bold;
+        line-height: 30px;
+        text-transform: uppercase;
+        margin-top: 10px;
+        border-bottom: solid #EF7930 2px;
+        .DoanhNghiep{
+            margin-left: 3px;
+            list-style-image: url(${LiDoanhNghiep});
+        }
+    }
+    .group_newsDoanhNghiep{
+        width: 1011px;
+        height: 210px;
+        background-color: #FFF1D9;
         display: flex;
-    } */
+        justify-content: center;
+        ul{
+            width: 1000px;
+            margin-left: 30px;
+        }
+    }
 `
 export const StyleDiv2 = styled.div`
     display: ${props => props.disabled === props.vl ? "inline" : "none"};
