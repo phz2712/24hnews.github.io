@@ -48,8 +48,33 @@ export const StyleDiv = styled.div`
         line-height: 18px;
         color: #7d7d7d;
         padding-top: 24px;
-        img{
+        .dmca{
             margin-top: 13px;
         }
+        .up{
+            right: 20px;
+            bottom: 23px;
+            position: fixed;
+            height: 40px;
+            width: 40px;
+            opacity: 0.35;
+            :hover{
+                opacity: 0.8;
+            }
+        }
+        .back{
+            opacity: 0.6;
+            right: 20px;
+            bottom: 73px;
+            position: fixed;
+            height: 40px;
+            width: 40px;
+            :hover{
+                opacity: 0.8;
+            }
+        }
     }
+`
+export const StyleImg = styled.img`
+    display: ${props => props.scroll === true ? "inline" : "none"};
 `

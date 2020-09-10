@@ -13,13 +13,13 @@ function Formnews (props) {
             <div className='title a2'>Báo chí aaaaa aaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
             <div className='groupimg'>
                 <img alt='hinh' src={Hinh}></img>
-                <span className='contentimg'>
+                <div className='contentimg'>
                     <div className='title title1'>Báo chí aaaaa aaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
                     <span className='ctn'>abc</span>
                     <li className='hotkey'>
                         <span>Hotkey</span>
                     </li>
-                </span>
+                </div>
             </div>
             <div className='link'>
                 <li><span>abc</span></li>

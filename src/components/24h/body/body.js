@@ -237,8 +237,8 @@ function Body(props) {
                         </div>
                     </div>
                     <div className='titleDoanhNghiep'><li className='DoanhNghiep'><span>THÔNG TIN DOANH NGHIỆP</span></li></div>
-                    <div className='group_newsDoanhNghiep uk-position-relative uk-visible-toggle' tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 3000">
-                        <ul class="uk-slider-items uk-child-width-1-4 uk-child-width-1-4@s uk-child-width-4@m">
+                    <div className='group_newsDoanhNghiep uk-position-relative uk-visible-toggle' uk-slider="autoplay: true; autoplay-interval: 3000">
+                        <ul className="uk-slider-items uk-child-width-1-4 uk-child-width-1-4@s uk-child-width-4@m">
                             <li className='normal5'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
