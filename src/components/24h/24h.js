@@ -1,7 +1,7 @@
 import React, {useState,} from "react";
-import Header from './header/header'
-import Body from './body/body'
-import { connect } from 'react-redux';
+import Header from './header/header';
+import Body from './body/body';
+import Footer from './footer/footer'
 
 function Page24h(props) {
     return (
@@ -12,6 +12,9 @@ function Page24h(props) {
             <body>
                 <Body/>
             </body>
+            <footer>
+                <Footer/>
+            </footer>
         </div>
     );
 }

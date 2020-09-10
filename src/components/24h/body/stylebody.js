@@ -17,7 +17,7 @@ export const StyleDiv = styled.div`
         background-color: brown;
         display: flex;
         justify-content: center;
-        height: 4730px;
+        height: 4733px;
      
     }
     .content{

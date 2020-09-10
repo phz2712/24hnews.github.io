@@ -27,6 +27,10 @@ function Body(props) {
         </div>  
     const [numDisappear, setNumDisappear]=useState(1);
 
+    const scrollTop = () =>{
+        window.scrollTo({top: 0});
+     };
+
     function increase(){
         setNumDisappear(numDisappear + 1)
     }
@@ -274,7 +278,7 @@ function Body(props) {
                     <div className='gotohome'>
                     
                         <img alt='home' src={home}></img>
-                        <img alt='gotohead' src={gotohead}></img>
+                        <img alt='gotohead' onClick={scrollTop} src={gotohead}></img>
                     </div>
                 </div>
             <div className='blank'></div>
