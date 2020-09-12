@@ -2,11 +2,32 @@ import styled from 'styled-components'
 
 export const StyleDiv = styled.div`
     height: 275px;
+    @media (max-width: 1022px){
+        .info{
+            padding-left: 0px;
+        }
+        .question{
+            justify-content: left;
+        }
+        .end{
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+    @media (min-width: 1023px) {
+        .info{
+            padding-left: 173px;
+        }
+        .end{
+            padding-left: 176px;
+            padding-right: 176px;
+        }
+    }
     .info{
         height: 100px;
         background-color: #EBEBEB;
         display: flex;
-        padding-left: 173px;
+        
         .groupInfo{
             font-family: Arial, Helvetica, sans-serif;
             font-size: 13px;
@@ -21,12 +42,13 @@ export const StyleDiv = styled.div`
     }
     .question{
         display: flex;
-        justify-content: center;
         padding-top: 2px;
         height: 25px;
         background-color: #78b43d;
         color: #ffffff;
-        
+        span{
+            flex-grow:1;
+        }
         div{
             margin-right: 15px;
             margin-left: 15px;
@@ -40,8 +62,6 @@ export const StyleDiv = styled.div`
     .end{
         height: 150px;
         text-align: center;
-        margin-left: 176px;
-        margin-right: 176px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 13px;
         font-weight: 400;

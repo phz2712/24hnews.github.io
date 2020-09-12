@@ -7,23 +7,60 @@ import LiPhunu from '../image/liphunu.png';
 import LiDoanhNghiep from '../image/doanhNghiep.png';
 
 export const StyleDiv = styled.div`
+    
     @media (min-width: 1023px) {
         .content{
             margin-left: 0px;
+        }
+        .content1{
+            width: 70%;
+        }
+        .content2{
+            width: 29.9%;
+        }
+        &.cover{
+            height: 4733px;
+        }
+        .groupNews{
+            /* flex-direction: column; */
+            /* .formnews{
+                width: 50%;
+            } */
+        }
+    }
+    @media (max-width: 1022px) {
+        .content0{
+            flex-direction: column;
+        }
+        /* .blank{
+            display: none;
+        } */
+        .content1{
+            width: 100%;
+        }
+        .content2{
+            width: 100%;
+        }
+        .cover{
+            height: auto;
+        }
+        .groupNews{
+            flex-direction: column;
+            /* .formnews{
+                width: 100%;
+            } */
         }
     }
     &.cover{
         max-width: 100%;  
         background-color: brown;
         display: flex;
-        justify-content: center;
-        height: 4733px;
-     
+        /* justify-content: center; */
     }
     .content{
         background-color: #ffffff;
         /* width: 75.4%; */
-        width: 1011px;
+        width: 1004px;
         .content0{
             display: flex;
             width: 1011px;
@@ -31,7 +68,7 @@ export const StyleDiv = styled.div`
     }
     .formnews{
         /* width: calc(100% - 6px); */
-        width: 100%;
+        /* width: 100%; */
         /* flex-grow:1; */
         height: 260px;
         background-color: #ffffff;
@@ -43,9 +80,9 @@ export const StyleDiv = styled.div`
         margin-top: 3px; 
         /* flex-wrap: no-wrap; */
         /* flex-direction: column; */
-        .formnews{
+        /* .formnews{
             width: 50%;
-        }
+        } */
     }
     .normal1{
         width: 100%;
@@ -54,9 +91,9 @@ export const StyleDiv = styled.div`
         /* height: 800px; */
         /* flex-direction: column; */
         /* flex-wrap: wrap; */
-        .formnews{
+        /* .formnews{
             width: 50%;
-        }
+        } */
         .link2{
         display: none;
         }
@@ -219,19 +256,19 @@ export const StyleDiv = styled.div`
     }  
     .content1{
         padding: 1px;
-        width: 70%;
+        /* width: 70%; */
         /* background-color: blueviolet; */
         /* display: flex; */
         /* flex-direction: column; */
         /* flex-wrap: wrap; */
     }
     .content2{
-        padding: 4px;
-        width: 30%;
+        padding: 6px;
+        /* width: 30%; */
         /* background-color: greenyellow; */
     }
     .blank{
-        flex-shrink: 4;
+        flex-grow: 1;
     }
     .headVideo{
         margin-top: 10px;
@@ -562,7 +599,7 @@ export const StyleDiv = styled.div`
         }
     }
     .group_newsDoanhNghiep{
-        width: 1011px;
+        width: 1004px;
         height: 210px;
         background-color: #FFF1D9;
         display: flex;
@@ -573,7 +610,7 @@ export const StyleDiv = styled.div`
         }
     }
     .gotohome{
-        width: 1011px;
+        width: 1004px;
         text-align: right;
         img{
             margin-top: 15px;

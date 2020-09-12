@@ -70,7 +70,6 @@ export const StyleDiv = styled.div`
         background-color: #ffffff;
         display: flex;
         flex-direction: column;
-        
     }
     .ctn{
         /* background-color: blue; */

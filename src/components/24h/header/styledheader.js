@@ -177,7 +177,7 @@ export const StyleDiv = styled.div`
         padding-left: 10px;
         ${'' /* margin-top: 9px; */}
         height: 42px;
-        width: 770px;
+        width: calc(100% - 250px);
         font-size:14px;
         font-family: Arial, Helvetica, sans-serif;
         line-height: 20px;

@@ -27,9 +27,13 @@ function Body(props) {
         </div>  
     const [numDisappear, setNumDisappear]=useState(1);
 
-    const scrollTop = () =>{
-        window.scrollTo({top: 0});
-     };
+    const scrollTop = () => {
+        const c = document.documentElement.scrollTop || document.body.scrollTop;
+        if (c > 0) {
+          window.requestAnimationFrame(scrollTop);
+          window.scrollTo(0, c - c / 15 );
+        }
+    };
 
     function increase(){
         setNumDisappear(numDisappear + 1)
@@ -49,19 +53,19 @@ function Body(props) {
                 <div className='content'>
                     <div className='content0'>
                         <div className='content1'>
-                            <span className='top1'>
+                            <span className='groupNews top1'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal1'>
+                            <span className='groupNews normal1'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal1'>
+                            <span className='groupNews normal1'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal1'>
+                            <span className='groupNews normal1'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
@@ -87,8 +91,6 @@ function Body(props) {
                                     {smallVideo}
                                     {smallVideo}
                                     {smallVideo}
-                                    {/* {smallVideo}
-                                    {smallVideo} */}
                                 </div>
                             </div>
                             <div className='groupWeather'>
@@ -141,46 +143,46 @@ function Body(props) {
                                     </div>
                                 </div>
                             </div>
-                            <span className='normal1'>
+                            <span className='groupNews normal1'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal1'>
+                            <span className='groupNews normal1'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal1'>
+                            <span className='groupNews normal1'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal1'>
+                            <span className='groupNews normal1'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal1'>
+                            <span className='groupNews normal1'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal2'>
+                            <span className='groupNews normal2'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal2'>
+                            <span className='groupNews normal2'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal2'>
+                            <span className='groupNews normal2'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
                         </div>
                         <div className='content2'>
                             <div className='title2'>Tin Tức Thị Trường</div>
-                            <span className='normal3'>
+                            <span className='groupNews normal3'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
-                            <span className='normal3'>
+                            <span className='groupNews normal3'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
@@ -217,12 +219,12 @@ function Body(props) {
                                 <div>CK Trung Quốc <img alt='down' src={down}></img></div>
                                 <div>S&P 500 <img alt='down' src={down}></img></div>
                             </div>
-                            <span className='normal3'>
+                            <span className='groupNews normal3'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </span>
                             <div className='titlePhuNu'><li className='Phunu'><span>DÀNH RIÊNG CHO PHÁI ĐẸP</span></li></div>
-                            <span className='normal4'>
+                            <span className='groupNews normal4'>
                                 <StyleDiv2 className='formnews' disabled={numDisappear} vl={1}><Formnews /></StyleDiv2>
                                 <StyleDiv2 className='formnews' disabled={numDisappear} vl={2}><Formnews /></StyleDiv2>
                                 <StyleDiv2 className='formnews' disabled={numDisappear} vl={3}><Formnews /></StyleDiv2>

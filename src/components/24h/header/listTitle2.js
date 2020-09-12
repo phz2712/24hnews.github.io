@@ -1,14 +1,13 @@
-import React, {useState,} from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 import HoiDap from '../image/HoiDap.png';
 import arrow from '../image/menuDot.gif'
-import arrowA from '../image/ArrowTitle1.png'
+import arrowA from '../image/ArrowTitle1.png';
+import search from '../image/search2.png';
 
 const StyleDiv = styled.div`
-    ${'' /* display: none; */}
     position: absolute;
     width: 230px;
-    ${'' /* z-index: 1; */}
     margin-top: -6px;
     
     @media (max-width: 1022px) {
@@ -19,15 +18,22 @@ const StyleDiv = styled.div`
         }
         width: 100%;
         /* position: relative; */
-        .title2 li{
-            width: calc(100% + 50px); 
-   
-        }
+        .title2{
+            width: 100%;
+            margin-top:0px;
+            display: none;
+            margin-left: 20px;
+            li{
+                width: calc(100% + 50px); 
+                background-color:#636363;
+                border-color: #464646;
+            }
+        } 
         .titleMenu{
             width: 100%; 
             /* border-color: #78b43d;
             border-style: ridge; */
-            border-bottom: 1px ridge #aad862;
+            border-bottom: 1px ridge #464646;
             /* border-width: 0.5px; */
             /* border-left: none;
             border-right: none; */
@@ -36,88 +42,114 @@ const StyleDiv = styled.div`
         /* .title{
             position: relative;
         } */
-        .title2{
-            /* position: absolute; */
-            width: 100%;
-            margin-top:0px
-        }
         .list{
             display:flex;
             flex-direction: column;
+            background-color:#464646;
+            width:auto;
         }
-    }
-    .title{
-        list-style-image: url(${arrow});
-        list-style-position: inside;
-        color: black;
-        padding-left: 10px;
-        text-align: left;
-        min-width: 180px;
-        ${'' /* display: block; */}
-        /* border-color: #78b43d;
-        border-style: ridge; */
-        border-bottom: 1px ridge #78b43d;
-        /* border-width: 0.5px; */
-        /* border-left: none;
-        border-right: none; */
-        background-color: #aad862;
-        font-size: 12px;
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 30px;
-        font-weight: 400px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        align-items: center;
-        white-space: nowrap;
-        :hover{
-            background-color:#78b43d;
-            /* border-color: black; */
+        .a1{
+            display: flex;
+        }
+        .title{
+            list-style: none;
             color: #ffffff;
-            /* border-bottom: 1px; */
+            padding-left: 10px;
+            text-align: left;
+            min-width: 180px;
+            ${'' /* display: block; */}
+            /* border-color: #78b43d;
+            border-style: ridge; */
+            border-bottom: 1px ridge #636363;
+            /* border-width: 0.5px; */
+            /* border-left: none;
+            border-right: none; */
+            background-color: #464646;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 30px;
+            font-weight: 400px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            align-items: center;
+            white-space: nowrap;
+            :hover{
+                background-color:#636363;
+                /* border-color: black; */
+                color: #ffffff;
+                /* border-bottom: 1px; */
+                /* list-style-image: url(${arrowA}); */
+            }
+            img{
+                height: 30px;
+                width: 30px;
+                /* margin-top: -1px; */
+                margin-left: calc(100% - 50px);
+                border-top-right-radius : 3px;
+                border-bottom-right-radius : 3px;
+                position: absolute;
+            }
+            :hover .title2{
+                display: inline;
+            }
+            .img{
+                margin-left: 70px;
+                display: none;
+            }
+            .div{
+                background-color: #D7D7D7;
+                color: gray;
+                margin: 10px;
+                margin-left: 0px;
+                width: 100%;
+                height: 30px;
+                border-radius: 3px;
+                display: flex;
+                padding-left: 10px;
+                :focus{
+                    span{
+                        display: none;
+                    }    
+                }
+                :visited{
+                    span{
+                        display: none;
+                    } 
+                }
+                :focus + img{
+                    height: 28px;
+                    width: 29px;
+                    margin-top: -1px;
+                 }               
+            }
+        }
+        ul li{
+            float: left;
+            margin-left:-50px;
+        }
+        .question{
+            background-color:#636363;
+            color: #ffffff;
             /* list-style-image: url(${arrowA}); */
         }
-        :hover .title2{
-            display: inline;
-        }
-    }
-    ul li{
-        float: left;
-        margin-left:-50px;
-    }
-    .title2{
-        ${'' /* margin-left: 125px; */}
-        display: none;
-        /* position: absolute; */
-    }
-    .title2 li{
-        /* width: 180px;  */
-        background-color:#78b43d;
-        border-color: #aad862;
-      
-        /* list-style-image: url(${arrowA}); */
-    }
-    
-    .list{
-        display:flex;
-        background-color:#aad862;
-        width:auto;
-        ${'' /* flex-grow:1; */}
-    }
-    
-    .title .img{
-        margin-left: 70px;
-    }
-    .question{
-        background-color:#78b43d;
-        color: #ffffff;
-        /* list-style-image: url(${arrowA}); */
     }
 `;
+const StyleSpan = styled.span`
+    display: ${props=>props.disabled ? 'none':'inline'}
+`
 
 export const Menu02 =()=>{
+    const [disabled, setDisabled]= useState(false)
+    const disappear=()=>{
+        setDisabled(true)
+    }
+    const appear=()=>{
+        setDisabled(false)
+    }
     return(
         <StyleDiv className="DanhMuc">
-            <li className='title' href="# ">Trang chủ 24giờ</li>
+            <div className='title a1'><div contentEditable onBlur={appear} onFocus={disappear} className='div'><StyleSpan disabled={disabled}>Tìm Kiếm</StyleSpan></div><img src={search} alt="search"></img></div>
+            <li className='title' href="# ">Trang chủ</li>
             <span className="  list title">
                 <li className="titleMenu">Tin tức trong ngày</li> 
                 <div className="title2"><TinTuc/></div>  

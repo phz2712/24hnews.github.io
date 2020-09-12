@@ -6,13 +6,18 @@ import goback from '../image/arrowgoback.png'
 
 function Footer(props) {
 
-    const scrollTop = () =>{
-        window.scrollTo({top: 0});
-     };
+    const scrollTop = () => {
+        const c = document.documentElement.scrollTop || document.body.scrollTop;
+        console.log(c)
+        if (c > 0) {
+          window.requestAnimationFrame(scrollTop);
+          window.scrollTo(0, c - c / 15);
+        }
+    };
 
-     const goBack = () =>{
-        window.history.back();
-     };
+    const goBack = () =>{
+    window.history.back();
+    };
 
     return (
         <StyleDiv className='cover'>
@@ -53,6 +58,7 @@ function Footer(props) {
                 </div>
             </div>
             <div className='question'>
+                <span className='a1'></span>
                 <div>Giới thiệu</div>
                 l
                 <div>Góp ý</div>
@@ -60,6 +66,7 @@ function Footer(props) {
                 <div>Đầu trang</div>
                 l
                 <div>LIÊN HỆ QUẢNG CÁO</div>
+                <span className='a1'></span>
             </div>
             <div className='end'>
                 <div>Cơ quan chủ quản: Công ty Cổ phần Quảng cáo Trực tuyến 24H Trụ sở: Tầng 12, Tòa nhà Geleximco, 36 Hoàng Cầu, Phường Ô Chợ Dừa, Quận Đống Đa, TP Hà Nội. Tel: (84-24) 73 00 24 24 hoặc (84-24) 3512 1806 - Fax: (84-24) 3512 1804. Chi nhánh: Tầng 7, Tòa nhà Việt Úc, 402 Nguyễn Thị Minh Khai, Phường 5, Quận 3, TP. Hồ Chí Minh. Tel: (84-28) 7300 2424 / Giấy phép số 332/GP – TT ĐT ngày cấp 22/01/2018 SỞ THÔNG TIN VÀ TRUYỀN THÔNG HÀ NỘI. Chịu trách nhiệm xuất bản: Phan Minh Tâm. HOTLINE: 0965 08 24 24</div>
