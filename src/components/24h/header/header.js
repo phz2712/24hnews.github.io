@@ -138,7 +138,6 @@ function Header(props) {
                             <span className="icon-span"><img className="icon2" src={menumobi} alt="menumobi"></img></span>
                             <span className=" header_title">Menu</span>
                         </div>
-                        
                     </div>
                 </span>
                 <div className="titleMobi"><Menu02 /></div>

@@ -5,6 +5,7 @@ export const StyleDiv = styled.div`
     @media (max-width: 1022px){
         .info{
             padding-left: 0px;
+            display: none;
         }
         .question{
             justify-content: left;
@@ -12,21 +13,66 @@ export const StyleDiv = styled.div`
         .end{
             padding-left: 0px;
             padding-right: 0px;
+            color: black;
+            div{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        .hideMobi{
+            display: none;
+        }
+        .question{
+            background-color: #464646;
+            height: 40px;
+            padding-top: 10px;
+        }
+        .up{
+            right: 20px;
+            bottom: 73px;
+            opacity: 0.7;
+        }
+        .a2{
+            margin-right: 15px;
+            margin-left: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top :1px;
         }
     }
     @media (min-width: 1023px) {
         .info{
             padding-left: 173px;
+            display: flex;
+        }
+        .up{
+            right: 20px;
+            bottom: 23px;
+            opacity: 0.35;
         }
         .end{
             padding-left: 176px;
             padding-right: 176px;
+            color: #7d7d7d;
+        }
+        .question{
+            background-color: #78b43d;
+            height: 25px;
+            padding-top: 2px;
+        }
+        .a2{
+            margin-right: 15px;
+            margin-left: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top :1px;
         }
     }
     .info{
         height: 100px;
         background-color: #EBEBEB;
-        display: flex;
         
         .groupInfo{
             font-family: Arial, Helvetica, sans-serif;
@@ -42,20 +88,9 @@ export const StyleDiv = styled.div`
     }
     .question{
         display: flex;
-        padding-top: 2px;
-        height: 25px;
-        background-color: #78b43d;
         color: #ffffff;
         span{
             flex-grow:1;
-        }
-        div{
-            margin-right: 15px;
-            margin-left: 15px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            margin-top :1px;
         }
         
     }
@@ -66,18 +101,14 @@ export const StyleDiv = styled.div`
         font-size: 13px;
         font-weight: 400;
         line-height: 18px;
-        color: #7d7d7d;
         padding-top: 24px;
         .dmca{
             margin-top: 13px;
         }
         .up{
-            right: 20px;
-            bottom: 23px;
             position: fixed;
             height: 40px;
             width: 40px;
-            opacity: 0.35;
             :hover{
                 opacity: 0.8;
             }

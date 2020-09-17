@@ -6,17 +6,39 @@ import Link from '../image/link1.png'
 import Link2 from '../image/link2.png'
 
 export const StyleDiv = styled.div`
-    
     /* position: absolute; */
     @media (min-width: 1023px) {
-      
+        .type1{
+            background-image: url(${Form1});
+            background-position: right;
+            
+        }
     }
+    @media (max-width: 1022px) {
+        /* .type1{
+            background-image: url(${Form1});
+            background-position: right;
+        } */
+        .hotkey{
+            span{
+                font-size: 16px;
+            }
+        }
+    }
+    
     .listType{
         display: flex;
+        span{
+            display: flex;
+        }
+    }
+    .b2{
+        display: none;
+    }
+    .addWatch{
+        display: none;
     }
     .type1{
-        background-image: url(${Form1});
-        background-position: right;
         padding-right: 6px;
         padding-bottom: 6px;
         background-size: cover;
@@ -24,9 +46,9 @@ export const StyleDiv = styled.div`
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600px;
         font-size: 13px;
-        color: #ffffff;
         font-weight: bold;
         line-height: 20px;
+        color: #ffffff;
     }
     .type2{
         background-image: url(${Form2});
@@ -45,13 +67,16 @@ export const StyleDiv = styled.div`
     .title{
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600px;
-        font-size: 14px;
-        font-weight: bold;
+        
         /* background-color: orange; */
         height: 40px;
         overflow: hidden;
         text-overflow: ellipsis;
         margin-top: 5px;
+    }
+    .a2{
+        font-size: 14px;
+        font-weight: bold;
     }
     .title1{
         display: none;
@@ -70,6 +95,9 @@ export const StyleDiv = styled.div`
         background-color: #ffffff;
         display: flex;
         flex-direction: column;
+        .type3{
+            display: none;
+        }
     }
     .ctn{
         /* background-color: blue; */
@@ -98,8 +126,7 @@ export const StyleDiv = styled.div`
     .groupimg{
         margin-top: 10px;
         display: flex;
-        background-color: yellow;
-        
+        /* background-color: yellow; */
     }
     .cover{
         /* position: absolute; */

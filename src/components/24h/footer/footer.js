@@ -59,20 +59,20 @@ function Footer(props) {
             </div>
             <div className='question'>
                 <span className='a1'></span>
-                <div>Giới thiệu</div>
-                l
-                <div>Góp ý</div>
-                l
-                <div>Đầu trang</div>
-                l
-                <div>LIÊN HỆ QUẢNG CÁO</div>
+                <div className='a2 hideMobi'>Giới thiệu</div>
+                <div className='hideMobi'>l</div>
+                <div className='a2'>Góp ý</div>
+                <div className='hideMobi'>l</div>
+                <div className='a2 hideMobi'>Đầu trang</div>
+                <div>l</div>
+                <div className='a2'>LIÊN HỆ QUẢNG CÁO</div>
                 <span className='a1'></span>
             </div>
             <div className='end'>
                 <div>Cơ quan chủ quản: Công ty Cổ phần Quảng cáo Trực tuyến 24H Trụ sở: Tầng 12, Tòa nhà Geleximco, 36 Hoàng Cầu, Phường Ô Chợ Dừa, Quận Đống Đa, TP Hà Nội. Tel: (84-24) 73 00 24 24 hoặc (84-24) 3512 1806 - Fax: (84-24) 3512 1804. Chi nhánh: Tầng 7, Tòa nhà Việt Úc, 402 Nguyễn Thị Minh Khai, Phường 5, Quận 3, TP. Hồ Chí Minh. Tel: (84-28) 7300 2424 / Giấy phép số 332/GP – TT ĐT ngày cấp 22/01/2018 SỞ THÔNG TIN VÀ TRUYỀN THÔNG HÀ NỘI. Chịu trách nhiệm xuất bản: Phan Minh Tâm. HOTLINE: 0965 08 24 24</div>
-                <img className='dmca' src={dmca} alt='dmca'></img>
+                <img className='dmca hideMobi' src={dmca} alt='dmca'></img>
                 <StyleImg className='up' onClick={scrollTop} scroll={props.scroll} src={goup} alt='goUp'></StyleImg>
-                <img className='back' onClick={goBack} src={goback} alt='goBack'></img>
+                <img className='back hideMobi' onClick={goBack} src={goback} alt='goBack'></img>
             </div>
         </StyleDiv>
     );

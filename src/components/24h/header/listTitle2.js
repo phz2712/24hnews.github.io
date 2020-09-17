@@ -335,7 +335,7 @@ export const SucKhoe =()=>{
     )
 }
 
-export const HiTech =()=>{
+export const HiTech =()=> {
     return(
         <ul>
             <li className='title' href="# ">Điện thoại</li>
