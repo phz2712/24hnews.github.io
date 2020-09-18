@@ -53,6 +53,7 @@ export const StyleDiv = styled.div`
     .type2{
         background-image: url(${Form2});
         padding-right: 3px;
+        padding-left: 3px;
         border-radius: 3px;
         border-bottom-right-radius: 12px;
         margin-top: -0.5px;
@@ -67,7 +68,7 @@ export const StyleDiv = styled.div`
     .title{
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600px;
-        
+        padding: 0px;
         /* background-color: orange; */
         height: 40px;
         overflow: hidden;
@@ -101,7 +102,7 @@ export const StyleDiv = styled.div`
     }
     .ctn{
         /* background-color: blue; */
-        max-height: 80px;
+        max-height: 58px;
         /* white-space: nowrap; */
         overflow: hidden;
         text-overflow: ellipsis;
@@ -118,6 +119,7 @@ export const StyleDiv = styled.div`
         font-weight: 400px;
         font-size: 11px;
         color: #777777;
+        height: 18px;
         /* margin-left: -10px; */
     }
     .hotkey span{
@@ -126,6 +128,10 @@ export const StyleDiv = styled.div`
     .groupimg{
         margin-top: 10px;
         display: flex;
+        div img{
+            max-height: 90px;
+            max-width: 120px;
+        }
         /* background-color: yellow; */
     }
     .cover{
@@ -157,12 +163,14 @@ export const StyleDiv = styled.div`
             font-family: Arial, Helvetica, sans-serif;
             font-weight: 400px;
             font-size: 12px;
+            line-height: 17px;
+            font-weight: bold;
             margin-left: 5px;
             list-style-image: url(${Link2});
             list-style-position: inside;
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 18px;
+            height: 20px;
         }
         span{
             margin-left: -2px;

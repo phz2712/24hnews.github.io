@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Video from '../image/video.png';
-import SmallVideo from '../image/video1.jpg';
 import Ck from '../image/icon_topck.png';
 import Phunu from '../image/phunu.png';
 import LiPhunu from '../image/liphunu.png';
@@ -50,7 +49,7 @@ export const StyleDiv = styled.div`
             }
         }
         .formnews{
-            height: 260px;
+            height: 264px;
         }
         .smallCk{
             display: flex;
@@ -60,16 +59,17 @@ export const StyleDiv = styled.div`
         }
         .content1{
             width: 70%;
+            margin-right: 1px;
         }
         .content2{
             width: 29.9%;
         }
         .listVideo{
             flex-direction: column;
-            width: 300px;
+            width: 290px;
         }
         &.cover{
-            height: 4733px;
+            height: 4933px;
         }
         .groupNews{
             /* flex-direction: column; */
@@ -111,6 +111,10 @@ export const StyleDiv = styled.div`
             font-weight: normal;
             height: 60px;
             } 
+        }
+        .titleSmallVideo{
+            width: 115px;
+            height: 75px;
         }
         .tableCk{
             margin-top: 10px;
@@ -174,7 +178,7 @@ export const StyleDiv = styled.div`
                 margin: 3px;
             }
             .type2{
-                display: none;
+                
             }
             
             .a2{
@@ -370,6 +374,7 @@ export const StyleDiv = styled.div`
             }
             .type2{
                 background-image: none;
+                display: none;
                 /* padding: 2px; */
                 /* margin: 8px; */
                 div{
@@ -416,6 +421,9 @@ export const StyleDiv = styled.div`
             }
         }
         .gotohome{
+            display: none;
+        }
+        .hideMB{
             display: none;
         }
         .content0{
@@ -493,6 +501,10 @@ export const StyleDiv = styled.div`
             
         }
     }
+    .qc1{
+        margin-top: 10px;
+        margin-left: 5px;
+    }
     .dot{
             height: 15px;
             width: 15px;
@@ -503,7 +515,7 @@ export const StyleDiv = styled.div`
         }
     .formnews{
         /* width: calc(100% - 6px); */
-        /* width: 100%; */
+        width: 100%;
         /* flex-grow:1; */
         background-color: #ffffff;
         padding: 3px;
@@ -544,6 +556,9 @@ export const StyleDiv = styled.div`
         .link{
             background-color: #ffffff;
         }
+    }
+    .qc3{
+        margin-top: 30px;
     }
     .normal3{
         .listType{
@@ -711,6 +726,7 @@ export const StyleDiv = styled.div`
     .titleVideo{
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600px;
+        line-height: 20px;
         font-size: 18px;
         font-weight: bold;
         overflow: hidden;
@@ -750,7 +766,6 @@ export const StyleDiv = styled.div`
         margin-bottom: 5px;
     }
     .smallVideo{
-        background-image: url(${SmallVideo});
         background-position: center center;
         background-size: cover;
         margin-right: 10px;

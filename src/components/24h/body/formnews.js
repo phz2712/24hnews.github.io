@@ -3,40 +3,67 @@ import {StyleDiv} from './styleformnews';
 import Hinh from '../image/hinh.jpg';
 
 function Formnews (props) {
+    const type2=props.type2;
+    let ListType2;
+    if(type2 !== undefined)
+    {
+        ListType2=type2.map((data, index)=>
+        {
+            return(
+                <div className='type2'><div>{data.a1}</div></div>
+            );
+        })
+    }
+    const link=props.link;
+    let ListLink;
+    if(link !== undefined){
+        ListLink=link.map((data, index)=>
+        {
+            return(
+                <li><span>{data.a1}</span></li>
+            );
+        })
+    }
+    const link2=props.link2;
+    let ListLink2;
+    if(link2 !== undefined){
+        ListLink2=link2.map((data, index)=>
+        {
+            return(
+                <li><span>{data.a1}</span></li>
+            );
+        })
+    }
     return(
         <StyleDiv className='cover'>
             <div className="listType">
-                <div className='headimg'></div><div className='type1'><div>1234fdgdfdf</div></div>
+                <div className='headimg'></div><div className='type1'><div>{props.type1}</div></div>
                 <span>
-                    <div className='type2'><div>1234fdgdfdf</div></div>
-                    <div className='type2'><div>1234fdgdfdf</div></div>
+                    {ListType2}
                 </span>
             </div>
-            <div className='title a2'>Báo chí aaaaa aaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+            <div className='title a2'>{props.title}</div>
             <div className='b2'>
                 <li className='hotkey'>
                     <span>Hotkey</span>
                 </li>
             </div>
             <div className='groupimg'>
-                <div><img alt='hinh' src={Hinh}></img></div>
+                <div><img alt='hinh' src={props.picture}></img></div>
                 <div className='contentimg'>
-                    <div className='type3'>1234fdgdfdf</div>
-                    <div className='title title1'>Báo chí aaaaa aaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-                    <span className='ctn'>abc</span>
+                    <div className='type3'>{props.type1}</div>
+                    <div className='title title1'>{props.title}</div>
+                    <span className='ctn'>{props.content}</span>
                     <li className='hotkey b1'>
-                        <span>Hotkey</span>
+                        <span>{props.hotkey}</span>
                     </li>
                 </div>
             </div>
             <div className='link'>
-                <li><span>abc</span></li>
-                <li><span>abc</span></li>
-                <li><span>abcdddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddddddd</span></li>
+                {ListLink}
             </div>
             <div className='link2'>
-                <li><span>abc</span></li>
-                <li><span>abc</span></li>
+                {ListLink2}
             </div>
             <div className='addWatch'>
                 + Xem thêm

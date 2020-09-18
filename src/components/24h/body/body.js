@@ -1,20 +1,23 @@
 import React, {useState} from 'react';
 import {StyleDiv, StyleDiv2, StyleButtonI, StyleButtonD, StyleButton, Styleimg, Styleimg2, StyleCk} from './stylebody';
 import Formnews from './formnews';
-import Video from '../video/[From Up On Poppy Hill] Sayonara no natsu.mp4';
-import SmallVi12 from './smallvideo';
+import SmallVideo from './smallvideo';
 import Cloud from '../image/261.png';
 import cloud1 from '../image/chisokhongkhi_clound.png';
 import arrowWeather from '../image/chisokhongkhi_next.png';
 import down from '../image/btn_down2019.png';
 import up from '../image/btn_up2019.png';
+import qc1 from '../image/download.png';
+import qc2 from '../image/1624337472769875971.jpg';
+import qc3 from '../image/ewr9464139988557.gif';
 import arrowBack from '../image/arrowBack.png';
 import arrowNext from '../image/arrownext.png';
 import NextDoanhNghiep from '../image/nextDoanhNghiep.png';
 import PrevDoanhNghiep from '../image/prevDoanhNghiep.png';
 import home from '../image/home.png';
 import gotohead from '../image/gotoheadpage.png';
-import $ from 'jquery'
+import {Datatop, DataNormal1, ListSmallVideo, DataNormal11, DataNormal2, DataNormal3, DataNormal32, DataNormal5} from './tranData';
+import {dataMainVideo, GroupWeather, ck, dataNormal4} from './data';
 
 function Body(props) {
     
@@ -27,11 +30,6 @@ function Body(props) {
           window.scrollTo(0, c - c / 15 );
         }
     };
-    function handleScroll(id){
-        $('.listVideo').animate({
-            scrollLeft: (id - 1) * 260
-        }, 500);        
-    }
     function increase(){
         setNumDisappear(numDisappear + 1)
     }
@@ -46,52 +44,40 @@ function Body(props) {
 
     return(
         <StyleDiv className='cover'>
-<smallVi12></smallVi12>
             <div className='blank'></div>
                 <div className='content'>
                     <div className='content0'>
                         <div className='content1'>
-                            <span className='groupNews top1'>
-                                <div className='formnews b1'><Formnews /></div>
-                                <div className='formnews NMB1'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal1'>
-                                <div className='formnews NMB1'><Formnews /></div>
-                                <div className='formnews NMB1'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal1'>
-                                <div className='formnews NMB1'><Formnews /></div>
-                                <div className='formnews NMB1'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal1'>
-                                <div className='formnews NMB1'><Formnews /></div>
-                                <div className='formnews NMB1'><Formnews /></div>
-                            </span>
+                            {/* <span className='groupNews top1'> */}
+                            <Datatop></Datatop>
+                                {/* <div className='formnews b1'><Formnews /></div>
+                                <div className='formnews NMB1'><Formnews /></div> */}
+                            {/* </span> */}
+                            
+                            <img className='qc1 hideMB' alt='' src={qc1}></img>
+                            <DataNormal1></DataNormal1>
+                          
                             <div className='headVideo'>
                                 <li><span>Video chọn lọc</span></li>
                             </div>
                             <div className='groupVideo'>
                                 <div className='mainVideo'>
-                                    <video src={Video} controls></video>
+                                    <video src={dataMainVideo.video} controls></video>
                                     <div className='titleVideo'>
-                                        abcdbbbbbbbbbbbbbbbbbbbbbb bbbbbbbbbbbbbbbbbbbbbbbbbbb bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                        {dataMainVideo.title}
                                     </div>
                                     <div className='videoContent'>
-                                        abc
+                                        {dataMainVideo.content}
                                     </div>
                                 </div>
                                 <div className='listVideo'>
-                                    <SmallVi12 />
-                                    <SmallVi12 />
-                                    <SmallVi12 />
-                                    <SmallVi12/>
-                                    <SmallVi12 />
-                                    <SmallVi12/>
-                                </div>
-                                <div >
-                                    <div onClick={()=> {handleScroll(1);}} className="dot"></div>
-                                    <div onClick={()=> {handleScroll(2);}} className="dot"></div>
-                                    <div onClick={()=> {handleScroll(3);}} className="dot"></div>
+                                    {/* <SmallVideo />
+                                    <SmallVideo />
+                                    <SmallVideo />
+                                    <SmallVideo/>
+                                    <SmallVideo />
+                                    <SmallVideo/> */}
+                                    <ListSmallVideo></ListSmallVideo>
                                 </div>
                             </div>
                             <div className='groupWeather'>
@@ -99,14 +85,14 @@ function Body(props) {
                                     <div className='a01'><span>Giá vàng</span></div>
                                     <div className='childTable'>
                                         <div className='tr'>
-                                            <div className='th1'><div>ODJI</div><div>SJC</div></div>
+                                            <div className='th1'><div>{GroupWeather.gold.name1}</div><div>{GroupWeather.gold.name2}</div></div>
                                             <div className='th'>
-                                                <div className='th2'><div className='a1'>Mua</div><div className='a2'>56,000</div></div>
-                                                <div className='th2'><div className='a1'>Mua</div><div className='a2'>55,750</div></div>
+                                                <div className='th2'><div className='a1'>Mua</div><div className='a2'>{GroupWeather.gold.ODJI.mua}</div></div>
+                                                <div className='th2'><div className='a1'>Mua</div><div className='a2'>{GroupWeather.gold.SJC.mua}</div></div>
                                             </div>
                                             <div className='th'>
-                                                <div className='th2'><div className='a1'>Bán</div><div className='a2'>56,700</div></div>
-                                                <div className='th2'><div className='a1'>Bán</div><div className='a2'>56,720</div></div>
+                                                <div className='th2'><div className='a1'>Bán</div><div className='a2'>{GroupWeather.gold.ODJI.ban}</div></div>
+                                                <div className='th2'><div className='a1'>Bán</div><div className='a2'>{GroupWeather.gold.SJC.ban}</div></div>
                                             </div>
                                         </div>
                                     </div>
@@ -115,14 +101,14 @@ function Body(props) {
                                     <div className='a01'><span>Tỷ giá</span></div>
                                     <div className='childTable'>
                                         <div className='tr'>
-                                            <div className='th1'><div>USD</div><div>EUR</div></div>
+                                            <div className='th1'><div>{GroupWeather.price.name1}</div><div>{GroupWeather.price.name2}</div></div>
                                             <div className='th'>
-                                                <div className='th2'><div className='a1'>Mua</div><div className='a2'>23,060</div></div>
-                                                <div className='th2'><div className='a1'>Mua</div><div className='a2'>26,779</div></div>
+                                                <div className='th2'><div className='a1'>Mua</div><div className='a2'>{GroupWeather.price.USD.mua}</div></div>
+                                                <div className='th2'><div className='a1'>Mua</div><div className='a2'>{GroupWeather.price.EUR.mua}</div></div>
                                             </div>
                                             <div className='th'>
-                                                <div className='th2'><div className='a1'>Bán</div><div className='a2'>23,270</div></div>
-                                                <div className='th2'><div className='a1'>Bán</div><div className='a2'>28,144</div></div>
+                                                <div className='th2'><div className='a1'>Bán</div><div className='a2'>{GroupWeather.price.USD.ban}</div></div>
+                                                <div className='th2'><div className='a1'>Bán</div><div className='a2'>{GroupWeather.price.EUR.ban}</div></div>
                                             </div>
                                         </div>
                                     </div>
@@ -131,20 +117,21 @@ function Body(props) {
                                     <div className='a01'><span>Thời tiết</span><div><img className='a011' alt='cloud' src={cloud1}></img>Chỉ số không khí<img className='a012' alt='arrow' src={arrowWeather}></img></div></div>
                                     <div className='childTable'>
                                         <div className='tr'>
-                                            <div className='th1'><div>Hà Nội</div><div>TP.HCM</div></div>
+                                            <div className='th1'><div>{GroupWeather.weather.name1}</div><div>{GroupWeather.weather.name2}</div></div>
                                             <div className='th'>
-                                                <div className='th2'><img alt='weather' src={Cloud}></img><div className='a1'>35.4&#8451;</div></div>
-                                                <div className='th2'><img alt='weather' src={Cloud}></img><div className='a1'>33&#8451;</div></div>
+                                                <div className='th2'><img alt='weather' src={Cloud}></img><div className='a1'>{GroupWeather.weather.HN.a1}&#8451;</div></div>
+                                                <div className='th2'><img alt='weather' src={Cloud}></img><div className='a1'>{GroupWeather.weather.TPHCM.a1}&#8451;</div></div>
                                             </div>
                                             <div className='th'>
-                                                <div className='th2'><div className='a2'>(28&#8451;-37,2&#8451;)</div></div>
-                                                <div className='th2'><div className='a2'>(26&#8451;- 34&#8451;)</div></div>
+                                                <div className='th2'><div className='a2'>({GroupWeather.weather.HN.a2}&#8451;-{GroupWeather.weather.HN.a3}&#8451;)</div></div>
+                                                <div className='th2'><div className='a2'>({GroupWeather.weather.TPHCM.a2}&#8451;- {GroupWeather.weather.TPHCM.a3}&#8451;)</div></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <span className='groupNews normal1'>
+                            <DataNormal11></DataNormal11>
+                            {/* <span className='groupNews normal1'>
                                 <div className='formnews NMB2'><Formnews /></div>
                                 <div className='formnews NMB2'><Formnews /></div>
                             </span>
@@ -161,6 +148,10 @@ function Body(props) {
                                 <div className='formnews NMB2'><Formnews /></div>
                             </span>
                             <span className='groupNews normal1'>
+                                <div className='formnews NMB2'><Formnews /></div>
+                                <div className='formnews NMB2'><Formnews /></div>
+                            </span> */}
+                            {/* <span className='groupNews normal2'>
                                 <div className='formnews NMB2'><Formnews /></div>
                                 <div className='formnews NMB2'><Formnews /></div>
                             </span>
@@ -171,48 +162,47 @@ function Body(props) {
                             <span className='groupNews normal2'>
                                 <div className='formnews NMB2'><Formnews /></div>
                                 <div className='formnews NMB2'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal2'>
-                                <div className='formnews NMB2'><Formnews /></div>
-                                <div className='formnews NMB2'><Formnews /></div>
-                            </span>
+                            </span> */}
+                            <DataNormal2></DataNormal2>
                         </div>
                         <div className='content2'>
+                            <img className='hideMB' alt='qc2' src={qc2}></img>
                             <div className='title2'>Tin Tức Thị Trường</div>
-                            <span className='groupNews normal3'>
+                            {/* <span className='groupNews normal3'>
                                 <div className='formnews NMB'><Formnews /></div>
                                 <div className='formnews NMB'><Formnews /></div>
                             </span>
                             <span className='groupNews normal3'>
                                 <div className='formnews NMB'><Formnews /></div>
                                 <div className='formnews NMB'><Formnews /></div>
-                            </span>
+                            </span> */}
+                            <DataNormal3></DataNormal3>
                             <div className='title2'><li className='ck'><span>Thông Tin Chứng Khoán</span></li></div>
                             <div className='tableCk'>
                                 <div className='ckTr'>
-                                    <div className='ckTh1'>VN-INDEX</div>
-                                    <div className='ckTh1'>VN30-INDEX</div>
-                                    <div className='ckTh1'>HNX-INDEX</div>
+                                    <div className='ckTh1'>{ck.name1}</div>
+                                    <div className='ckTh1'>{ck.name2}</div>
+                                    <div className='ckTh1'>{ck.name3}</div>
                                 </div>
                                 <div className='ckTr'>
-                                    <div className='ckTh'>905.41</div>
-                                    <div className='ckTh'>842.81</div>
-                                    <div className='ckTh'>125.77</div>
+                                    <div className='ckTh'>{ck.VNINDEX.a1}</div>
+                                    <div className='ckTh'>{ck.VN30INDEX.a1}</div>
+                                    <div className='ckTh'>{ck.HNXINDEX.a1}</div>
                                 </div>
                                 <div className='ckTr'>
-                                    <div className='ckTh'><Styleimg src={down} vl={+3.87}></Styleimg><Styleimg2 src={up} vl={+3.87}></Styleimg2></div>
-                                    <div className='ckTh'><Styleimg src={down} vl={+2.27}></Styleimg><Styleimg2 src={up} vl={+2.27}></Styleimg2></div>
-                                    <div className='ckTh'><Styleimg src={down} vl={-0.38}></Styleimg><Styleimg2 src={up} vl={-0.38}></Styleimg2></div>
+                                    <div className='ckTh'><Styleimg src={down} vl={ck.VNINDEX.a2}></Styleimg><Styleimg2 src={up} vl={ck.VNINDEX.a2}></Styleimg2></div>
+                                    <div className='ckTh'><Styleimg src={down} vl={ck.VN30INDEX.a2}></Styleimg><Styleimg2 src={up} vl={ck.VN30INDEX.a2}></Styleimg2></div>
+                                    <div className='ckTh'><Styleimg src={down} vl={ck.HNXINDEX.a2}></Styleimg><Styleimg2 src={up} vl={ck.HNXINDEX.a2}></Styleimg2></div>
                                 </div>
                                 <div className='ckTr'>
-                                    <StyleCk className='ckTh' vl={+3.87}>+3.87</StyleCk>
-                                    <StyleCk className='ckTh' vl={+2.27}>+2.27</StyleCk>
-                                    <StyleCk className='ckTh' vl={-0.38}>-0.38</StyleCk>
+                                    <StyleCk className='ckTh' vl={ck.VNINDEX.a2}>{ck.VNINDEX.a2}</StyleCk>
+                                    <StyleCk className='ckTh' vl={ck.VN30INDEX.a2}>{ck.VN30INDEX.a2}</StyleCk>
+                                    <StyleCk className='ckTh' vl={ck.HNXINDEX.a2}>{ck.HNXINDEX.a2}</StyleCk>
                                 </div>
                                 <div className='ckTr'>
-                                    <StyleCk className='ckTh' vl={+0.43}>(+0.43%)</StyleCk>
-                                    <StyleCk className='ckTh' vl={+0.27}>(+0.27%)</StyleCk>
-                                    <StyleCk className='ckTh' vl={-0.3}>(-0.3%)</StyleCk>
+                                    <StyleCk className='ckTh' vl={ck.VNINDEX.a3}>({ck.VNINDEX.a3}%)</StyleCk>
+                                    <StyleCk className='ckTh' vl={ck.VN30INDEX.a3}>({ck.VN30INDEX.a3}%)</StyleCk>
+                                    <StyleCk className='ckTh' vl={ck.HNXINDEX.a3}>({ck.HNXINDEX.a3}%)</StyleCk>
                                 </div>
                             </div>
                             <div className='smallCk'>
@@ -220,16 +210,18 @@ function Body(props) {
                                 <div>CK Trung Quốc <img alt='down' src={down}></img></div>
                                 <div>S&P 500 <img alt='down' src={down}></img></div>
                             </div>
-                            <span className='groupNews normal3'>
+                            <DataNormal32></DataNormal32>
+                            {/* <span className='groupNews normal3'>
                                 <div className='formnews  NMB'><Formnews /></div>
                                 <div className='formnews  NMB'><Formnews /></div>
-                            </span>
+                            </span> */}
+                            <img alt='' className='qc3 hideMB' src={qc3} ></img>
                             <div className='titlePhuNu'><li className='Phunu'><span>DÀNH RIÊNG CHO PHÁI ĐẸP</span></li></div>
                             
                             <span className='groupNews normal4'>
-                                <StyleDiv2 className='formnews' id='1' disabled={numDisappear} vl={1}><Formnews /></StyleDiv2>
-                                <StyleDiv2 className='formnews' id='2' disabled={numDisappear} vl={2}><Formnews /></StyleDiv2>
-                                <StyleDiv2 className='formnews' id='3' disabled={numDisappear} vl={3}><Formnews /></StyleDiv2>
+                                <StyleDiv2 className='formnews' disabled={numDisappear} vl={1}><Formnews link={dataNormal4.a1.link} title={dataNormal4.a1.title} picture={dataNormal4.a1.picture}/></StyleDiv2>
+                                <StyleDiv2 className='formnews' disabled={numDisappear} vl={2}><Formnews link={dataNormal4.a2.link} title={dataNormal4.a2.title} picture={dataNormal4.a2.picture}/></StyleDiv2>
+                                <StyleDiv2 className='formnews' disabled={numDisappear} vl={3}><Formnews link={dataNormal4.a3.link} title={dataNormal4.a3.title} picture={dataNormal4.a3.picture}/></StyleDiv2>
                             </span>
                         
                                                     
@@ -244,8 +236,8 @@ function Body(props) {
                     </div>
                     <div className='titleDoanhNghiep'><li className='DoanhNghiep'><span>THÔNG TIN DOANH NGHIỆP</span></li></div>
                     <div className='group_newsDoanhNghiep uk-position-relative uk-visible-toggle' uk-slider="autoplay: true; autoplay-interval: 3000">
-                        <ul className="uk-slider-items uk-child-width-1-4 uk-child-width-1-4@s uk-child-width-4@m">
-                            <li className='normal5'>
+                        {/* <ul className="uk-slider-items uk-child-width-1-4 uk-child-width-1-4@s uk-child-width-4@m"> */}
+                            {/* <li className='normal5'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
                             </li>
@@ -276,8 +268,9 @@ function Body(props) {
                             <li className='normal5'>
                                 <div className='formnews'><Formnews /></div>
                                 <div className='formnews'><Formnews /></div>
-                            </li>
-                        </ul>
+                            </li> */}
+                            <DataNormal5></DataNormal5>
+                        {/* </ul> */}
                         <img className="uk-position-center-right" src={NextDoanhNghiep} alt="ndn" uk-slider-item="next"></img>
                         <img className="uk-position-center-left" src={PrevDoanhNghiep} alt="pdn" uk-slider-item="previous"></img>
                     </div>
