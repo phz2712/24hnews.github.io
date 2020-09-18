@@ -10,6 +10,8 @@ import up from '../image/btn_up2019.png';
 import qc1 from '../image/download.png';
 import qc2 from '../image/1624337472769875971.jpg';
 import qc3 from '../image/ewr9464139988557.gif';
+import qc4 from '../image/3650587649026593215.jpg';
+import banner from '../image/banner-0505.png';
 import arrowBack from '../image/arrowBack.png';
 import arrowNext from '../image/arrownext.png';
 import NextDoanhNghiep from '../image/nextDoanhNghiep.png';
@@ -232,6 +234,8 @@ function Body(props) {
                                 <StyleButton type='button' disabled={numDisappear} onClick={() => {changeNum(3);}} vl={3}>3</StyleButton>
                                 <StyleButtonI type='button' disabled={numDisappear} onClick={increase}> <img alt='arrowNext' src={arrowNext}></img> </StyleButtonI>
                             </div>
+                            <img alt='banner' className='hideMB qc4' src={banner}></img>
+                            <img alt='qc4' className='hideMB qc4' src={qc4}></img>
                         </div>
                     </div>
                     <div className='titleDoanhNghiep'><li className='DoanhNghiep'><span>THÔNG TIN DOANH NGHIỆP</span></li></div>

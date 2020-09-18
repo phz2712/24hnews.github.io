@@ -560,6 +560,9 @@ export const StyleDiv = styled.div`
     .qc3{
         margin-top: 30px;
     }
+    .qc4{
+        margin-top: 30px;
+    }
     .normal3{
         .listType{
             display: none;
