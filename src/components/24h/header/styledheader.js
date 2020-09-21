@@ -56,8 +56,11 @@ export const StyleDiv = styled.div`
         }
     }
     .menu{
-        :hover + .titleMobi{
+        /* :hover + .titleMobi{
             display: inline;
+        } */
+        body{
+            display: none;
         }
     }
     .right{
@@ -65,7 +68,7 @@ export const StyleDiv = styled.div`
         text-align: right;
     }
     .titleMobi{
-        display:none;
+        /* display:none; */
         width: 100%;
         margin-top:60px;
         margin-left: -100%;
@@ -217,4 +220,7 @@ export const StyleDiv = styled.div`
         
         ${'' /* white-space: nowrap; */}
     }
+`
+export const DivMobi = styled.div`
+    display: ${props => props.show===true? 'inline': 'none'}
 `

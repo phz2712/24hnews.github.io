@@ -11,7 +11,14 @@ export const StyleDiv = styled.div`
         .type1{
             background-image: url(${Form1});
             background-position: right;
-            
+        }
+        .groupimg{
+        div img{
+            max-height: 90px;
+            max-width: 120px;
+        }
+        .hotkey span{
+            font-size: 11px;
         }
     }
     @media (max-width: 1022px) {
@@ -19,11 +26,13 @@ export const StyleDiv = styled.div`
             background-image: url(${Form1});
             background-position: right;
         } */
-        .hotkey{
-            span{
-                font-size: 16px;
-            }
+        .hotkey span{
+            font-size: 16px;
         }
+        
+        
+        /* background-color: yellow; */
+    }
     }
     
     .listType{
@@ -49,6 +58,7 @@ export const StyleDiv = styled.div`
         font-weight: bold;
         line-height: 20px;
         color: #ffffff;
+        cursor: pointer;
     }
     .type2{
         background-image: url(${Form2});
@@ -64,16 +74,18 @@ export const StyleDiv = styled.div`
         color: #111111;
         line-height: 20px;
         margin-right: 2px;
+        cursor: pointer;
     }
     .title{
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600px;
         padding: 0px;
-        /* background-color: orange; */
+        width: 100%;
         height: 40px;
         overflow: hidden;
         text-overflow: ellipsis;
         margin-top: 5px;
+        cursor: pointer;
     }
     .a2{
         font-size: 14px;
@@ -88,6 +100,7 @@ export const StyleDiv = styled.div`
         padding-bottom: 6px;
         background-size: cover;
         text-align: top;
+        cursor: pointer;
     }
     .contentimg{
         padding-left: 10px;
@@ -117,9 +130,9 @@ export const StyleDiv = styled.div`
         text-overflow: ellipsis;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 400px;
-        font-size: 11px;
         color: #777777;
         height: 18px;
+        cursor: pointer;
         /* margin-left: -10px; */
     }
     .hotkey span{
@@ -128,10 +141,10 @@ export const StyleDiv = styled.div`
     .groupimg{
         margin-top: 10px;
         display: flex;
-        div img{
+        /* div img{
             max-height: 90px;
             max-width: 120px;
-        }
+        } */
         /* background-color: yellow; */
     }
     .cover{
@@ -154,6 +167,7 @@ export const StyleDiv = styled.div`
             overflow: hidden;
             text-overflow: ellipsis;
             height: 18px;
+            cursor: pointer;
         }
     }
     .link2{
@@ -171,6 +185,7 @@ export const StyleDiv = styled.div`
             overflow: hidden;
             text-overflow: ellipsis;
             height: 20px;
+            cursor: pointer;
         }
         span{
             margin-left: -2px;

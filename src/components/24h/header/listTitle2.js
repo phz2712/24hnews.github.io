@@ -143,12 +143,10 @@ export const Menu02 =()=>{
     const disappear=()=>{
         setDisabled(true)
     }
-    const appear=()=>{
-        setDisabled(false)
-    }
+
     return(
         <StyleDiv className="DanhMuc">
-            <div className='title a1'><div contentEditable onBlur={appear} onFocus={disappear} className='div'><StyleSpan disabled={disabled}>Tìm Kiếm</StyleSpan></div><img src={search} alt="search"></img></div>
+            <div className='title a1'><div contentEditable  onFocus={disappear} className='div'><StyleSpan disabled={disabled}>Tìm Kiếm</StyleSpan></div><img src={search} alt="search"></img></div>
             <li className='title' href="# ">Trang chủ</li>
             <span className="  list title">
                 <li className="titleMenu">Tin tức trong ngày</li> 

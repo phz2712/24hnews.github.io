@@ -3,7 +3,8 @@ import {StyleDiv} from './styleformnews';
 import Hinh from '../image/hinh.jpg';
 
 function Formnews (props) {
-    const type2=props.type2;
+
+    const type2=props.data.type2;
     let ListType2;
     if(type2 !== undefined)
     {
@@ -14,7 +15,7 @@ function Formnews (props) {
             );
         })
     }
-    const link=props.link;
+    const link=props.data.link;
     let ListLink;
     if(link !== undefined){
         ListLink=link.map((data, index)=>
@@ -24,7 +25,7 @@ function Formnews (props) {
             );
         })
     }
-    const link2=props.link2;
+    const link2=props.data.link2;
     let ListLink2;
     if(link2 !== undefined){
         ListLink2=link2.map((data, index)=>
@@ -34,28 +35,30 @@ function Formnews (props) {
             );
         })
     }
+
+    const {title, type1, picture, content, hotkey, } = props.data;
     return(
         <StyleDiv className='cover'>
             <div className="listType">
-                <div className='headimg'></div><div className='type1'><div>{props.type1}</div></div>
+                <div className='headimg'></div><div className='type1'><div>{type1}</div></div>
                 <span>
                     {ListType2}
                 </span>
             </div>
-            <div className='title a2'>{props.title}</div>
+            <div className='title a2'>{title}</div>
             <div className='b2'>
                 <li className='hotkey'>
-                    <span>Hotkey</span>
+                    <span>{hotkey}</span>
                 </li>
             </div>
             <div className='groupimg'>
-                <div><img alt='hinh' src={props.picture}></img></div>
+                <div><img alt='hinh' src={picture}></img></div>
                 <div className='contentimg'>
-                    <div className='type3'>{props.type1}</div>
-                    <div className='title title1'>{props.title}</div>
-                    <span className='ctn'>{props.content}</span>
+                    <div className='type3'>{type1}</div>
+                    <div className='title title1'>{title}</div>
+                    <span className='ctn'>{content}</span>
                     <li className='hotkey b1'>
-                        <span>{props.hotkey}</span>
+                        <span>{hotkey}</span>
                     </li>
                 </div>
             </div>
@@ -66,7 +69,7 @@ function Formnews (props) {
                 {ListLink2}
             </div>
             <div className='addWatch'>
-                + Xem thêm
+                + Xem thêm {type1}
             </div>
         </StyleDiv>
     )

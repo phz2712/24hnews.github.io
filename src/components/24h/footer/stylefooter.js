@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const StyleDiv = styled.div`
     height: 275px;
+    
     @media (max-width: 1022px){
         .info{
             padding-left: 0px;

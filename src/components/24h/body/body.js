@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {StyleDiv, StyleDiv2, StyleButtonI, StyleButtonD, StyleButton, Styleimg, Styleimg2, StyleCk} from './stylebody';
 import Formnews from './formnews';
-import SmallVideo from './smallvideo';
 import Cloud from '../image/261.png';
 import cloud1 from '../image/chisokhongkhi_clound.png';
 import arrowWeather from '../image/chisokhongkhi_next.png';
@@ -18,8 +17,8 @@ import NextDoanhNghiep from '../image/nextDoanhNghiep.png';
 import PrevDoanhNghiep from '../image/prevDoanhNghiep.png';
 import home from '../image/home.png';
 import gotohead from '../image/gotoheadpage.png';
-import {Datatop, DataNormal1, ListSmallVideo, DataNormal11, DataNormal2, DataNormal3, DataNormal32, DataNormal5} from './tranData';
-import {dataMainVideo, GroupWeather, ck, dataNormal4} from './data';
+import {Datatop, DataNormal1, ListSmallVideo, MainVideo, DataNormal2, DataNormal11, DataNormal3, DataNormal32, DataNormal4, DataNormal5} from './tranData';
+import { GroupWeather, ck,} from './data';
 
 function Body(props) {
     
@@ -50,35 +49,16 @@ function Body(props) {
                 <div className='content'>
                     <div className='content0'>
                         <div className='content1'>
-                            {/* <span className='groupNews top1'> */}
                             <Datatop></Datatop>
-                                {/* <div className='formnews b1'><Formnews /></div>
-                                <div className='formnews NMB1'><Formnews /></div> */}
-                            {/* </span> */}
-                            
                             <img className='qc1 hideMB' alt='' src={qc1}></img>
-                            <DataNormal1></DataNormal1>
+                            <DataNormal1 className='relative'></DataNormal1>
                           
                             <div className='headVideo'>
                                 <li><span>Video chọn lọc</span></li>
                             </div>
                             <div className='groupVideo'>
-                                <div className='mainVideo'>
-                                    <video src={dataMainVideo.video} controls></video>
-                                    <div className='titleVideo'>
-                                        {dataMainVideo.title}
-                                    </div>
-                                    <div className='videoContent'>
-                                        {dataMainVideo.content}
-                                    </div>
-                                </div>
+                                <MainVideo></MainVideo>
                                 <div className='listVideo'>
-                                    {/* <SmallVideo />
-                                    <SmallVideo />
-                                    <SmallVideo />
-                                    <SmallVideo/>
-                                    <SmallVideo />
-                                    <SmallVideo/> */}
                                     <ListSmallVideo></ListSmallVideo>
                                 </div>
                             </div>
@@ -132,52 +112,12 @@ function Body(props) {
                                     </div>
                                 </div>
                             </div>
-                            <DataNormal11></DataNormal11>
-                            {/* <span className='groupNews normal1'>
-                                <div className='formnews NMB2'><Formnews /></div>
-                                <div className='formnews NMB2'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal1'>
-                                <div className='formnews NMB2'><Formnews /></div>
-                                <div className='formnews NMB2'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal1'>
-                                <div className='formnews NMB2'><Formnews /></div>
-                                <div className='formnews NMB2'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal1'>
-                                <div className='formnews NMB2'><Formnews /></div>
-                                <div className='formnews NMB2'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal1'>
-                                <div className='formnews NMB2'><Formnews /></div>
-                                <div className='formnews NMB2'><Formnews /></div>
-                            </span> */}
-                            {/* <span className='groupNews normal2'>
-                                <div className='formnews NMB2'><Formnews /></div>
-                                <div className='formnews NMB2'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal2'>
-                                <div className='formnews NMB2'><Formnews /></div>
-                                <div className='formnews NMB2'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal2'>
-                                <div className='formnews NMB2'><Formnews /></div>
-                                <div className='formnews NMB2'><Formnews /></div>
-                            </span> */}
+                            <DataNormal11></DataNormal11>                            
                             <DataNormal2></DataNormal2>
                         </div>
                         <div className='content2'>
                             <img className='hideMB' alt='qc2' src={qc2}></img>
                             <div className='title2'>Tin Tức Thị Trường</div>
-                            {/* <span className='groupNews normal3'>
-                                <div className='formnews NMB'><Formnews /></div>
-                                <div className='formnews NMB'><Formnews /></div>
-                            </span>
-                            <span className='groupNews normal3'>
-                                <div className='formnews NMB'><Formnews /></div>
-                                <div className='formnews NMB'><Formnews /></div>
-                            </span> */}
                             <DataNormal3></DataNormal3>
                             <div className='title2'><li className='ck'><span>Thông Tin Chứng Khoán</span></li></div>
                             <div className='tableCk'>
@@ -213,19 +153,9 @@ function Body(props) {
                                 <div>S&P 500 <img alt='down' src={down}></img></div>
                             </div>
                             <DataNormal32></DataNormal32>
-                            {/* <span className='groupNews normal3'>
-                                <div className='formnews  NMB'><Formnews /></div>
-                                <div className='formnews  NMB'><Formnews /></div>
-                            </span> */}
                             <img alt='' className='qc3 hideMB' src={qc3} ></img>
                             <div className='titlePhuNu'><li className='Phunu'><span>DÀNH RIÊNG CHO PHÁI ĐẸP</span></li></div>
-                            
-                            <span className='groupNews normal4'>
-                                <StyleDiv2 className='formnews' disabled={numDisappear} vl={1}><Formnews link={dataNormal4.a1.link} title={dataNormal4.a1.title} picture={dataNormal4.a1.picture}/></StyleDiv2>
-                                <StyleDiv2 className='formnews' disabled={numDisappear} vl={2}><Formnews link={dataNormal4.a2.link} title={dataNormal4.a2.title} picture={dataNormal4.a2.picture}/></StyleDiv2>
-                                <StyleDiv2 className='formnews' disabled={numDisappear} vl={3}><Formnews link={dataNormal4.a3.link} title={dataNormal4.a3.title} picture={dataNormal4.a3.picture}/></StyleDiv2>
-                            </span>
-                        
+                            <DataNormal4 numDisappear={numDisappear}></DataNormal4>
                                                     
                             <div className="group-button">
                                 <StyleButtonD type='button' disabled={numDisappear} onClick={decrease}> <img alt='arrowBack' src={arrowBack}></img> </StyleButtonD>
@@ -240,41 +170,7 @@ function Body(props) {
                     </div>
                     <div className='titleDoanhNghiep'><li className='DoanhNghiep'><span>THÔNG TIN DOANH NGHIỆP</span></li></div>
                     <div className='group_newsDoanhNghiep uk-position-relative uk-visible-toggle' uk-slider="autoplay: true; autoplay-interval: 3000">
-                        {/* <ul className="uk-slider-items uk-child-width-1-4 uk-child-width-1-4@s uk-child-width-4@m"> */}
-                            {/* <li className='normal5'>
-                                <div className='formnews'><Formnews /></div>
-                                <div className='formnews'><Formnews /></div>
-                            </li>
-                            <li className='normal5'>
-                                <div className='formnews'><Formnews /></div>
-                                <div className='formnews'><Formnews /></div>
-                            </li>
-                            <li className='normal5'>
-                                <div className='formnews'><Formnews /></div>
-                                <div className='formnews'><Formnews /></div>
-                            </li>
-                            <li className='normal5'>
-                                <div className='formnews'><Formnews /></div>
-                                <div className='formnews'><Formnews /></div>
-                            </li>
-                            <li className='normal5'>
-                                <div className='formnews'><Formnews /></div>
-                                <div className='formnews'><Formnews /></div>
-                            </li>
-                            <li className='normal5'>
-                                <div className='formnews'><Formnews /></div>
-                                <div className='formnews'><Formnews /></div>
-                            </li>
-                            <li className='normal5'>
-                                <div className='formnews'><Formnews /></div>
-                                <div className='formnews'><Formnews /></div>
-                            </li>
-                            <li className='normal5'>
-                                <div className='formnews'><Formnews /></div>
-                                <div className='formnews'><Formnews /></div>
-                            </li> */}
-                            <DataNormal5></DataNormal5>
-                        {/* </ul> */}
+                        <DataNormal5></DataNormal5>
                         <img className="uk-position-center-right" src={NextDoanhNghiep} alt="ndn" uk-slider-item="next"></img>
                         <img className="uk-position-center-left" src={PrevDoanhNghiep} alt="pdn" uk-slider-item="previous"></img>
                     </div>

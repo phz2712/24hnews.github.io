@@ -5,7 +5,12 @@ import Footer from './footer/footer'
 
 function Page24h(props) {
     const [scroll, setScroll]= useState(false);
+    const[hideBody, setHideBody] = useState(true);
 
+    const hide=(e)=>{
+        console.log(e)
+        setHideBody(e)
+    }
     const handleScroll = ()=>{
         if (window.scrollY < 150){
             setScroll( false);
@@ -16,16 +21,19 @@ function Page24h(props) {
     }
     useEffect(()=>{
         window.addEventListener('scroll',e=>handleScroll(e))
+        return _ =>{
+            window.removeEventListener('scroll', e=>handleScroll(e))
+        }
     },[])
-
-
+    
+    const style = hideBody ? {display: 'inline'}: {display: 'none'} ;
     return (
         <div>
             <header>
-                <Header/>
+                <Header hide={hide}/>
             </header>
-            <body>
-                <Body/>
+            <body style={style}>
+                <Body />
             </body>
             <footer>
                 <Footer scroll={scroll} />

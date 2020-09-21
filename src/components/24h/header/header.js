@@ -1,5 +1,5 @@
 import React, {useState,} from "react";
-import {StyleDiv} from './styledheader';
+import {StyleDiv, DivMobi} from './styledheader';
 import { connect } from 'react-redux';
 import homapage from '../image/24h_logo_trang_chu_2015.png';
 import menu from '../image/menu.png';
@@ -21,6 +21,12 @@ import menumobi from '../image/menu.gif';
 
 
 function Header(props) {
+    const[hideBody, setHideBody] = useState(false)
+    const ChangeStateBody = ()=>{
+        setHideBody(!hideBody);
+        props.hide(hideBody);
+    }
+
     return (
         <StyleDiv className="cover">
             <div className="blank"></div>
@@ -134,13 +140,13 @@ function Header(props) {
                 <input className="disappear typeSearch" placeholder='Nhập tin tức cần tìm'></input>
                 <span className="menu hide height right ">
                     <div className=' group-title'>
-                        <div className='group_icon'>
+                        <div onClick={ChangeStateBody} className='group_icon'>
                             <span className="icon-span"><img className="icon2" src={menumobi} alt="menumobi"></img></span>
                             <span className=" header_title">Menu</span>
                         </div>
                     </div>
                 </span>
-                <div className="titleMobi"><Menu02 /></div>
+                <DivMobi className="titleMobi" show={hideBody}><Menu02 /></DivMobi>
             </StyleDiv>
             <div className="blank"></div>
         </StyleDiv>

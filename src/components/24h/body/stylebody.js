@@ -6,6 +6,7 @@ import LiPhunu from '../image/liphunu.png';
 import LiDoanhNghiep from '../image/doanhNghiep.png';
 
 export const StyleDiv = styled.div`
+
     @media (max-width: 315px){
         .titleDoanhNghiep{
             display: none;
@@ -51,6 +52,9 @@ export const StyleDiv = styled.div`
         .formnews{
             height: 264px;
         }
+        .group-button{
+            display: flex;
+        }
         .smallCk{
             display: flex;
         }
@@ -78,7 +82,7 @@ export const StyleDiv = styled.div`
             } */
         }
         .group_newsDoanhNghiep{
-            width: 1004px;
+            width: 1011px;
             ul{
                 width: 1000px;
             }
@@ -116,6 +120,9 @@ export const StyleDiv = styled.div`
             width: 115px;
             height: 75px;
         }
+        .slick-dots li{
+            display: none;
+        }
         .tableCk{
             margin-top: 10px;
             width: 290px;
@@ -139,6 +146,11 @@ export const StyleDiv = styled.div`
             margin-left: 8px;
             margin-right: 8px;
             text-align: right;
+        }
+        .normal1{
+            .formnews{
+                width: 50%;
+            }
         }
         .normal4{
             .ctn{
@@ -175,12 +187,14 @@ export const StyleDiv = styled.div`
                 font-size: 20px;
                 padding: 7px;
                 position: absolute;
-                margin: 3px;
+                margin: 10px;
             }
             .type2{
-                
+                display: none;
             }
-            
+            .contentimg{
+                width: 100%;
+            }
             .a2{
                 display: none;  
             }
@@ -206,6 +220,7 @@ export const StyleDiv = styled.div`
             }
             .title1{
                 display: block;
+                font-weight: bold;
                 font-size: 24px;
                 line-height: 25px;
                 height: 75px;
@@ -225,18 +240,44 @@ export const StyleDiv = styled.div`
             height: 75px;
             width: 170px;
         }
+        .group-button{
+            display: none;
+        }
         .smallCk{
             div{
                 font-size: 17px;
             }
         }
+        .slick-dots li button:before{
+            color: gray;
+        }
+        .slick-dots li.slick-active button:before{
+            color: #D2577E;
+        }
         .normal4{
+            margin-bottom: 30px;
+            width: 94%;
+            
             .a2{
                 display: inline;
                 font-size: 20px;
                 font-weight: bold;
+                
             }
             .title1{
+                display: none;
+            }
+            .groupimg{
+                display: inline;
+                img{
+                    width: 100%;
+                    margin-left: 20px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+               
+            }
+            .contentimg{
                 display: none;
             }
             .ctn{
@@ -245,6 +286,7 @@ export const StyleDiv = styled.div`
             .link{
                 li{
                     font-size: 16px;
+                    line-height: 20px;
                 }
             }
         }
@@ -346,6 +388,13 @@ export const StyleDiv = styled.div`
                 display: none;
             }
         }
+        .groupWeather{
+            .table{
+                .a01 span, .th1, .a1, .a2, .a01 div{
+                    font-size: 16px;
+                }
+            }
+        }
         .NMB2{
             margin-top: 5px;
             .contentimg .type3{
@@ -374,7 +423,10 @@ export const StyleDiv = styled.div`
             }
             .type2{
                 background-image: none;
-                display: none;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                /* display: none; */
                 /* padding: 2px; */
                 /* margin: 8px; */
                 div{
@@ -534,6 +586,7 @@ export const StyleDiv = styled.div`
         width: 100%;
         display: flex;
         margin-top: 3px; 
+        margin-left: 0px;
         /* height: 800px; */
         /* flex-direction: column; */
         /* flex-wrap: wrap; */
@@ -541,10 +594,10 @@ export const StyleDiv = styled.div`
             width: 50%;
         } */
         .link2{
-        display: none;
+            display: none;
         }
         .link{
-        background-color: #ffffff;
+            background-color: #ffffff;
         }
     }
     
@@ -622,7 +675,9 @@ export const StyleDiv = styled.div`
         }
     }   
     .normal5{
-        
+        /* display: flex;
+        flex-direction: column;
+        flex-wrap: wrap; */
         .listType{
             display: none;
         }
@@ -941,7 +996,6 @@ export const StyleDiv = styled.div`
     }
     .group-button{
         margin-top: 10px;
-        display: flex;
         justify-content: center;
         div{
             height:30px;
@@ -980,10 +1034,10 @@ export const StyleDiv = styled.div`
     .group_newsDoanhNghiep{
         height: 210px;
         background-color: #FFF1D9;
-        /* display: flex;
-        justify-content: center; */
+       
         ul{
             margin-left: 30px;
+            /* height: 210px; */
         }
     }
     .gotohome{
@@ -995,6 +1049,9 @@ export const StyleDiv = styled.div`
     }
 `
 export const StyleDiv2 = styled.div`
+    @media (max-width: 1022px){
+        display: block;
+    }
     display: ${props => props.disabled === props.vl ? "inline" : "none"};
 `
 
