@@ -154,9 +154,24 @@ export function DataNormal4(props) {
         slidesToScroll: 1
       };
     return(
-        <Slider {...settings} className='groupNews normal4 '>{listData}</Slider>
+        <Slider {...settings} className='hideWb groupNews normal4 '>{listData}</Slider>
     )
 }
+export function DataNormal42(props) {
+    const listData = data.map((data1, index) => {
+        if(data1.position === 'normal' && data1.type ==='4'){
+            const num=Number(data1.vl);
+            return(
+                <StyleDiv2 className='formnews' disabled={props.numDisappear} vl={num}><Formnews key={index} data={data1}/></StyleDiv2>
+            );
+        }
+    });
+  
+    return(
+        <div className='hideMB groupNews normal4 '>{listData}</div>
+    )
+}
+
 export function DataNormal5() {
     let dataSort=[];
     data.map((data1, index) => {

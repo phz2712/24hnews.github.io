@@ -17,7 +17,7 @@ import NextDoanhNghiep from '../image/nextDoanhNghiep.png';
 import PrevDoanhNghiep from '../image/prevDoanhNghiep.png';
 import home from '../image/home.png';
 import gotohead from '../image/gotoheadpage.png';
-import {Datatop, DataNormal1, ListSmallVideo, MainVideo, DataNormal2, DataNormal11, DataNormal3, DataNormal32, DataNormal4, DataNormal5} from './tranData';
+import {Datatop, DataNormal1, ListSmallVideo, MainVideo, DataNormal2, DataNormal11, DataNormal3, DataNormal32, DataNormal4, DataNormal42, DataNormal5} from './tranData';
 import { GroupWeather, ck,} from './data';
 
 function Body(props) {
@@ -156,7 +156,7 @@ function Body(props) {
                             <img alt='' className='qc3 hideMB' src={qc3} ></img>
                             <div className='titlePhuNu'><li className='Phunu'><span>DÀNH RIÊNG CHO PHÁI ĐẸP</span></li></div>
                             <DataNormal4 numDisappear={numDisappear}></DataNormal4>
-                                                    
+                            <DataNormal42  numDisappear={numDisappear}></DataNormal42>                      
                             <div className="group-button">
                                 <StyleButtonD type='button' disabled={numDisappear} onClick={decrease}> <img alt='arrowBack' src={arrowBack}></img> </StyleButtonD>
                                 <StyleButton type='button' disabled={numDisappear} onClick={() => {changeNum(1);}} vl={1}>1</StyleButton>

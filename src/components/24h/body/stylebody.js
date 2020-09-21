@@ -33,6 +33,9 @@ export const StyleDiv = styled.div`
             height: 75px;
             width: 130px;
         }
+        .hideWb{
+            display: none;
+        }
         .title{
             max-height: 80px;
             /* white-space: nowrap; */
