@@ -689,6 +689,7 @@ export const StyleDiv = styled.div`
         }
         .title1{
             display: inline;
+   
         }
         .title{
             max-height: 80px;
@@ -700,6 +701,7 @@ export const StyleDiv = styled.div`
             font-size: 13px;
             font-weight: bold;
             height: 60px;
+            
         }
         .ctn{
             display: none;

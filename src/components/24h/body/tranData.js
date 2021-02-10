@@ -152,7 +152,7 @@ export function DataNormal4(props) {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1
-      };
+    };
     return(
         <Slider {...settings} className='hideWb groupNews normal4 '>{listData}</Slider>
     )
