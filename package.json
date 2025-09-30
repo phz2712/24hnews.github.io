@@ -14,7 +14,7 @@
     "@testing-library/user-event": "^7.2.1",
     "date-fns": "^2.15.0",
     "jquery": "^3.5.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment": "^2.27.0",
     "rc-datepicker": "^5.0.16",
     "react": "^16.13.1",
